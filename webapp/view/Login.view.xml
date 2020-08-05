@@ -1,0 +1,38 @@
+<mvc:View
+   xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	controllerName="intern2020.controller.Login"
+	xmlns="sap.m">
+    <Panel>
+     <headerToolbar>
+		<Toolbar>
+			<Title level="H2" text="Login page" />
+		</Toolbar>
+	</headerToolbar>
+    <FlexBox
+		direction="Row"
+		alignItems="Center">
+	<items>
+	<Input
+    id="username"
+      placeholder="Username"
+
+      valueLiveUpdate="true"
+      width="80%"
+      type="Text"/>
+	  <Input
+	  id="password"
+    placeholder="Password"
+      valueLiveUpdate="true"
+      width="80%"
+      type="Password"/>
+	<Button
+		text=""
+		press=".onLoginPress"
+		width="10rem"
+        />
+	</items>
+	</FlexBox>
+
+</Panel>
+</mvc:View>
