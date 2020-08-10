@@ -11,8 +11,8 @@
         "version": "1.0.0"
       },
       "dataSources": {
-        "booksService": {
-          "uri": "/sap/opu/odata/SAP/Z801_LIBRARY_SJ_SRV/",
+        "tripApp": {
+          "uri": "/sap/opu/odata/sap/ZBUSINESSTRIPAPP_SRV",
           "type": "OData",
           "settings": {
             "odataVersion": "2.0"
@@ -49,12 +49,14 @@
           }
         },
         "": {
-            "dataSource": "booksService",
+            "dataSource": "tripApp",
             "settings": {
               "metadataUrlParams": {
                 "sap-documentation": "heading"
               },
-              "defaultBindingMode": "TwoWay"
+              "defaultBindingMode": "TwoWay",
+              "json": true,
+              "useBatch": false
             }
           }
       },
@@ -72,32 +74,48 @@
         },
         "routes": [
             {
-                "pattern": "",
-                "name": "bookList",
-                "target": "bookList"
-
-            },
-
-            {
               "pattern": "login",
               "name": "login",
               "target": "login"
 
-          }
+          },
+          {
+            "pattern": "user",
+            "name": "user",
+            "target": "user"
+
+        },
+        {
+          "pattern": "",
+          "name": "manager",
+          "target": "manager"
+
+      },
+      {
+        "pattern": "detail",
+        "name": "detail",
+        "target": "detail"
+
+    }
           
         ],
         "targets": {
-            "bookList": {
-                "viewName": "BookList",
-                "viewId": "bookList",
-                "viewLevel": 1
-            },
-
             "login": {
               "viewName": "Login",
-              "viewId": "login",
-              "viewLevel": 1
-          }
+              "viewId": "login"
+          },
+          "user": {
+            "viewName": "User",
+            "viewId": "user"
+        },
+        "manager": {
+          "viewName": "Manager",
+          "viewId": "manager"
+      },
+      "detail": {
+        "viewName": "Detail",
+        "viewId": "detail"
+    }
      
         }
     }
