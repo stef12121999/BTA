@@ -53,6 +53,11 @@ return BaseController.extend("intern2020.controller.Manager", {
 
     },
 
+    onPressDetail: function(oEvent){
+        var oRouter = this.getRouter();
+        oRouter.navTo("login");
+    },
+
     onReset: function (oEvent){
         this.bGrouped = false;
         this.bDescending = false;
