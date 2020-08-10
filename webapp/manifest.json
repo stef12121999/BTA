@@ -11,7 +11,11 @@
         "version": "1.0.0"
       },
       "dataSources": {
+<<<<<<< HEAD
         "tripApp": {
+=======
+        "travelTool": {
+>>>>>>> b0cfad50a50dfbc5507cc7df81fd74bd801b7014
           "uri": "/sap/opu/odata/sap/ZBUSINESSTRIPAPP_SRV",
           "type": "OData",
           "settings": {
@@ -49,7 +53,11 @@
           }
         },
         "": {
+<<<<<<< HEAD
             "dataSource": "tripApp",
+=======
+            "dataSource": "travelTool",
+>>>>>>> b0cfad50a50dfbc5507cc7df81fd74bd801b7014
             "settings": {
               "metadataUrlParams": {
                 "sap-documentation": "heading"
@@ -74,6 +82,7 @@
         },
         "routes": [
             {
+<<<<<<< HEAD
               "pattern": "login",
               "name": "login",
               "target": "login"
@@ -116,6 +125,51 @@
         "viewName": "Detail",
         "viewId": "detail"
     }
+=======
+                "pattern": "",
+                "name": "login",
+                "target": "login"
+
+            },
+
+            {
+              "pattern": "manager",
+              "name": "manager",
+              "target": "manager"
+
+          },
+
+          {
+            "pattern": "user",
+            "name": "user",
+            "target": "user"
+
+        }
+
+
+          
+        ],
+        "targets": {
+            
+
+            "login": {
+              "viewName": "Login",
+              "viewId": "login"
+              
+          },
+
+          "manager": {
+            "viewName": "Manager",
+            "viewId": "manager"
+            
+        },
+
+        "user": {
+          "viewName": "User",
+          "viewId": "user"
+          
+      }
+>>>>>>> b0cfad50a50dfbc5507cc7df81fd74bd801b7014
      
         }
     }

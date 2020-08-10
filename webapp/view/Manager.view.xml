@@ -8,7 +8,12 @@
 		showHeader="false"
 		enableScrolling="true"
 		class="sapUiContentPadding"
+<<<<<<< HEAD
 		showNavButton="false" >
+=======
+		showNavButton="false"
+		visible="{UserInfo>/isManager}" >
+>>>>>>> b0cfad50a50dfbc5507cc7df81fd74bd801b7014
     
 		<content>
 			<VBox>
@@ -19,7 +24,11 @@
 				</MessageStrip>
 
 				<Slider value="100" liveChange="onSliderMoved"/>
+<<<<<<< HEAD
 				<Button  press="onGoToLogin" text="Go Back" icon="sap-icon://nav-back"/>
+=======
+				<Button  press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
+>>>>>>> b0cfad50a50dfbc5507cc7df81fd74bd801b7014
 			</VBox>
 			<Table
 				selectionChange="handleSelectionChange"
