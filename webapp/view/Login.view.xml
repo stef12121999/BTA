@@ -1,38 +1,57 @@
 <mvc:View
    xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	controllerName="intern2020.controller.Login"
-	xmlns="sap.m">
+    xmlns:core="sap.ui.core"
+    controllerName="intern2020.controller.Login"
+    xmlns="sap.m">
+    <Page title="{i18n>homePageTitle}">
     <Panel>
-     <headerToolbar>
-		<Toolbar>
-			<Title level="H2" text="Login page" />
-		</Toolbar>
-	</headerToolbar>
+        <ObjectHeader
+                    responsive="true"
+                    fullScreenOptimized="true"
+                    
+                    intro="You need to login with your company's username"
+                    title="Welcome to SAP Travel Tool App"
+                    showMarkers="true"
+                    markFlagged="true"
+                    
+                    numberState="Success"
+                    backgroundDesign="Translucent">
+                <attributes>
+                    <ObjectAttribute
+                            title="Team 5"
+                            />
+                </attributes>
+                <statuses>
+                    <ObjectStatus
+                            title="Status"
+                            text="Not Logged in"
+                            state="Warning"/>
+                </statuses>
+            </ObjectHeader>
     <FlexBox
-		direction="Row"
-		alignItems="Center">
-	<items>
-	<Input
-    id="username"
-      placeholder="Username"
-
-      valueLiveUpdate="true"
-      width="80%"
+        direction="Column"
+        alignItems="Center">
+    <items>
+    <Input
+      id="username"
+      placeholder="Username" 
+      width="10rem"
       type="Text"/>
-	  <Input
-	  id="password"
-    placeholder="Password"
-      valueLiveUpdate="true"
-      width="80%"
-      type="Password"/>
-	<Button
-		text=""
-		press=".onLoginPress"
-		width="10rem"
+      <Input
+      id="password"
+      placeholder="Password"
+      type="Password"
+      width="10rem"
+      />
+    <Button
+        text="Login"
+        press="onValidation"
+        width="10rem"
+        icon="sap-icon://action"
         />
-	</items>
-	</FlexBox>
-
+    </items>
+    </FlexBox>
+ 
 </Panel>
+</Page>
 </mvc:View>
