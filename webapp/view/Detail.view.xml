@@ -6,7 +6,7 @@
 	xmlns:core="sap.ui.core"
     controllerName="intern2020.controller.Detail"
 	xmlns="sap.m" >
-    <Page>
+    <Page visible="{UserInfo>/isManager}">
 	<VBox class="sapUiSmallMargin">
 		<f:Form id="FormToolbar"
 			editable="true"
