@@ -23,8 +23,8 @@ sap.ui.define(
       onInit: function () {
         this.getOwnerComponent()
           .getRouter()
-          .getRoute("user")
-          .attachPatternMatched(this.checkLogin, this);
+         .getRoute("user")
+         .attachPatternMatched(this.checkLogin, this);
       },
 
       checkLogin: function () {

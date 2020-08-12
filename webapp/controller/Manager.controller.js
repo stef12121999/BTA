@@ -90,7 +90,7 @@ sap.ui.define(
 
     onPressDetail: function(oEvent){
         var oRouter = this.getRouter();
-        oRouter.navTo("login");
+        oRouter.navTo("detail");
     },
 
     onReset: function (oEvent){
@@ -132,7 +132,7 @@ sap.ui.define(
         if (this.bGrouped) {
           aSorters.push(new Sorter("UId", this.bDescending, this._fnGroup));
         } else {
-          aSorters.push(new Sorter("RId", this.bDescending));
+          aSorters.push(new Sorter("Country", this.bDescending));
         }
 
         if (this.sSearchQuery) {
@@ -144,11 +144,25 @@ sap.ui.define(
           aFilters.push(oFilter);
         }
 
-        this.byId("idProductsTable")
+        this.byId("idTrips")
           .getBinding("items")
           .filter(aFilters)
           .sort(aSorters);
       },
+      onFilterData : function (oEvent) {
+
+			// build filter array
+			var aFilter = [];
+			var sQuery = oEvent.getParameter("query");
+			if (sQuery) {
+				aFilter.push(new Filter("UId", FilterOperator.Contains, sQuery));
+			}
+
+			// filter binding
+			var oList = this.byId("idTrips");
+			var oBinding = oList.getBinding("items");
+			oBinding.filter(aFilter);
+		},
     });
 
     return OverflowToolbarController;

@@ -92,7 +92,14 @@
             "name": "user",
             "target": "user"
 
-        }
+        },
+
+        {
+          "pattern": "detail",
+          "name": "detail",
+          "target": "detail"
+
+      }
 
 
           
@@ -116,7 +123,13 @@
           "viewName": "User",
           "viewId": "user"
           
-      }
+      },
+
+      "detail": {
+        "viewName": "Detail",
+        "viewId": "detail"
+        
+    }
      
         }
     }
