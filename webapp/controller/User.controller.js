@@ -82,62 +82,60 @@ sap.ui.define(
       },
 
       onReset: function (oEvent) {
+
         this.bGrouped = false;
         this.bDescending = false;
         this.sSearchQuery = 0;
         this.byId("UId").setValue("");
         this.fnApplyFiltersAndOrdering();
-      },
 
-      onGroup: function (oEvent) {
+    },
+
+    onGroup: function (oEvent){
         this.bGrouped = !this.bGrouped;
         this.fnApplyFiltersAndOrdering();
-      },
+    },
 
-      onSort: function (oEvent) {
+    onSort: function (oEvent) {
         this.bDescending = !this.bDescending;
         this.fnApplyFiltersAndOrdering();
-      },
+    },
 
-      onFilter: function (oEvent) {
+    onFilter: function (oEvent) {
         this.sSearchQuery = oEvent.getSource().getValue();
         this.fnApplyFiltersAndOrdering();
-      },
+    },
 
-      onTogglePress: function (oEvent) {
+    onTogglePress: function(oEvent) {
         var oButton = oEvent.getSource(),
-          bPressedState = oButton.getPressed(),
-          sStateToDisplay = bPressedState ? "Pressed" : "Unpressed";
+            bPressedState = oButton.getPressed(),
+            sStateToDisplay = bPressedState ? "Pressed" : "Unpressed";
 
         MessageToast.show(oButton.getId() + " " + sStateToDisplay);
-      },
+    },
 
-      fnApplyFiltersAndOrdering: function (oEvent) {
+    fnApplyFiltersAndOrdering: function (oEvent){
         var aFilters = [],
-          aSorters = [];
+            aSorters = [];
 
         if (this.bGrouped) {
-          aSorters.push(new Sorter("UId", this.bDescending, this._fnGroup));
+            aSorters.push(new Sorter("UId", this.bDescending, this._fnGroup));
         } else {
-          aSorters.push(new Sorter("RId", this.bDescending));
+            aSorters.push(new Sorter("RId", this.bDescending));
         }
 
         if (this.sSearchQuery) {
-          var oFilter = new Filter(
-            "RId",
-            FilterOperator.Contains,
-            this.sSearchQuery
-          );
-          aFilters.push(oFilter);
+            var oFilter = new Filter("RId", FilterOperator.Contains, this.sSearchQuery);
+            aFilters.push(oFilter);
         }
 
-        this.byId("idProductsTable")
-          .getBinding("items")
-          .filter(aFilters)
-          .sort(aSorters);
-      },
-    });
+        this.byId("idProductsTable").getBinding("items").filter(aFilters).sort(aSorters);
+    }
+});
 
-    return OverflowToolbarController;
-  }
-);
+return OverflowToolbarController;
+
+});
+
+
+
