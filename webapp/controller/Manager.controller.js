@@ -39,6 +39,7 @@ sap.ui.define(
 
       checkLogin: function () {
         var userInfo = this.getOwnerComponent().getModel("UserInfo").getData();
+        console.log(userInfo);
         if (!userInfo.isManager) {
           jQuery.sap.require("sap.m.MessageBox");
           var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
