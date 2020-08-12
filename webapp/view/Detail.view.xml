@@ -42,7 +42,7 @@
 						</Toolbar>
 					</f:toolbar>
 					<f:formElements>
-						<f:FormElement label="Name">
+						<f:FormElement label="Trip">
 
 								<TextArea value="locatia" width="100%" editable="false" height="1rem"/>
 
@@ -54,12 +54,12 @@
 
 
 						</f:FormElement>
-						<f:FormElement label="ZIP Code/City">
+						<f:FormElement label="Country">
 
 								<TextArea value="locatia" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
-						<f:FormElement label="Country">
+						<f:FormElement label="Cost">
 
 								<TextArea value="locatia" width="100%" editable="false" height="1rem"/>
 
@@ -74,13 +74,19 @@
 						</Toolbar>
 					</f:toolbar>
 					<f:formElements>
-						<f:FormElement label="Web">
+						<f:FormElement label="Firstname">
                         <TextArea value="locatia" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
-						<f:FormElement label="Twitter">
+                        </f:formElements>
+                        <f:formElements>
+						<f:FormElement label="Lastname">
+                        <TextArea value="locatia" width="100%" editable="false" height="1rem"/>
 
-								<TextArea value="locatia" width="100%" editable="false" height="1rem"/>
+						</f:FormElement>
+						<f:FormElement label="Phone">
+
+							<TextArea value="locatia" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
 					</f:formElements>
