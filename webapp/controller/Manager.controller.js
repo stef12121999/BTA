@@ -42,7 +42,6 @@ sap.ui.define(
         if (!userInfo.isManager) {
           jQuery.sap.require("sap.m.MessageBox");
           var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-          console.log("error message");
           sap.m.MessageBox.error(
             "You must be logged in if you want to use the application.",
             {
@@ -88,13 +87,30 @@ sap.ui.define(
         oRouter.navTo("login");
       },
 
-    onPressDetail: function(oEvent){
+      onFilterData: function (oEvent) {
+        // build filter array
+        var aFilter = [];
+        var sQuery = oEvent.getParameter("query");
+        if (sQuery) {
+          aFilter.push(new Filter("UId", FilterOperator.Contains, sQuery));
+        }
+
+        // filter binding
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.filter(aFilter);
+      },
+
+      onPressDetail: function (oEvent) {
+        var sID = oEvent.getSource().getBindingContext().getObject().RId;
+
         var oRouter = this.getRouter();
-        oRouter.navTo("login");
-    },
+        oRouter.navTo("detail", {
+          sId: sID,
+        });
+      },
 
-    onReset: function (oEvent){
-
+      onReset: function (oEvent) {
         this.bGrouped = false;
         this.bDescending = false;
         this.sSearchQuery = 0;
@@ -132,7 +148,7 @@ sap.ui.define(
         if (this.bGrouped) {
           aSorters.push(new Sorter("UId", this.bDescending, this._fnGroup));
         } else {
-          aSorters.push(new Sorter("RId", this.bDescending));
+          aSorters.push(new Sorter("Country", this.bDescending));
         }
 
         if (this.sSearchQuery) {
@@ -144,10 +160,23 @@ sap.ui.define(
           aFilters.push(oFilter);
         }
 
-        this.byId("idProductsTable")
+        this.byId("idTrips")
           .getBinding("items")
           .filter(aFilters)
           .sort(aSorters);
+      },
+      onFilterData: function (oEvent) {
+        // build filter array
+        var aFilter = [];
+        var sQuery = oEvent.getParameter("query");
+        if (sQuery) {
+          aFilter.push(new Filter("UId", FilterOperator.Contains, sQuery));
+        }
+
+        // filter binding
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.filter(aFilter);
       },
     });
 

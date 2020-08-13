@@ -69,8 +69,21 @@
         "bypassed": {
           "target": "notFound"
         },
+
+        "": {
+          "dataSource": "travelTool",
+          "settings": {
+            "metadataUrlParams": {
+              "sap-documentation": "heading"
+            },
+            "defaultBindingMode": "TwoWay",
+            "json": true,
+            "useBatch": false
+          }
+        },
         "async": true
       },
+
       "routes": [
         {
           "pattern": "",
@@ -83,13 +96,21 @@
           "name": "manager",
           "target": "manager"
         },
-
         {
           "pattern": "user",
           "name": "user",
           "target": "user"
         },
-
+        {
+          "pattern": "detail/{sId}",
+          "name": "detail",
+          "target": "detail"
+        },
+        {
+          "pattern": "user",
+          "name": "user",
+          "target": "user"
+        },
         {
           "pattern": "information",
           "name": "information",
@@ -101,12 +122,10 @@
           "viewName": "Login",
           "viewId": "login"
         },
-
         "manager": {
           "viewName": "Manager",
           "viewId": "manager"
         },
-
         "user": {
           "viewName": "User",
           "viewId": "user"
@@ -115,6 +134,10 @@
         "information": {
           "viewName": "Information",
           "viewId": "information"
+        },
+        "detail": {
+          "viewName": "Detail",
+          "viewId": "detail"
         }
       }
     }

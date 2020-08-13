@@ -37,19 +37,22 @@ sap.ui.define(
 
         var userInfo = this.getOwnerComponent().getModel("UserInfo").getData();
         if (!userInfo.isUser) {
-            jQuery.sap.require("sap.m.MessageBox");
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            sap.m.MessageBox.error("You must be logged in if you want to use the application.", {
-                title: "Log in",                                
-                onClose: function() {
-                    oRouter.navTo("login");
-                },   
-                styleClass: "",                                      // default
-                actions: sap.m.MessageBox.Action.Close,              // default
-                emphasizedAction: null,                              // default
-                initialFocus: null,                                  // default
-                textDirection: sap.ui.core.TextDirection.Inherit     // default
-            });
+          jQuery.sap.require("sap.m.MessageBox");
+          var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+          sap.m.MessageBox.error(
+            "You must be logged in if you want to use the application.",
+            {
+              title: "Log in",
+              onClose: function () {
+                oRouter.navTo("login");
+              },
+              styleClass: "", // default
+              actions: sap.m.MessageBox.Action.Close, // default
+              emphasizedAction: null, // default
+              initialFocus: null, // default
+              textDirection: sap.ui.core.TextDirection.Inherit, // default
+            }
+          );
         }
       },
 
