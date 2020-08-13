@@ -105,8 +105,12 @@ sap.ui.define(
 		},
 
     onPressDetail: function(oEvent){
+        var sID = oEvent.getSource().getBindingContext().getObject().RId;
+
         var oRouter = this.getRouter();
-        oRouter.navTo("detail");
+        oRouter.navTo("detail",{
+          sId: sID
+        });
     },
 
     onReset: function (oEvent){

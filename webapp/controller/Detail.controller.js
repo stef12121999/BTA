@@ -16,7 +16,7 @@ sap.ui.define(
           .attachPatternMatched(this.checkLogin, this);
         },
 
-        checkLogin: function () {
+        checkLogin: function (oEvent) {
           var userInfo = this.getOwnerComponent().getModel("UserInfo").getData();
           console.log(userInfo);
           if (!userInfo.isManager) {
@@ -36,8 +36,12 @@ sap.ui.define(
                 initialFocus: null, // default
                 textDirection: sap.ui.core.TextDirection.Inherit, // default
               }
+              
             );
+            
           }
+          var requestId = oEvent.getParameter("arguments").sId;
+            this.getView().bindElement("/Front_TripSet('" + requestId +"')");
         },
 
         getRouter: function () {

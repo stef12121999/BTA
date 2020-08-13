@@ -8,29 +8,26 @@
 		showHeader="false"
 		enableScrolling="true"
 		class="sapUiContentPadding"
-		showNavButton="false" >
+		showNavButton="false"
+		visible="{UserInfo>/isManager}" >
     
 		<content>
 			<VBox>
 				<MessageStrip
-					text="You are logged in as USER."
+					text="You are logged in as MANAGER."
 					type="Information"
 					showIcon="true">
 				</MessageStrip>
 
-				<Slider value="100" liveChange="onSliderMoved"/>
-                <Button  press="onGoToLogin" text="Go Back" icon="sap-icon://nav-back"/>
 			</VBox>
-
-			<Label/>
-
 			<Table
-				id="idTrip"
-				items="{Front_TripSet}">
+				selectionChange="handleSelectionChange"
+				id="idTrips"
+				items="{/Front_TripSet}">
 				<headerToolbar>
 					<OverflowToolbar id="otbSubheader">
 						<ToolbarSpacer/>
-						<SearchField id="maxPrice" liveChange="onFilter">
+						<SearchField width="50%" search=".onFilterData">
 							<layoutData><OverflowToolbarLayoutData minWidth="200px" maxWidth="300px" shrinkable="true"/></layoutData>
 						</SearchField>
 						<Button text="Reset" type="Transparent" press="onReset"/>
@@ -38,19 +35,20 @@
 						<OverflowToolbarButton type="Transparent" text="Group" icon="sap-icon://group-2" press="onGroup"/>
 					</OverflowToolbar>
 				</headerToolbar>
+				
 				<columns>
-					<Column width="12em"><Text text="Filter" /></Column>
+					<Column width="12em"><Text text="ID" /></Column>
 					<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Date" /></Column>
 					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End"><Text text="Name" /></Column>
-					<Column hAlign="End"><Text text="Location" /></Column>
+					<Column hAlign="End"><Text text="Country" /></Column>
 				</columns>
 				<items>
-					<ColumnListItem>
+					<ColumnListItem type="Navigation" press=".onPressDetail">
 						<cells>
-							<ObjectIdentifier title="{RId}" text="{ProductId}" />
+							<ObjectIdentifier title="{TripId}" text="{ProductId}" />
+							<Text text="{StartDate} - {EndDate}" />
 							<Text text="{UId}" />
-							<Text text="{UId}" />
-							<Text text="{TripId}"/>
+							<Text text="{Country}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
@@ -58,13 +56,10 @@
 		</content>
 		<footer>
 			<OverflowToolbar id="otbFooter">
+			<Button  press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
 				<ToolbarSpacer/>
-				
-				<OverflowToolbarButton text="Delete" icon="sap-icon://delete"/>
-				<OverflowToolbarButton text="Edit" icon="sap-icon://edit"/>
-				<OverflowToolbarButton text="Add" icon="sap-icon://add"/>
-				<OverflowToolbarButton text="Favorite" icon="sap-icon://favorite"/>
-				<OverflowToolbarButton text="Flag" icon="sap-icon://flag"/>
+	
+
 				<OverflowToolbarToggleButton text="Toggle" icon="sap-icon://action" press="onTogglePress"/>
 
 			</OverflowToolbar>

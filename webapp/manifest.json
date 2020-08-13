@@ -83,7 +83,7 @@
           "target": "manager"
         },
         {
-          "pattern": "detail",
+          "pattern": "detail/{sId}",
           "name": "detail",
           "target": "detail"
         },
