@@ -21,46 +21,9 @@ sap.ui.define(
 
     return BaseController.extend("intern2020.controller.Manager", {
       onInit: function (oContext) {
-        //var UserId = oContext.getProperty("UId");
-        //if (typeof(Storage) !== "undefined") {
-        // Store
-        //localStorage.setItem("lastname", UserId);
-        // Retrieve
-        // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-        //} else {
-        // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-        //}
-
-        this.getOwnerComponent()
-          .getRouter()
+        this.getRouter()
           .getRoute("manager")
-          .attachPatternMatched(this.checkLogin, this);
-      },
-
-      checkLogin: function () {
-        var userInfo = this.getOwnerComponent().getModel("UserInfo").getData();
-        if (!userInfo.isManager) {
-          jQuery.sap.require("sap.m.MessageBox");
-          var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-          sap.m.MessageBox.error(
-            "You must be logged in if you want to use the application.",
-            {
-              title: "Log in",
-              onClose: function () {
-                oRouter.navTo("login");
-              },
-              styleClass: "", // default
-              actions: sap.m.MessageBox.Action.Close, // default
-              emphasizedAction: null, // default
-              initialFocus: null, // default
-              textDirection: sap.ui.core.TextDirection.Inherit, // default
-            }
-          );
-        }
-      },
-
-      getRouter: function () {
-        return sap.ui.core.UIComponent.getRouterFor(this);
+          .attachPatternMatched(this.checkLoginManager, this);
       },
 
       onSliderMoved: function (oEvent) {
@@ -79,10 +42,7 @@ sap.ui.define(
       },
 
       onGoToLogin: function (oEvent) {
-        var data = { isUser: false, isManager: false };
-        var oModel = new JSONModel(data);
-        var userInfo = this.getOwnerComponent().setModel(oModel, "UserInfo");
-
+        this.logOut();
         var oRouter = this.getRouter();
         oRouter.navTo("login");
       },

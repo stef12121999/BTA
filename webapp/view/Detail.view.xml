@@ -97,7 +97,7 @@
 	</VBox>
     <footer>
 			<OverflowToolbar id="otbFooter">
-            <Button  press="onGoToLogin" text="Go Back" icon="sap-icon://nav-back"/>
+            <Button  press="onGoBack" text="Go Back" icon="sap-icon://nav-back"/>
 				<ToolbarSpacer/>
 				<Button type="Accept" text="Accept" width="12rem">
 					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>

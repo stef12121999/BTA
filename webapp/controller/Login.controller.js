@@ -37,30 +37,24 @@ sap.ui.define(
 
             {
               success: function (oData) {
+                var isUser;
+                var isManager;
+                var username = oData.Id;
                 if (oData.IsManager == 1) {
                   var oRouter = this.getRouter();
                   oRouter.navTo("manager");
-                  //MessageToast.show("Success manager");
-
-                  
-                  var data = { isUser: true, isManager: true };
-                  var oModel = new JSONModel(data);
-                  var userInfo = this.getOwnerComponent().setModel(
-                    oModel,
-                    "UserInfo"
-                  );
+                  isUser = true;
+                  isManager = true;
                 } else {
                   var oRouter = this.getRouter();
                   oRouter.navTo("user");
-                  //MessageToast.show("Success user");
-
-                  var data = { isUser: true, isManager: false };
-                  var oModel = new JSONModel(data);
-                  var userInfo = this.getOwnerComponent().setModel(
-                    oModel,
-                    "UserInfo"
-                  );
+                  isUser = true;
+                  isManager = false;
                 }
+                var data = { isUser: isUser, isManager: isManager, username: username };
+                var oModel = new JSONModel(data);
+                this.getOwnerComponent().setModel(oModel, "UserInfo");
+                jQuery.sap.storage.put("UserInfo", data);
               }.bind(this),
 
               error: function () {

@@ -12,7 +12,7 @@ sap.ui.define(
 
         this.getRouter().initialize();
 
-        var data = { isUser : false, isManager : false };
+        var data = { isUser : false, isManager : false, username: null };
         var oModel = new JSONModel(data);
         this.setModel(oModel, "UserInfo");
       },

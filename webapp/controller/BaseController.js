@@ -1,12 +1,23 @@
-sap.ui.define([
+sap.ui.define(
+  [
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/routing/History",
     "sap/m/Button",
     "sap/m/Dialog",
     "sap/m/Text",
     "sap/ui/core/format/NumberFormat",
-    "sap/ui/model/json/JSONModel"
-], function (Controller, History, Button, Dialog, Text, NumberFormat, JSONModel) { // eslint-disable-line id-match
+    "sap/ui/model/json/JSONModel",
+  ],
+  function (
+    Controller,
+    History,
+    Button,
+    Dialog,
+    Text,
+    NumberFormat,
+    JSONModel
+  ) {
+    // eslint-disable-line id-match
     "use strict";
 
     // noinspection UnnecessaryLocalVariableJS
@@ -25,15 +36,12 @@ sap.ui.define([
      * @public
      * @aliasintern2020.BaseController
      */
-    var oBaseController = Controller.extend("intern2020.controller.BaseController", {
-
-
-
+    var oBaseController = Controller.extend(
+      "intern2020.controller.BaseController",
+      {
         /* =========================================================== */
         /* Getter functions                                            */
         /* =========================================================== */
-
-
 
         /* =========================================================== */
         /* Helper functions */
@@ -45,8 +53,8 @@ sap.ui.define([
          * @memberOf porsche.pbs.controller.BaseController
          */
         getRouter: function () {
-            // return the Router for the current view
-            return sap.ui.core.UIComponent.getRouterFor(this);
+          // return the Router for the current view
+          return sap.ui.core.UIComponent.getRouterFor(this);
         },
         /**
          * Getter for the resource bundle.
@@ -54,18 +62,78 @@ sap.ui.define([
          * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
          */
         getResourceBundle: function () {
-            return this.getOwnerComponent().getModel("i18n").getResourceBundle();
+          return this.getOwnerComponent().getModel("i18n").getResourceBundle();
         },
 
-        getModel : function(sText) {
-            return this.getView().getModel(sText);
-        }
+        getModel: function (sText) {
+          return this.getView().getModel(sText);
+        },
 
+        recoverSession: function () {
+          var data = jQuery.sap.storage.get("UserInfo");
+          var oModel = new JSONModel(data);
+          this.getOwnerComponent().setModel(oModel, "UserInfo");
+        },
 
+        logOut: function () {
+          var data = { isUser: false, isManager: false, username: null };
+          var oModel = new JSONModel(data);
+          this.getOwnerComponent().setModel(oModel, "UserInfo");
+          jQuery.sap.storage.put("UserInfo", data);
+        },
 
+        checkLoginUser: function () {
+          this.recoverSession();
+          var userInfo = this.getOwnerComponent()
+            .getModel("UserInfo")
+            .getData();
+          if (!userInfo.isUser) {
+            jQuery.sap.require("sap.m.MessageBox");
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            sap.m.MessageBox.error(
+              "You must be logged in if you want to use the application.",
+              {
+                title: "Log in",
+                onClose: function () {
+                  oRouter.navTo("login");
+                },
+                styleClass: "",
+                actions: sap.m.MessageBox.Action.Close,
+                emphasizedAction: null,
+                initialFocus: null,
+                textDirection: sap.ui.core.TextDirection.Inherit,
+              }
+            );
+          }
+        },
 
-
-    });
+        checkLoginManager: function () {
+          this.recoverSession();
+          var userInfo = this.getOwnerComponent()
+            .getModel("UserInfo")
+            .getData();
+          if (!userInfo.isManager) {
+            jQuery.sap.require("sap.m.MessageBox");
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            sap.m.MessageBox.error(
+              "You must be logged in if you want to use the application.",
+              {
+                title: "Log in",
+                onClose: function () {
+                  oRouter.navTo("login");
+                },
+                styleClass: "",
+                actions: sap.m.MessageBox.Action.Close,
+                emphasizedAction: null,
+                initialFocus: null,
+                textDirection: sap.ui.core.TextDirection.Inherit,
+              }
+            );
+          }
+        },
+      }
+    );
 
     return oBaseController;
-});
+  }
+);
