@@ -35,13 +35,13 @@
     <Input
       id="username"
       placeholder="Username" 
-      width="10rem"
+      width="12rem"
       type="Text"/>
       <Input
       id="password"
       placeholder="Password"
       type="Password"
-      width="10rem"
+      width="12rem"
       />
     <Button
         text="Login"
@@ -49,7 +49,9 @@
         width="10rem"
         icon="sap-icon://action"
         />
+        <Link id="link" text="Forgot Password" emphasized="true" press="onForgotPass"/>
     </items>
+    
     </FlexBox>
  
 </Panel>
