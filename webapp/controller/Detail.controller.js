@@ -25,6 +25,8 @@ sap.ui.define(
           .attachPatternMatched(this.patternMatched, this);
       },
 
+      
+
       patternMatched: function (oEvent) {
         this.checkLoginManager();
         this.requestId = oEvent.getParameter("arguments").sId;
