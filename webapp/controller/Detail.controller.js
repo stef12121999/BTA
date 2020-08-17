@@ -2,11 +2,13 @@ sap.ui.define(
     [
       "intern2020/controller/BaseController",
       "sap/m/MessageToast",
-      "sap/ui/model/json/JSONModel",
-      "sap/ui/model/resource/ResourceModel",
-      "sap/ui/core/Fragment",
+      'sap/m/Button',
+        'sap/m/Dialog',
+        'sap/m/Label',
+        'sap/m/Text',
+        'sap/m/TextArea',
     ],
-    function (BaseController, MessageToast, JSONModel, ResourceModel, Fragment) {
+    function (BaseController, MessageToast,Button, Dialog, Label, Text, TextArea,) {
       "use strict";
       return BaseController.extend("intern2020.controller.Detail", {
         onInit: function (oEvent) {
@@ -38,12 +40,106 @@ sap.ui.define(
             );
             
           }
-          var requestId = oEvent.getParameter("arguments").sId;
-            this.getView().bindElement("/Front_TripSet('" + requestId +"')");
+          this.requestId = oEvent.getParameter("arguments").sId;
+            this.getView().bindElement("/Front_TripSet('" + this.requestId +"')");
         },
 
         getRouter: function () {
           return sap.ui.core.UIComponent.getRouterFor(this);
+        },
+
+        onPressAccept(oEvent){
+      
+          var oModel = this.getView().getModel();
+            var oEntry = {};
+            var tempStatus = oModel.getData("/Front_TripSet('"+this.requestId+"')").Status;
+          if(tempStatus==0)
+          {
+
+              oEntry.Status= 1;
+              oEntry.DeclineReason="";
+              
+              oModel.update("/Front_TripSet('"+this.requestId+"')", oEntry, {
+                //method: "PUT",
+                success: function(oData) {
+                  MessageToast.show("Trip accepted successfully!");
+
+                },
+                error: function() {
+                  MessageToast.show("Error at accepting trip.");
+
+                }
+              });
+
+            }
+        },
+
+        onPressSubmitDecline(oEvent){
+      
+         
+        },
+
+        onPressDecline(oEvent){
+          var dialog = new Dialog({
+            title: 'Confirm',
+            type: 'Message',
+            content: [
+              new Label({ text: 'Are you sure you want to submit your shopping cart?', labelFor: 'submitDialogTextarea'}),
+              new TextArea('submitDialogTextarea', {
+                liveChange: function(oEvent) {
+                  var sText = oEvent.getParameter('value');
+                  var parent = oEvent.getSource().getParent();
+    
+                  parent.getBeginButton().setEnabled(sText.length > 0);
+                },
+                width: '100%',
+                placeholder: 'Add note (required)'
+              })
+            ],
+            beginButton: new Button({
+              text: 'Submit',
+              enabled: false,
+              press: function () {
+                var sText = sap.ui.getCore().byId('submitDialogTextarea').getValue();
+                var oModel = this.getView().getModel();
+                var oEntry = {};
+                var tempStatus = oModel.getData("/Front_TripSet('"+this.requestId+"')").Status;
+
+              if(tempStatus==0)
+              {
+                  oEntry.Status= 2;
+                  oEntry.DeclineReason=sText;
+                  
+                  oModel.update("/Front_TripSet('"+this.requestId+"')", oEntry, {
+                    //method: "PUT",
+                    success: function(oData) {
+                      MessageToast.show("Trip declined successfully!");
+    
+                    },
+                    error: function() {
+                      MessageToast.show("Error at declining trip.");
+    
+                    }
+                  });
+    
+                }
+                MessageToast.show('Note is: ' + sText);
+
+                dialog.close();
+              }.bind(this)
+            }),
+            endButton: new Button({
+              text: 'Cancel',
+              press: function () {
+                dialog.close();
+              }
+            }),
+            afterClose: function() {
+              dialog.destroy();
+            }
+          });
+    
+          dialog.open();
         },
 
         onGoToLogin: function (oEvent) {    

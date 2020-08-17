@@ -107,6 +107,7 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("detail", {
           sId: sID,
+          
         });
       },
 

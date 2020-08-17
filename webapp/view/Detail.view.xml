@@ -47,9 +47,9 @@
 								<TextArea value="{TripId}" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
-						<f:FormElement label="City">
+						<f:FormElement label="Status">
 
-								<TextArea value="{City}" width="100%" editable="false" height="1rem"/>
+								<TextArea value="{Status}" width="100%" editable="false" height="1rem"/>
                                
 
 
@@ -99,11 +99,11 @@
 			<OverflowToolbar id="otbFooter">
             <Button  press="onGoToLogin" text="Go Back" icon="sap-icon://nav-back"/>
 				<ToolbarSpacer/>
-				<Button type="Accept" text="Accept" width="12rem">
+				<Button type="Accept" text="Accept" width="12rem" press="onPressAccept">
 					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
 				</Button>
-				<Button type="Reject" text="Reject" width="12rem">
-					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				<Button type="Reject" text="Reject" width="12rem" press="onPressDecline" >
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
 				</Button>
 
 
