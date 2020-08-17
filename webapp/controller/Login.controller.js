@@ -64,6 +64,11 @@ sap.ui.define(
           );
         }
       },
+
+      onForgotPass: function (oEvent) {    
+        var oRouter = this.getRouter();
+        oRouter.navTo("forgotPass");
+      },
     });
   }
 );

@@ -8,8 +8,40 @@
 			<VBox>
 				<MessageStrip text="You are logged in as USER." type="Information" showIcon="true">
 				</MessageStrip>
-				<Slider value="100" liveChange="onSliderMoved"/>
-				<Button press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
+				
+
+			<IconTabBar
+		id="idIconTabBar"
+		select="handleIconTabBarSelect"
+		class="sapUiResponsiveContentPadding">
+		<items>
+			<IconTabFilter
+				showAll="true"
+				count="{/Front_TripSet}"
+				text="Trips"
+				key="Trips" />
+			<IconTabSeparator />
+			<IconTabFilter
+				icon="sap-icon://add"
+				iconColor="Positive"
+				count="{/Front_TripSet()}"
+				text="New Trip"
+				key="NewTrip"/>
+			<IconTabFilter
+				icon="sap-icon://accept"
+				iconColor="Critical"
+				count="{/ProductCollectionStats/Counts/Weight/Heavy}"
+				text="To Be Aproved"
+				key="ToBeAproved" />
+			<IconTabFilter
+				icon="sap-icon://decline"
+				iconColor="Negative"
+				count="{/ProductCollectionStats/Counts/Weight/Overweight}"
+				text="Declined"
+				key="Declined" />
+		</items>
+	</IconTabBar>
+
 			</VBox>
 
 			<Label/>
@@ -31,21 +63,8 @@
 				</headerToolbar>
 
 				<columns>
-
 					<Column width="12em">
 						<Text text="Filter" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="Date" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
-						<Text text="Name" />
-					</Column>
-					<Column hAlign="End">
-						<Text text="Location" />
-					</Column>
-					<Column width="12em">
-						<Text text="ID" />
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="Date" />
@@ -71,16 +90,8 @@
 		</content>
 		<footer>
 			<OverflowToolbar id="otbFooter">
-				<Button press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
-				<ToolbarSpacer/>
-
-				<OverflowToolbarButton text="Delete" icon="sap-icon://delete"/>
-				<OverflowToolbarButton text="Edit" icon="sap-icon://edit"/>
-				<OverflowToolbarButton text="Add" icon="sap-icon://add"/>
-				<OverflowToolbarButton text="Favorite" icon="sap-icon://favorite"/>
-				<OverflowToolbarButton text="Flag" icon="sap-icon://flag"/>
-				<OverflowToolbarToggleButton text="Toggle" icon="sap-icon://action" press="onTogglePress"/>
-
+			<Button press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
+				
 			</OverflowToolbar>
 		</footer>
 

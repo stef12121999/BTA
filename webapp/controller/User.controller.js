@@ -45,6 +45,10 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("login");
       },
+      onPressDetail: function(oEvent){
+        var oRouter = this.getRouter();
+        oRouter.navTo("detailUser");
+    },
 
       onReset: function (oEvent) {
         this.bGrouped = false;

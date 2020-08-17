@@ -50,12 +50,13 @@
       "": {
         "dataSource": "travelTool",
         "settings": {
-          "metadataUrlParams": {
-            "sap-documentation": "heading"
-          },
-          "defaultBindingMode": "TwoWay",
           "json": true,
-          "useBatch": false
+          "useBatch": false,
+          "preload": true,
+          "disableHeadRequestForToken": true,
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline"
+
         }
       }
     },
@@ -69,37 +70,18 @@
         "bypassed": {
           "target": "notFound"
         },
-
-        "": {
-          "dataSource": "travelTool",
-          "settings": {
-            "metadataUrlParams": {
-              "sap-documentation": "heading"
-            },
-            "defaultBindingMode": "TwoWay",
-            "json": true,
-            "useBatch": false
-          }
-        },
         "async": true
       },
-
       "routes": [
         {
           "pattern": "",
           "name": "login",
           "target": "login"
         },
-
         {
           "pattern": "manager",
           "name": "manager",
           "target": "manager"
-        },
-        {
-          "pattern": "user",
-          "name": "user",
-          "target": "user"
         },
         {
           "pattern": "detail/{sId}",
@@ -115,7 +97,13 @@
           "pattern": "information",
           "name": "information",
           "target": "information"
+        },
+        {
+          "pattern": "forgotPass",
+          "name": "forgotPass",
+          "target": "forgotPass"
         }
+
       ],
       "targets": {
         "login": {
@@ -138,6 +126,10 @@
         "detail": {
           "viewName": "Detail",
           "viewId": "detail"
+        },
+        "forgotPass": {
+          "viewName": "ForgotPass",
+          "viewId": "forgotPass"
         }
       }
     }
