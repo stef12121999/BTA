@@ -30,7 +30,7 @@ sap.ui.define(
       patternMatched: function (oEvent) {
         this.checkLoginManager();
         this.requestId = oEvent.getParameter("arguments").sId;
-        this.getView().bindElement("/Front_TripSet('" + this.requestId +"')");
+        this.getView().bindElement("/Front_TripSet('" + this.requestId + "')");
       },
 
       onGoBack: function (oEvent) {
