@@ -12,47 +12,44 @@
 		visible="{UserInfo>/isManager}" >
     
 		<content>
-			<VBox>
+			
+
 				<MessageStrip
+					class="sapUiMediumMarginTopBottom"
 					text="You are logged in as MANAGER."
 					type="Information"
 					showIcon="true">
 				</MessageStrip>
-				<IconTabBar
-        id="idIconTabBar"
-        select="handleIconTabBarSelect"
-        class="sapUiResponsiveContentPadding">
+		<FlexBox
+			direction="Row"
+        alignItems="Center">
         <items>
-            <IconTabFilter
-                showAll="true"
-                count="{/Front_TripSet}"
-                text="Trips"
-                key="Trips" />
-            <IconTabSeparator />
-            <IconTabFilter
+            
+            
+            <ToggleButton
                 icon="sap-icon://accept"
-                iconColor="Positive"
-                count="{/Front_TripSet()}"
+                id="approved"
                 text="Approved"
-                key="Approved" />
-            <IconTabFilter
+				pressed="false"
+                
+				type="Accept"/>
+            <ToggleButton
                 icon="sap-icon://time-account"
-                iconColor="Critical"
-                count="{/ProductCollectionStats/Counts/Weight/Heavy}"
+                pressed="false"
+				id="toBeApproved"
                 text="To Be Aproved"
-                key="ToBeAproved" />
-            <IconTabFilter
+                
+				/>
+            <ToggleButton
                 icon="sap-icon://decline"
-                iconColor="Negative"
-                count="{/ProductCollectionStats/Counts/Weight/Overweight}"
+                pressed="false"
+				id="declined"
                 text="Declined"
-                key="Declined" />
+         
+				type="Reject" />
         </items>
-    </IconTabBar>
-
-
-				
-			</VBox>
+  
+			</FlexBox>
 			<Table
 				selectionChange="handleSelectionChange"
 				id="idTrips"
