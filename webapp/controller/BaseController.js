@@ -107,6 +107,13 @@ sap.ui.define(
           }
         },
 
+        getUsername: function () {
+          var userInfo = this.getOwnerComponent()
+            .getModel("UserInfo")
+            .getData();
+          return userInfo.username;
+        },
+
         checkLoginManager: function () {
           this.recoverSession();
           var userInfo = this.getOwnerComponent()

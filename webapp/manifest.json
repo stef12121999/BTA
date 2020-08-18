@@ -89,6 +89,11 @@
           "target": "detail"
         },
         {
+          "pattern": "detailUser/{sId}",
+          "name": "detailUser",
+          "target": "detailUser"
+        },
+        {
           "pattern": "user",
           "name": "user",
           "target": "user"
@@ -126,6 +131,10 @@
         "detail": {
           "viewName": "Detail",
           "viewId": "detail"
+        },
+        "detailUser": {
+          "viewName": "DetailUser",
+          "viewId": "detailUser"
         },
         "forgotPass": {
           "viewName": "ForgotPass",

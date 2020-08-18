@@ -4,25 +4,16 @@
 	xmlns:l="sap.ui.layout"
 	xmlns:f="sap.ui.layout.form"
 	xmlns:core="sap.ui.core"
-   
+	controllerName="intern2020.controller.DetailUser"
 	xmlns="sap.m" >
-    <Page>
-
-    <ObjectHeader  responsive="true" fullScreenOptimized="true">
-    <statuses>
-                    <ObjectStatus
-                            title="Status"
-                            text="Aproved"
-                            state="Warning"/>
-                </statuses>
-    </ObjectHeader>
-	<VBox class="sapUiSmallMargin">
+    <Page id="detailUserPage" visible="{UserInfo>/isUser}">
+	<VBox class="sapUiSmallMargin" >
 		<f:Form id="FormToolbar"
 			editable="true"
 			ariaLabelledBy="Title1">
 			<f:toolbar>
 				<Toolbar id="TB1">
-					<Title id="Title1" text="Trip Detail" level="H4" titleStyle="H4" emphasized="true"/>
+					<Title id="Title1" text="Trip Detail" level="H4" titleStyle="H4" />
 					<ToolbarSpacer />
 				</Toolbar>
 			</f:toolbar>
@@ -51,26 +42,26 @@
 						</Toolbar>
 					</f:toolbar>
 					<f:formElements>
-						<f:FormElement label="Trip">
+						<f:FormElement label="Trip Id">
 
-								<TextArea value="locatia" width="100%" editable="false" height="1rem"/>
+								<TextArea value="{TripId}" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
-						<f:FormElement label="Street">
+						<f:FormElement label="Status">
 
-								<TextArea value="locatia" width="100%" editable="false" height="1rem"/>
-                                <TextArea value="locatia" width="100%" editable="false" height="1rem"/>
+								<TextArea value="{Status}" width="100%" editable="false" height="1rem"/>
+                               
 
 
 						</f:FormElement>
 						<f:FormElement label="Country">
 
-								<TextArea value="locatia" width="100%" editable="false" height="1rem"/>
+								<TextArea value="{Country}" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
 						<f:FormElement label="Cost">
 
-								<TextArea value="locatia" width="100%" editable="false" height="1rem"/>
+								<TextArea value="{Total}" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
 					</f:formElements>
@@ -84,18 +75,18 @@
 					</f:toolbar>
 					<f:formElements>
 						<f:FormElement label="Firstname">
-                        <TextArea value="locatia" width="100%" editable="false" height="1rem"/>
+                        <TextArea value="{FirstName}" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
                         </f:formElements>
                         <f:formElements>
 						<f:FormElement label="Lastname">
-                        <TextArea value="locatia" width="100%" editable="false" height="1rem"/>
+                        <TextArea value="{LastName}" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
 						<f:FormElement label="Phone">
 
-							<TextArea value="locatia" width="100%" editable="false" height="1rem"/>
+							<TextArea value="{PhoneNr}" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
 					</f:formElements>
@@ -106,9 +97,9 @@
 	</VBox>
     <footer>
 			<OverflowToolbar id="otbFooter">
-            <Button  press="onGoToLogin" text="Go Back" icon="sap-icon://nav-back"/>
+            <Button  press="onGoBack" text="Go Back" icon="sap-icon://nav-back"/>
 				<ToolbarSpacer/>
-				
+
 			</OverflowToolbar>
 		</footer>
 

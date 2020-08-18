@@ -8,45 +8,12 @@
 			<VBox>
 				<MessageStrip text="You are logged in as USER." type="Information" showIcon="true">
 				</MessageStrip>
-				
-
-			<IconTabBar
-		id="idIconTabBar"
-		select="handleIconTabBarSelect"
-		class="sapUiResponsiveContentPadding">
-		<items>
-			<IconTabFilter
-				showAll="true"
-				count="{/Front_TripSet}"
-				text="Trips"
-				key="Trips" />
-			<IconTabSeparator />
-			<IconTabFilter
-				icon="sap-icon://add"
-				iconColor="Positive"
-				count="{/Front_TripSet()}"
-				text="New Trip"
-				key="NewTrip"/>
-			<IconTabFilter
-				icon="sap-icon://accept"
-				iconColor="Critical"
-				count="{/ProductCollectionStats/Counts/Weight/Heavy}"
-				text="To Be Aproved"
-				key="ToBeAproved" />
-			<IconTabFilter
-				icon="sap-icon://decline"
-				iconColor="Negative"
-				count="{/ProductCollectionStats/Counts/Weight/Overweight}"
-				text="Declined"
-				key="Declined" />
-		</items>
-	</IconTabBar>
 
 			</VBox>
 
-			<Label/>
+			<Link text="Do you need help planning your trip?" href="#/information"/>
 
-			<Table selectionChange="handleSelectionChange" id="idTrips" items="{/Front_TripSet}">
+			<Table selectionChange="handleSelectionChange" id="idTrips" items="{path: '/Front_TripSet'}">
 				<headerToolbar>
 					<OverflowToolbar id="otbSubheader">
 						<ToolbarSpacer/>
@@ -79,8 +46,18 @@
 				<items>
 					<ColumnListItem type="Navigation" press=".onPressDetail">
 						<cells>
-							<ObjectIdentifier title="{TripId}" text="{ProductId}" />
-							<Text text="{StartDate} - {EndDate}" />
+							<ObjectIdentifier title="{RId}" text="{RequestId}" />
+							<Text text="{
+											path: 'StartDate',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												style: 'short'
+											}
+										} - {path: 'EndDate',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												style: 'short'
+												}}" />
 							<Text text="{UId}" />
 							<Text text="{Country}"/>
 						</cells>
@@ -90,8 +67,8 @@
 		</content>
 		<footer>
 			<OverflowToolbar id="otbFooter">
-			<Button press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
-				
+				<Button press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
+
 			</OverflowToolbar>
 		</footer>
 

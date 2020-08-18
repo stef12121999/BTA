@@ -45,10 +45,15 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("login");
       },
-      onPressDetail: function(oEvent){
+
+      onPressDetail: function (oEvent) {
+        console.log("detail");
         var oRouter = this.getRouter();
-        oRouter.navTo("detailUser");
-    },
+        var sID = oEvent.getSource().getBindingContext().getObject().RId;
+        oRouter.navTo("detailUser", {
+          sId: sID, 
+        });
+      },
 
       onReset: function (oEvent) {
         this.bGrouped = false;
@@ -79,31 +84,6 @@ sap.ui.define(
           sStateToDisplay = bPressedState ? "Pressed" : "Unpressed";
 
         MessageToast.show(oButton.getId() + " " + sStateToDisplay);
-      },
-
-      fnApplyFiltersAndOrdering: function (oEvent) {
-        var aFilters = [],
-          aSorters = [];
-
-        if (this.bGrouped) {
-          aSorters.push(new Sorter("UId", this.bDescending, this._fnGroup));
-        } else {
-          aSorters.push(new Sorter("RId", this.bDescending));
-        }
-
-        if (this.sSearchQuery) {
-          var oFilter = new Filter(
-            "RId",
-            FilterOperator.Contains,
-            this.sSearchQuery
-          );
-          aFilters.push(oFilter);
-        }
-
-        this.byId("idProductsTable")
-          .getBinding("items")
-          .filter(aFilters)
-          .sort(aSorters);
       },
     });
 
