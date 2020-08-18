@@ -21,26 +21,14 @@ sap.ui.define(
 
     return BaseController.extend("intern2020.controller.Manager", {
       onInit: function (oContext) {
+        this.aFilter=[];
         this.getRouter()
           .getRoute("manager")
           .attachPatternMatched(this.checkLoginManager, this);
       },
 
-      onSliderMoved: function (oEvent) {
-        var iValue = oEvent.getParameter("value");
-        this.byId("otbSubheader").setWidth(iValue + "%");
-        this.byId("otbFooter").setWidth(iValue + "%");
-      },
-
-      _fnGroup: function (oContext) {
-        var UserId = oContext.getProperty("UId");
-
-        return {
-          key: UserId,
-          text: UserId,
-        };
-      },
-
+      
+     
       onGoToLogin: function (oEvent) {
         this.logOut();
         var oRouter = this.getRouter();
@@ -49,13 +37,39 @@ sap.ui.define(
 
       onFilterData: function (oEvent) {
         // build filter array
-        var aFilter = [];
+        var buton_pressed=oEvent.getSource.byId;
+        
+        if(buton_pressed="approved"){ //&& buton_pressed.isSelected==true){
+
+          aFilter.push(new Filter("Status", FilterOperator.Eq, '1'));
+        }
+        else if (buton_pressed="toBeApproved"){
+          aFilter.push(new Filter("Status", FilterOperator.Eq, '0'));
+
+        }
+        else if(buton_pressed="declined")
+        {
+          aFilter.push(new Filter("Status", FilterOperator.Eq, '2'));
+        }
+        
+    
+        // filter binding
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.filter(aFilter);
+      },
+
+      onFilterSearch: function (oEvent) {},
+
+      onFilterData2: function(oEvent){
+        // build filter array
+       // var aFilter = [];
         var sQuery = oEvent.getParameter("query");
         if (sQuery) {
-          aFilter.push(new Filter("UId", FilterOperator.Contains, sQuery));
+          aFilter.push(new Filter("Status", FilterOperator.Eq, '0'));
         }
 
-        // filter binding
+       // filter binding
         var oList = this.byId("idTrips");
         var oBinding = oList.getBinding("items");
         oBinding.filter(aFilter);
@@ -94,13 +108,7 @@ sap.ui.define(
         this.fnApplyFiltersAndOrdering();
       },
 
-      onTogglePress: function (oEvent) {
-        var oButton = oEvent.getSource(),
-          bPressedState = oButton.getPressed(),
-          sStateToDisplay = bPressedState ? "Pressed" : "Unpressed";
-
-        MessageToast.show(oButton.getId() + " " + sStateToDisplay);
-      },
+      
 
       fnApplyFiltersAndOrdering: function (oEvent) {
         var aFilters = [],
