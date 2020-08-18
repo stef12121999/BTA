@@ -13,7 +13,7 @@
 
 			<Link text="Do you need help planning your trip?" href="#/information"/>
 
-			<Table selectionChange="handleSelectionChange" id="idTrips" items="{path: '/Front_TripSet'}">
+			<Table selectionChange="handleSelectionChange" id="idTrips" >
 				<headerToolbar>
 					<OverflowToolbar id="otbSubheader">
 						<ToolbarSpacer/>
@@ -44,7 +44,7 @@
 					</Column>
 				</columns>
 				<items>
-					<ColumnListItem type="Navigation" press=".onPressDetail">
+					<ColumnListItem type="Navigation" press=".onPressDetail" id="tripItem">
 						<cells>
 							<ObjectIdentifier title="{RId}" text="{RequestId}" />
 							<Text text="{

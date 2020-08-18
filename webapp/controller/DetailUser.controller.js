@@ -34,24 +34,8 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oModel.read("/Front_TripSet('" + this.requestId + "')", {
           success: function (oData) {
-            console.log(oData.UId);
             if (oData.UId != this.getUsername()) {
-              console.log("not me");
-              jQuery.sap.require("sap.m.MessageBox");
-              sap.m.MessageBox.error(
-                "You must be logged in if you want to use the application.",
-                {
-                  title: "Log in",
-                  onClose: function () {
-                    oRouter.navTo("login");
-                  },
-                  styleClass: "",
-                  actions: sap.m.MessageBox.Action.Close,
-                  emphasizedAction: null,
-                  initialFocus: null,
-                  textDirection: sap.ui.core.TextDirection.Inherit,
-                }
-              );
+              this.showMessageBoxAndGoToLogin("You must be logged in if you want to use the application");
             }
             else {
               oView.byId("detailUserPage").setVisible(true);
@@ -62,21 +46,7 @@ sap.ui.define(
 
           error: function () {
             console.log("error");
-            jQuery.sap.require("sap.m.MessageBox");
-            sap.m.MessageBox.error(
-              "You must be logged in if you want to use the application.",
-              {
-                title: "Log in",
-                onClose: function () {
-                  oRouter.navTo("login");
-                },
-                styleClass: "",
-                actions: sap.m.MessageBox.Action.Close,
-                emphasizedAction: null,
-                initialFocus: null,
-                textDirection: sap.ui.core.TextDirection.Inherit,
-              }
-            );
+            this.showMessageBoxAndGoToLogin("You must be logged in if you want to use the application");
           }.bind(this),
         });
       },

@@ -86,8 +86,6 @@ sap.ui.define(
             }
           },
           error: function (jqXHR, textStatus, errorThrown) {
-            console.log(textStatus);
-            console.log(errorThrown);
 
             var errorLabel = new sap.m.Label({
               text:

@@ -31,6 +31,14 @@ sap.ui.define(
         this.checkLoginManager();
         this.requestId = oEvent.getParameter("arguments").sId;
         this.getView().bindElement("/Front_TripSet('" + this.requestId + "')");
+        var oModel = this.getView().getModel();
+        var tempStatus = oModel.getData(
+          "/Front_TripSet('" + this.requestId + "')"
+        ).Status;
+        if (tempStatus == 0) {
+          this.getView().byId("acceptButton").setVisible(true);
+          this.getView().byId("declineButton").setVisible(true);
+        }
       },
 
       onGoBack: function (oEvent) {
@@ -51,10 +59,10 @@ sap.ui.define(
           oModel.update("/Front_TripSet('" + this.requestId + "')", oEntry, {
             //method: "PUT",
             success: function (oData) {
-              MessageToast.show("Trip accepted successfully!");
+              //MessageToast.show("Trip accepted successfully!");
             },
             error: function () {
-              MessageToast.show("Error at accepting trip.");
+              //MessageToast.show("Error at accepting trip.");
             },
           });
         }
@@ -68,7 +76,7 @@ sap.ui.define(
           type: "Message",
           content: [
             new Label({
-              text: "Are you sure you want to submit your shopping cart?",
+              text: "Why is this trip declined?",
               labelFor: "submitDialogTextarea",
             }),
             new TextArea("submitDialogTextarea", {
@@ -106,15 +114,15 @@ sap.ui.define(
                   {
                     //method: "PUT",
                     success: function (oData) {
-                      MessageToast.show("Trip declined successfully!");
+                      //MessageToast.show("Trip declined successfully!");
                     },
                     error: function () {
-                      MessageToast.show("Error at declining trip.");
+                      //MessageToast.show("Error at declining trip.");
                     },
                   }
                 );
               }
-              MessageToast.show("Note is: " + sText);
+              //MessageToast.show("Note is: " + sText);
 
               dialog.close();
             }.bind(this),
