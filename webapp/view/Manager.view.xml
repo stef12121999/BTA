@@ -31,20 +31,22 @@
                 id="approved"
                 text="Approved"
 				pressed="false"
-                
+                press="onFilterData"
 				type="Accept"/>
             <ToggleButton
                 icon="sap-icon://time-account"
                 pressed="false"
 				id="toBeApproved"
                 text="To Be Aproved"
-                
+                press="onFilterData"
 				/>
             <ToggleButton
                 icon="sap-icon://decline"
                 pressed="false"
 				id="declined"
                 text="Declined"
+				press="onFilterData"
+
          
 				type="Reject" />
         </items>
