@@ -31,6 +31,7 @@
                 id="approved"
                 text="Approved"
 				pressed="false"
+				press="onFilterData"
                 
 				type="Accept"/>
             <ToggleButton
@@ -38,6 +39,7 @@
                 pressed="false"
 				id="toBeApproved"
                 text="To Be Aproved"
+				press="onFilterData"
                 
 				/>
             <ToggleButton
@@ -45,6 +47,7 @@
                 pressed="false"
 				id="declined"
                 text="Declined"
+				press="onFilterData"
          
 				type="Reject" />
         </items>
@@ -57,7 +60,7 @@
 				<headerToolbar>
 					<OverflowToolbar id="otbSubheader">
 						<ToolbarSpacer/>
-						<SearchField width="50%" search=".onFilterData">
+						<SearchField width="50%" search="onFilterSearch">
 							<layoutData><OverflowToolbarLayoutData minWidth="200px" maxWidth="300px" shrinkable="true"/></layoutData>
 						</SearchField>
 						<Button text="Reset" type="Transparent" press="onReset"/>

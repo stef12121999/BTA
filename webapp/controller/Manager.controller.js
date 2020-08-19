@@ -21,7 +21,8 @@ sap.ui.define(
 
     return BaseController.extend("intern2020.controller.Manager", {
       onInit: function (oContext) {
-        this.aFilter=[];
+         this.aFilter=[];
+        
         this.getRouter()
           .getRoute("manager")
           .attachPatternMatched(this.checkLoginManager, this);
@@ -37,42 +38,46 @@ sap.ui.define(
 
       onFilterData: function (oEvent) {
         // build filter array
-        var buton_pressed=oEvent.getSource.byId;
         
-        if(buton_pressed="approved"){ //&& buton_pressed.isSelected==true){
-
-          aFilter.push(new Filter("Status", FilterOperator.Eq, '1'));
+        var buton_pressed=oEvent.getSource().getProperty().getText();
+        var buton_active=oEvent.getSource().getProperty().getPressed();
+        //console.log(oEvent.oSource.mProperties.text);
+       console.log(oEvent);
+        
+        if(buton_pressed="Approved" && buton_active==true){
+        
+          this.aFilter.push(new Filter("Status", FilterOperator.EQ, '1'));
+          
         }
-        else if (buton_pressed="toBeApproved"){
-          aFilter.push(new Filter("Status", FilterOperator.Eq, '0'));
+        else if (buton_pressed="To Be Aproved" && buton_active==true){
+          this.aFilter.push(new Filter("Status", FilterOperator.EQ, '0'));
 
         }
-        else if(buton_pressed="declined")
+        else if(buton_pressed="Declined" && buton_active==true)
         {
-          aFilter.push(new Filter("Status", FilterOperator.Eq, '2'));
+          this.aFilter.push(new Filter("Status", FilterOperator.EQ, '2'));
         }
+        //console.log(aFilter);
         
     
         // filter binding
         var oList = this.byId("idTrips");
         var oBinding = oList.getBinding("items");
-        oBinding.filter(aFilter);
+        oBinding.filter(this.aFilter);
+        
       },
-
-      onFilterSearch: function (oEvent) {},
-
-      onFilterData2: function(oEvent){
+      onFilterSearch: function(oEvent){
         // build filter array
-       // var aFilter = [];
-        var sQuery = oEvent.getParameter("query");
-        if (sQuery) {
-          aFilter.push(new Filter("Status", FilterOperator.Eq, '0'));
-        }
+			
+			var sQuery = oEvent.getParameter("query");
+			if (sQuery) {
+				this.aFilter.push(new Filter("Country", FilterOperator.Contains, sQuery));
+			}
 
-       // filter binding
-        var oList = this.byId("idTrips");
-        var oBinding = oList.getBinding("items");
-        oBinding.filter(aFilter);
+			// filter binding
+			var oList = this.getView().byId("idTrips");
+			var oBinding = oList.getBinding("items");
+			oBinding.filter(this.aFilter);
       },
 
       onPressDetail: function (oEvent) {
