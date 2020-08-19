@@ -70,10 +70,18 @@
 				</headerToolbar>
 				
 				<columns>
-					<Column width="12em"><Text text="ID" /></Column>
-					<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Start Date-End Date" /></Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End"><Text text="Name" /></Column>
-					<Column hAlign="End"><Text text="Country" /></Column>
+					<Column width="12em">
+						<Button type="Transparent" text="Filter"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Button iconFirst="false" id="dateButton" text="Date" icon="sap-icon://sort" type="Transparent" press=".onSortByDate"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+						<Button iconFirst="false" id="usernameButton" text="Username" icon="sap-icon://sort" type="Transparent" press=".onSortByUsername"/>
+					</Column>
+					<Column hAlign="End">
+						<Button iconFirst="false" id="countryButton" text="Country" icon="sap-icon://sort" type="Transparent" press=".onSortByCountry"/>
+					</Column>
 				</columns>
 				<items>
 					<ColumnListItem type="Navigation" press=".onPressDetail">

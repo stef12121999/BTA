@@ -39,16 +39,16 @@
 
 				<columns>
 					<Column width="12em">
-						<Text text="Filter" />
+						<Button type="Transparent" text="Filter"/>
 					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" >
-						<Text text="Date" />
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Button iconFirst="false" id="dateButton" text="Date" icon="sap-icon://sort" type="Transparent" press=".onSortByDate"/>
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
-						<Text text="Name" />
+						<Button iconFirst="false" text="Username" type="Transparent" />
 					</Column>
 					<Column hAlign="End">
-						<Text text="Country" />
+						<Button iconFirst="false" id="countryButton" text="Country" icon="sap-icon://sort" type="Transparent" press=".onSortByCountry"/>
 					</Column>
 				</columns>
 				<items>

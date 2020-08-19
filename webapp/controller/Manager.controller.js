@@ -33,6 +33,24 @@ sap.ui.define(
           .attachPatternMatched(this.checkLoginManager, this);
       },
 
+      onSortByDate: function () {
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter("StartDate"));
+      },
+
+      onSortByCountry: function () {
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter("Country"));
+      },
+
+      onSortByUsername: function () {
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter("UId"));
+      },
+
       onGoToLogin: function (oEvent) {
         this.logOut();
         var oRouter = this.getRouter();

@@ -17,7 +17,7 @@ sap.ui.define(
     JSONModel,
     ResourceModel,
     MessageToast,
-    FilterType
+    FilterType,
   ) {
     "use strict";
 
@@ -46,6 +46,18 @@ sap.ui.define(
         //     template: this.getView().byId("tripItem"),
         //     filters: [this.userFilter],
         //   });
+      },
+
+      onSortByDate: function() {
+        var oList = this.byId("idTrips");
+          var oBinding = oList.getBinding("items");
+          oBinding.sort(new Sorter("StartDate"));
+      },
+
+      onSortByCountry: function() {
+        var oList = this.byId("idTrips");
+          var oBinding = oList.getBinding("items");
+          oBinding.sort(new Sorter("Country"));
       },
 
       onDataReceived: function () {
