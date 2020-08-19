@@ -5,19 +5,27 @@
 	<Page showHeader="false" enableScrolling="true" class="sapUiContentPadding" showNavButton="false" visible="{UserInfo>/isUser}">
 
 		<content>
-			<VBox>
-				<MessageStrip text="You are logged in as USER." type="Information" showIcon="true">
-				</MessageStrip>
 
-			</VBox>
+			<MessageStrip text="You are logged in as USER." type="Information" showIcon="true">
+			</MessageStrip>
+
+			<FlexBox direction="Row" alignItems="Center">
+				<items>
+					<ToggleButton icon="sap-icon://accept" id="approved" text="Approved" pressed="false" press="onFilterByStatus" type="Accept"/>
+					<ToggleButton icon="sap-icon://time-account" pressed="false" id="toBeApproved" text="To Be Approved" press="onFilterByStatus" />
+					<ToggleButton icon="sap-icon://decline" pressed="false" id="declined" text="Declined" press="onFilterByStatus" type="Reject" />
+				</items>
+
+			</FlexBox>
 
 			<Link text="Do you need help planning your trip?" href="#/information"/>
 
-			<Table selectionChange="handleSelectionChange" id="idTrips" >
+			<Table visible="false" selectionChange="handleSelectionChange" id="idTrips" items="{path: '/Front_TripSet', events: {
+			dataReceived: '.onDataReceived'}}">
 				<headerToolbar>
 					<OverflowToolbar id="otbSubheader">
 						<ToolbarSpacer/>
-						<SearchField width="50%" search=".onFilterData">
+						<SearchField width="50%" search=".onFilterBySearch">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="200px" maxWidth="300px" shrinkable="true"/>
 							</layoutData>
@@ -33,7 +41,7 @@
 					<Column width="12em">
 						<Text text="Filter" />
 					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
+					<Column minScreenWidth="Tablet" demandPopin="true" >
 						<Text text="Date" />
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">

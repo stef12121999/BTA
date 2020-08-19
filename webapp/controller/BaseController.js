@@ -1,6 +1,8 @@
 sap.ui.define(
   [
     "sap/ui/core/mvc/Controller",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
     "sap/ui/core/routing/History",
     "sap/m/Button",
     "sap/m/Dialog",
@@ -10,6 +12,8 @@ sap.ui.define(
   ],
   function (
     Controller,
+    Filter,
+    FilterOperator,
     History,
     Button,
     Dialog,
@@ -88,7 +92,9 @@ sap.ui.define(
             .getModel("UserInfo")
             .getData();
           if (!userInfo.isUser) {
-            this.showMessageBoxAndGoToLogin("You must be logged in if you want to use the application");
+            this.showMessageBoxAndGoToLogin(
+              "You must be logged in if you want to use the application"
+            );
           }
         },
 
@@ -103,20 +109,17 @@ sap.ui.define(
         showMessageBoxAndGoToLogin: function (message) {
           jQuery.sap.require("sap.m.MessageBox");
           var oRouter = this.getRouter();
-          sap.m.MessageBox.error(
-            message,
-            {
-              title: "Log in",
-              onClose: function () {
-                oRouter.navTo("login");
-              },
-              styleClass: "",
-              actions: sap.m.MessageBox.Action.Close,
-              emphasizedAction: null,
-              initialFocus: null,
-              textDirection: sap.ui.core.TextDirection.Inherit,
-            }
-          );
+          sap.m.MessageBox.error(message, {
+            title: "Log in",
+            onClose: function () {
+              oRouter.navTo("login");
+            },
+            styleClass: "",
+            actions: sap.m.MessageBox.Action.Close,
+            emphasizedAction: null,
+            initialFocus: null,
+            textDirection: sap.ui.core.TextDirection.Inherit,
+          });
         },
 
         checkLoginManager: function () {
@@ -125,9 +128,83 @@ sap.ui.define(
             .getModel("UserInfo")
             .getData();
           if (!userInfo.isManager) {
-            this.showMessageBoxAndGoToLogin("You must be logged in if you want to use the application");
+            this.showMessageBoxAndGoToLogin(
+              "You must be logged in if you want to use the application"
+            );
           }
         },
+
+        combineFiltersWithAnd: function (filters) {
+          var nonNullFilters = [];
+          filters.forEach(function (value, index, array) {
+            if (filters[index] != null) {
+              nonNullFilters.push(filters[index]);
+            }
+          });
+          return new Filter({
+            filters: nonNullFilters,
+            and: true,
+          });
+        },
+
+        getInitialStatusMap: function () {
+          var statusMap = new Map();
+          statusMap.set("Approved", false);
+          statusMap.set("To Be Approved", false);
+          statusMap.set("Declined", false);
+          return statusMap;
+        },
+
+        getSearchFilter: function (text) {
+          var searchFilters = [];
+          if (text != null && text.length > 0) {
+            searchFilters.push(new Filter("Country", FilterOperator.Contains, text));
+            searchFilters.push(new Filter("UId", FilterOperator.Contains, text));
+            return new Filter({
+              filters: searchFilters,
+              and: false,
+            });
+          }
+          return null;
+        },
+
+        getStatusFilter: function (statusMap) {
+          var statusFilters = [];
+          if (statusMap.get("Approved")) {
+            statusFilters.push(
+              new Filter({
+                path: "Status",
+                operator: FilterOperator.EQ,
+                value1: "1",
+              })
+            );
+          }
+          if (statusMap.get("To Be Approved")) {
+            statusFilters.push(
+              new Filter({
+                path: "Status",
+                operator: FilterOperator.EQ,
+                value1: "0",
+              })
+            );
+          }
+          if (statusMap.get("Declined")) {
+            statusFilters.push(
+              new Filter({
+                path: "Status",
+                operator: FilterOperator.EQ,
+                value1: "2",
+              })
+            );
+          }
+          if (statusFilters.length != 0) {
+            return new Filter({
+              filters: statusFilters,
+              and: false,
+            });
+          }
+          return null;
+        }
       }
     );
 

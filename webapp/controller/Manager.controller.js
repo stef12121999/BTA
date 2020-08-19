@@ -7,6 +7,7 @@ sap.ui.define(
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/resource/ResourceModel",
     "sap/m/MessageToast",
+    "sap/ui/model/FilterType",
   ],
   function (
     BaseController,
@@ -15,69 +16,53 @@ sap.ui.define(
     Sorter,
     JSONModel,
     ResourceModel,
-    MessageToast
+    MessageToast,
+    FilterType
   ) {
     "use strict";
 
     return BaseController.extend("intern2020.controller.Manager", {
       onInit: function (oContext) {
-         this.aFilter=[];
-        
+        this.statusMap = this.getInitialStatusMap();
+
+        this.searchFilter = null;
+        this.statusFilter = null;
+
         this.getRouter()
           .getRoute("manager")
           .attachPatternMatched(this.checkLoginManager, this);
       },
 
-      
-     
       onGoToLogin: function (oEvent) {
         this.logOut();
         var oRouter = this.getRouter();
         oRouter.navTo("login");
       },
 
-      onFilterData: function (oEvent) {
-        // build filter array
-        
-        var buton_pressed=oEvent.getSource().getProperty().getText();
-        var buton_active=oEvent.getSource().getProperty().getPressed();
-        //console.log(oEvent.oSource.mProperties.text);
-       console.log(oEvent);
-        
-        if(buton_pressed="Approved" && buton_active==true){
-        
-          this.aFilter.push(new Filter("Status", FilterOperator.EQ, '1'));
-          
-        }
-        else if (buton_pressed="To Be Aproved" && buton_active==true){
-          this.aFilter.push(new Filter("Status", FilterOperator.EQ, '0'));
+      reFilter: function () {
+        var filter = this.combineFiltersWithAnd([
+          this.statusFilter,
+          this.searchFilter,
+        ]);
 
-        }
-        else if(buton_pressed="Declined" && buton_active==true)
-        {
-          this.aFilter.push(new Filter("Status", FilterOperator.EQ, '2'));
-        }
-        //console.log(aFilter);
-        
-    
-        // filter binding
         var oList = this.byId("idTrips");
         var oBinding = oList.getBinding("items");
-        oBinding.filter(this.aFilter);
-        
+        oBinding.filter(filter, FilterType.Application);
       },
-      onFilterSearch: function(oEvent){
-        // build filter array
-			
-			var sQuery = oEvent.getParameter("query");
-			if (sQuery) {
-				this.aFilter.push(new Filter("Country", FilterOperator.Contains, sQuery));
-			}
 
-			// filter binding
-			var oList = this.getView().byId("idTrips");
-			var oBinding = oList.getBinding("items");
-			oBinding.filter(this.aFilter);
+      onFilterByStatus: function (oEvent) {
+        var buttonText = oEvent.oSource.mProperties.text;
+        var buttonPressed = oEvent.oSource.mProperties.pressed;
+        this.statusMap.set(buttonText, buttonPressed);
+
+        this.statusFilter = this.getStatusFilter(this.statusMap);
+        this.reFilter();
+      },
+
+      onFilterBySearch: function (oEvent) {
+        var sQuery = oEvent.getParameter("query");
+        this.searchFilter = this.getSearchFilter(sQuery);
+        this.reFilter();
       },
 
       onPressDetail: function (oEvent) {
@@ -86,7 +71,6 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("detail", {
           sId: sID,
-          
         });
       },
 
@@ -113,8 +97,6 @@ sap.ui.define(
         this.fnApplyFiltersAndOrdering();
       },
 
-      
-
       fnApplyFiltersAndOrdering: function (oEvent) {
         var aFilters = [],
           aSorters = [];
@@ -139,7 +121,6 @@ sap.ui.define(
           .filter(aFilters)
           .sort(aSorters);
       },
-
     });
 
     return OverflowToolbarController;
