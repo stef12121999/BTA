@@ -94,7 +94,7 @@
 				
 				<columns>
 					<Column width="12em">
-						<Button type="Transparent" text="Service Unit"/>
+						<Button iconFirst="false" type="Transparent" icon="sap-icon://sort" text="Service Unit" press=".onSortByServiceUnit"/>
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Button iconFirst="false" id="dateButton" text="Date" icon="sap-icon://sort" type="Transparent" press=".onSortByDate"/>
@@ -109,7 +109,7 @@
 				<items>
 					<ColumnListItem type="Navigation" press=".onPressDetail">
 						<cells>
-							<ObjectIdentifier title="{ServiceUnit}" text="{ServiceUnit}" />
+							<ObjectIdentifier text="{ServiceUnit}" />
 							<Text text="{
 											path: 'StartDate',
 											type: 'sap.ui.model.type.Date',

@@ -51,6 +51,12 @@ sap.ui.define(
         oBinding.sort(new Sorter("UId"));
       },
 
+      onSortByServiceUnit: function () {
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter("ServiceUnit"));
+      },
+
       onGoToLogin: function (oEvent) {
         this.logOut();
         var oRouter = this.getRouter();
