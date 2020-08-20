@@ -19,6 +19,7 @@
 			</FlexBox>
 
 			<Link text="Do you need help planning your trip?" href="#/information"/>
+			<Link text="Manage other's trips" href="#/manager" visible="{UserInfo>/isManager}"/>
 
 			<Table visible="false" selectionChange="handleSelectionChange" id="idTrips" items="{path: '/Front_TripSet', events: {
 			dataReceived: '.onDataReceived'}}">

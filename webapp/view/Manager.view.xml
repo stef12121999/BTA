@@ -53,6 +53,9 @@
         </items>
   
 			</FlexBox>
+
+		<Link text="See your own trips" href="#/user"/>
+
 			<Table
 				selectionChange="handleSelectionChange"
 				id="idTrips"
