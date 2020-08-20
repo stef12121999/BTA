@@ -107,6 +107,16 @@
           "pattern": "forgotPass",
           "name": "forgotPass",
           "target": "forgotPass"
+        },
+        {
+          "pattern": "profile",
+          "name": "profile",
+          "target": "profile"
+        },
+        {
+          "pattern": "changePassword",
+          "name": "changePassword",
+          "target": "changePassword"
         }
 
       ],
@@ -139,6 +149,14 @@
         "forgotPass": {
           "viewName": "ForgotPass",
           "viewId": "forgotPass"
+        },
+        "profile": {
+          "viewName": "Profile",
+          "viewId": "profile"
+        },
+        "changePassword": {
+          "viewName": "ChangePassword",
+          "viewId": "changePassword"
         }
       }
     }

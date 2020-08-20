@@ -4,25 +4,44 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
-	<Page
-		showHeader="false"
+	<Page showHeader="false"
 		enableScrolling="true"
 		class="sapUiContentPadding"
 		showNavButton="false"
-		visible="{UserInfo>/isManager}" >
+		visible="{UserInfo>/isManager}"  >
+
+		 <OverflowToolbar design="Transparent" height="5rem">
+		 <Button  press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
+		 <ToolbarSpacer/>
+		 <ToolbarSpacer/>
+
+		
+		<MenuButton text="My Profile" icon="sap-icon://customer">
+			<menu>
+				<Menu itemSelected="onMenuAction">
+					<items>
+						<MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/>
+						<MenuItem text="Change Password" icon="sap-icon://action-settings" press="onGoToSettings" />
+						<MenuItem text="Other" icon="sap-icon://open-folder" />
+					</items>
+				</Menu>
+			</menu>
+		</MenuButton>
+		</OverflowToolbar>
     
 		<content>
 			
 
-				<MessageStrip
+				<!-- <MessageStrip
 					class="sapUiMediumMarginTopBottom"
 					text="You are logged in as MANAGER."
 					type="Information"
 					showIcon="true">
-				</MessageStrip>
+				</MessageStrip> -->
 		<FlexBox
 			direction="Row"
-        alignItems="Center">
+        alignItems="Center"
+		height="3rem">
         <items>
             
             
@@ -70,7 +89,7 @@
 				</headerToolbar>
 				
 				<columns>
-					<Column width="12em"><Text text="ID" /></Column>
+					<Column width="12em"><Text text="Service Unit" /></Column>
 					<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Start Date-End Date" /></Column>
 					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End"><Text text="Name" /></Column>
 					<Column hAlign="End"><Text text="Country" /></Column>
@@ -78,7 +97,7 @@
 				<items>
 					<ColumnListItem type="Navigation" press=".onPressDetail">
 						<cells>
-							<ObjectIdentifier title="{RId}" text="{RequestId}" />
+							<ObjectIdentifier title="{ServiceUnit}" text="{ServiceUnit}" />
 							<Text text="{
 											path: 'StartDate',
 											type: 'sap.ui.model.type.Date',
@@ -99,7 +118,7 @@
 		</content>
 		<footer>
 			<OverflowToolbar id="otbFooter">
-			<Button  press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
+			
 				<ToolbarSpacer/>
 			</OverflowToolbar>
 		</footer>
