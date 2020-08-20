@@ -55,6 +55,7 @@
 			</FlexBox>
 			<Table
 				selectionChange="handleSelectionChange"
+				
 				id="idTrips"
 				items="{/Front_TripSet}">
 				<headerToolbar>
@@ -63,17 +64,17 @@
 						<SearchField width="50%" search="onFilterSearch">
 							<layoutData><OverflowToolbarLayoutData minWidth="200px" maxWidth="300px" shrinkable="true"/></layoutData>
 						</SearchField>
-						<Button text="Reset" type="Transparent" press="onReset"/>
-						<OverflowToolbarButton type="Transparent" text="Sort" icon="sap-icon://sort" press="onSort"/>
-						<OverflowToolbarButton type="Transparent" text="Group" icon="sap-icon://group-2" press="onGroup"/>
+						<Button text="Reset"   type="Transparent" press="onReset" tooltip="Clear all sortings"/>
+						<OverflowToolbarButton type="Transparent" text="Sort" icon="sap-icon://sort" press="onSort" tooltip="Sort ascending by Name"/>
+						<OverflowToolbarButton type="Transparent" text="Group" icon="sap-icon://group-2" press="onGroup" tooltip="Sort ascending by Country"/>
 					</OverflowToolbar>
 				</headerToolbar>
 				
 				<columns>
-					<Column width="12em"><Text text="ID" /></Column>
-					<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Start Date-End Date" /></Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End"><Text text="Name" /></Column>
-					<Column hAlign="End"><Text text="Country" /></Column>
+					<Column id="Id"   width="12em" press="true"><Button text="ID" press="onID" /></Column>
+					<Column id="date"  minScreenWidth="Tablet" demandPopin="true"><Button text="Start Date-End Date" /></Column>
+					<Column id="name"   minScreenWidth="Tablet" demandPopin="true" hAlign="End"><Button text="Name" /></Column>
+					<Column id="country"  hAlign="End"><Button text="Country" /></Column>
 				</columns>
 				<items>
 					<ColumnListItem type="Navigation" press=".onPressDetail">

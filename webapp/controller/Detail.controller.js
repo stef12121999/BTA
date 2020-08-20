@@ -68,8 +68,6 @@ sap.ui.define(
         }
       },
 
-      onPressSubmitDecline(oEvent) {},
-
       onPressDecline(oEvent) {
         var dialog = new Dialog({
           title: "Confirm",

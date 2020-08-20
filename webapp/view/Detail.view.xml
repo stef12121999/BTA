@@ -7,6 +7,26 @@
 	controllerName="intern2020.controller.Detail"
 	xmlns="sap.m" >
     <Page visible="{UserInfo>/isManager}" >
+
+
+	<ObjectHeader
+                    responsive="true"
+                    fullScreenOptimized="true"                    
+                    numberState="Success"
+                    backgroundDesign="Translucent">
+                <attributes>
+                    <ObjectAttribute/>
+                </attributes>
+                <statuses>
+                    <ObjectStatus
+                            title="Status"
+                            text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}"
+                            state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}"/>
+                </statuses>
+            </ObjectHeader> <!-- text="{= ${Status} === '1' ? 'Approved' : ${Status}=== '0' ? 'To Be Approved' : ${Status} === '2' ? 'Declined'}"
+                            state="Warning" -->
+
+
 	<VBox class="sapUiSmallMargin" >
 		<f:Form id="FormToolbar"
 			editable="true"
@@ -66,19 +86,27 @@
 						</f:FormElement>
 						<f:FormElement label="Start Date">
 
-								<TextArea value="{StartDate}" width="100%" editable="false" height="1rem"/>
+								<TextArea value="{
+											path: 'StartDate',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												style: 'short'
+											}}" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
 						<f:FormElement label="End Date">
 
-								<TextArea value="{EndDate}" width="100%" editable="false" height="1rem"/>
+								<TextArea value="{path: 'EndDate',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												style: 'short'
+												}}" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement>
-						<f:FormElement label="Status">
+						<!-- <f:FormElement label="Status">
+						 		<TextArea value="{Status}" width="100%" editable="false" height="1rem"/>
 
-								<TextArea value="{Status}" width="100%" editable="false" height="1rem"/>
-
-						</f:FormElement>
+						</f:FormElement> -->
 						<f:FormElement label="Decline Reason">
 
 								<TextArea value="{DeclineReason}" width="100%" editable="false" height="1rem"/>
