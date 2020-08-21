@@ -35,7 +35,9 @@ sap.ui.define(
         var tempStatus = oModel.getData(
           "/Front_TripSet('" + this.requestId + "')"
         ).Status;
+        
         if (tempStatus == 0) {
+          console.log(tempStatus);
           this.getView().byId("acceptButton").setVisible(true);
           this.getView().byId("declineButton").setVisible(true);
         }

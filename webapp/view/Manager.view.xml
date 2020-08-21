@@ -128,12 +128,6 @@
 				</items>
 			</Table>
 		</content>
-		<footer>
-			<OverflowToolbar id="otbFooter">
-			
-				<ToolbarSpacer/>
-			</OverflowToolbar>
-		</footer>
 
 	</Page>
 </mvc:View>

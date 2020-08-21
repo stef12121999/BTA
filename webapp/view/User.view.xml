@@ -74,12 +74,5 @@
 				</items>
 			</Table>
 		</content>
-		<footer>
-			<OverflowToolbar id="otbFooter">
-				<Button press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
-
-			</OverflowToolbar>
-		</footer>
-
 	</Page>
 </mvc:View>

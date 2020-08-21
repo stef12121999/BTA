@@ -265,14 +265,15 @@
 	</VBox>
     <footer>
 			<OverflowToolbar id="otbFooter">
-            <Button  press="onGoBack" text="Go Back" icon="sap-icon://nav-back"/>
 				<ToolbarSpacer/>
+				<HBox>
 				<Button id="acceptButton" visible="false" type="Accept" text="Accept" width="12rem" press="onPressAccept">
 					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
 				</Button>
 				<Button id="declineButton" visible="false" type="Reject" text="Reject" width="12rem" press="onPressDecline" >
 					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
 				</Button>
+				</HBox>
 
 
 			</OverflowToolbar>
