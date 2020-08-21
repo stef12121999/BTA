@@ -25,7 +25,12 @@ sap.ui.define(
       onInit: function () {
         this.getRouter()
           .getRoute("user")
-          .attachPatternMatched(this.checkLoginUser, this);
+          .attachPatternMatched(this.patternMatched, this);
+        this.checkLoginUser();
+      },
+
+      patternMatched: function () {
+        this.getView().byId("idTrips").setVisible(false);
         this.checkLoginUser();
 
         this.countLoad = 0;
@@ -38,6 +43,12 @@ sap.ui.define(
         this.statusMap = this.getInitialStatusMap();
         this.searchFilter = null;
         this.statusFilter = null;
+
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        if (oBinding != null) {
+          oBinding.refresh();
+        }
       },
 
       onSortByDate: function() {

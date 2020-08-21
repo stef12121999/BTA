@@ -5,26 +5,29 @@
 	<Page showHeader="false" enableScrolling="true" class="sapUiContentPadding" showNavButton="false" visible="{UserInfo>/isUser}">
 
 		<content>
-
-			<MessageStrip text="You are logged in as USER." type="Information" showIcon="true">
-			</MessageStrip>
-
-			<FlexBox direction="Row" alignItems="Center">
-				<items>
-					<ToggleButton icon="sap-icon://accept" id="approved" text="Approved" pressed="false" press="onFilterByStatus" type="Accept"/>
-					<ToggleButton icon="sap-icon://time-account" pressed="false" id="toBeApproved" text="To Be Approved" press="onFilterByStatus" />
-					<ToggleButton icon="sap-icon://decline" pressed="false" id="declined" text="Declined" press="onFilterByStatus" type="Reject" />
-				</items>
-
-			</FlexBox>
-
 			<Link text="Do you need help planning your trip?" href="#/information"/>
 			<Link text="Manage other's trips" href="#/manager" visible="{UserInfo>/isManager}"/>
 
-			<Table visible="false" selectionChange="handleSelectionChange" id="idTrips" items="{path: '/Front_TripSet', events: {
+			<Table selectionChange="handleSelectionChange" id="idTrips" items="{path: '/Front_TripSet', events: {
 			dataReceived: '.onDataReceived'}}">
 				<headerToolbar>
 					<OverflowToolbar id="otbSubheader">
+						<ToggleButton icon="sap-icon://accept" text="Approved" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+							</layoutData>
+						</ToggleButton>
+						<ToggleButton icon="sap-icon://time-account" type="Ghost" pressed="false" text="To Be Approved" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" press="onFilterByStatus">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+							</layoutData>
+						</ToggleButton>
+						<ToggleButton icon="sap-icon://decline" pressed="false" text="Declined" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Reject">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+							</layoutData>
+						</ToggleButton>
+
 						<ToolbarSpacer/>
 						<SearchField width="50%" search=".onFilterBySearch">
 							<layoutData>
@@ -33,8 +36,6 @@
 
 						</SearchField>
 						<Button text="Reset" type="Transparent" press="onReset"/>
-						<OverflowToolbarButton type="Transparent" text="Sort" icon="sap-icon://sort" press="onSort"/>
-						<OverflowToolbarButton type="Transparent" text="Group" icon="sap-icon://group-2" press="onGroup"/>
 					</OverflowToolbar>
 				</headerToolbar>
 

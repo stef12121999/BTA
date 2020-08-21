@@ -1,9 +1,8 @@
-<mvc:View
-	height="100%"
-	controllerName="intern2020.controller.Manager"
+<mvc:View height="100%" controllerName="intern2020.controller.Manager"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
+<<<<<<< HEAD
 	<Page title="Manager Page"
 		enableScrolling="true"
 		class="sapUiContentPadding"
@@ -15,83 +14,64 @@
 		 <Button  press="onGoToLogin" text="" icon="sap-icon://nav-back"/>
 		 <ToolbarSpacer/>
 		 <ToolbarSpacer/>
+=======
+	<Page title="Manager Page" enableScrolling="true" class="sapUiContentPadding" showNavButton="false" visible="{UserInfo>/isManager}">
 
-		
-		<MenuButton text="My Profile" icon="sap-icon://customer">
-			<menu>
-				<Menu itemSelected="onMenuAction">
-					<items>
-						<MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/>
-						<MenuItem text="Change Password" icon="sap-icon://action-settings" press="onGoToSettings" />
-						<MenuItem text="Other" icon="sap-icon://open-folder"  />
-					</items>
-				</Menu>
-			</menu>
-		</MenuButton>
+		<OverflowToolbar design="Transparent" height="5rem">
+			<Button press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
+			<ToolbarSpacer/>
+			<ToolbarSpacer/>
+>>>>>>> design-stuff
+
+
+			<MenuButton text="My Profile" icon="sap-icon://customer">
+				<menu>
+					<Menu itemSelected="onMenuAction">
+						<items>
+							<MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/>
+							<MenuItem text="Change Password" icon="sap-icon://action-settings" press="onGoToSettings" />
+							<MenuItem text="Other" icon="sap-icon://open-folder" />
+						</items>
+					</Menu>
+				</menu>
+			</MenuButton>
 		</OverflowToolbar>
-    
+
 		<content>
-		<FlexBox
-			height="100px"
-			alignItems="Start"
-			justifyContent="Center">
-        <items>
-            
-            
-            <ToggleButton
-                icon="sap-icon://accept"
-                id="approved"
-                text="Approved"
-				pressed="false"
-				press="onFilterByStatus"
-				class="sapUiSmallMarginBegin"
-                type="Accept"
-				width="30em"/>
 
-            <ToggleButton
-                icon="sap-icon://time-account"
-                pressed="false"
-				id="toBeApproved"
-                text="To Be Approved"
-				class="sapUiSmallMarginBeginEnd"
-				press="onFilterByStatus"
-                width="30em"
-				/>
-            <ToggleButton
-                icon="sap-icon://decline"
-                pressed="false"
-				id="declined"
-                text="Declined"
-				press="onFilterByStatus"
-				class="sapUiSmallMarginEnd"
-         		type="Reject" 
-				width="30em"/>
-        </items>
-  
-			</FlexBox>
+			<Link text="See your own trips" href="#/user"/>
 
-		<Link text="See your own trips" href="#/user"/>
-
-			<Table
-				selectionChange="handleSelectionChange"
-				
-				id="idTrips"
-				items="{/Front_TripSet}">
-				<headerToolbar>
+			<Table selectionChange="handleSelectionChange" id="idTrips" items="{/Front_TripSet}">
+				<headerToolbar >
 					<OverflowToolbar id="otbSubheader">
+						<ToggleButton icon="sap-icon://accept" text="Approved" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+							</layoutData>
+						</ToggleButton>
+						<ToggleButton icon="sap-icon://time-account" type="Ghost" pressed="false" text="To Be Approved" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" press="onFilterByStatus">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+							</layoutData>
+						</ToggleButton>
+						<ToggleButton icon="sap-icon://decline" pressed="false" text="Declined" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Reject">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+							</layoutData>
+						</ToggleButton>
+						
 						<ToolbarSpacer/>
 						<SearchField width="50%" search="onFilterBySearch">
-							<layoutData><OverflowToolbarLayoutData minWidth="200px" maxWidth="300px" shrinkable="true"/></layoutData>
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="200px" maxWidth="400px" shrinkable="true"/>
+							</layoutData>
 						</SearchField>
-						<Button text="Reset"   type="Transparent" press="onReset" tooltip="Clear all sortings"/>
-						<OverflowToolbarButton type="Transparent" text="Sort" icon="sap-icon://sort" press="onSort" tooltip="Sort ascending by Name"/>
-						<OverflowToolbarButton type="Transparent" text="Group" icon="sap-icon://group-2" press="onGroup" tooltip="Sort ascending by Country"/>
+						<Button text="Reset" type="Transparent" press="onReset" tooltip="Clear all sortings"/>
 					</OverflowToolbar>
 				</headerToolbar>
-				
 				<columns>
 					<Column width="12em">
-						<Button type="Transparent" text="Service Unit"/>
+						<Button iconFirst="false" id="serviceUnitButton" text="Service unit" icon="sap-icon://sort" type="Transparent" press=".onSortByServiceUnit"/>
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Button iconFirst="false" id="dateButton" text="Date" icon="sap-icon://sort" type="Transparent" press=".onSortByDate"/>
@@ -106,7 +86,7 @@
 				<items>
 					<ColumnListItem type="Navigation" press=".onPressDetail">
 						<cells>
-							<ObjectIdentifier title="{ServiceUnit}" text="{ServiceUnit}" />
+							<ObjectIdentifier text="{ServiceUnit}" />
 							<Text text="{
 											path: 'StartDate',
 											type: 'sap.ui.model.type.Date',
