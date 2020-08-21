@@ -3,8 +3,11 @@
     xmlns:core="sap.ui.core"
     controllerName="intern2020.controller.Login"
     xmlns="sap.m">
-    <Page title="{i18n>homePageTitle}">
-    <Panel>
+
+    <App backgroundImage="https://www.fourkites.com/wp-content/uploads/2019/05/jda-banner.jpg"
+    backgroundOpacity="0"
+    backgroundRepeat="false">
+    <Page title="{i18n>homePageTitle}" >
         <ObjectHeader
                     responsive="true"
                     fullScreenOptimized="true"
@@ -30,7 +33,9 @@
             </ObjectHeader>
     <FlexBox
         direction="Column"
-        alignItems="Center">
+        alignItems="Center"
+        justifyContent="Center"
+        height="600px">
     <items>
     <Input
       id="username"
@@ -53,7 +58,7 @@
     </items>
     
     </FlexBox>
- 
-</Panel>
+
 </Page>
+</App>
 </mvc:View>
