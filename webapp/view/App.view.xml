@@ -3,8 +3,12 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true">
-	<Shell>
-		 <App id="appControl">
+	<Shell 	 
+	backgroundImage="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/1109c798219983.5ed7ad1c18d50.jpg">
+		 <App id="appControl"  
+		class="myApp"
+  		  backgroundOpacity="0"
+   		 backgroundRepeat="false">
         <pages>
         </pages>
     </App>
