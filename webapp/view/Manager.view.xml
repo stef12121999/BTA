@@ -4,7 +4,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
-	<Page showHeader="false"
+	<Page title="Manager Page"
 		enableScrolling="true"
 		class="sapUiContentPadding"
 		showNavButton="false"
@@ -22,7 +22,7 @@
 					<items>
 						<MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/>
 						<MenuItem text="Change Password" icon="sap-icon://action-settings" press="onGoToSettings" />
-						<MenuItem text="Other" icon="sap-icon://open-folder" />
+						<MenuItem text="Other" icon="sap-icon://open-folder"  />
 					</items>
 				</Menu>
 			</menu>
@@ -31,9 +31,9 @@
     
 		<content>
 		<FlexBox
-			direction="Row"
-        alignItems="Center"
-		height="3rem">
+			height="100px"
+			alignItems="Start"
+			justifyContent="Center">
         <items>
             
             
@@ -43,15 +43,18 @@
                 text="Approved"
 				pressed="false"
 				press="onFilterByStatus"
-                
-				type="Accept"/>
+				class="sapUiSmallMarginBegin"
+                type="Accept"
+				width="30em"/>
+
             <ToggleButton
                 icon="sap-icon://time-account"
                 pressed="false"
 				id="toBeApproved"
                 text="To Be Approved"
+				class="sapUiSmallMarginBeginEnd"
 				press="onFilterByStatus"
-                
+                width="30em"
 				/>
             <ToggleButton
                 icon="sap-icon://decline"
@@ -59,8 +62,9 @@
 				id="declined"
                 text="Declined"
 				press="onFilterByStatus"
-         
-				type="Reject" />
+				class="sapUiSmallMarginEnd"
+         		type="Reject" 
+				width="30em"/>
         </items>
   
 			</FlexBox>
@@ -86,7 +90,7 @@
 				
 				<columns>
 					<Column width="12em">
-						<Button iconFirst="false" type="Transparent" icon="sap-icon://sort" text="Service Unit" press=".onSortByServiceUnit"/>
+						<Button type="Transparent" text="Service Unit"/>
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Button iconFirst="false" id="dateButton" text="Date" icon="sap-icon://sort" type="Transparent" press=".onSortByDate"/>
@@ -101,7 +105,7 @@
 				<items>
 					<ColumnListItem type="Navigation" press=".onPressDetail">
 						<cells>
-							<ObjectIdentifier text="{ServiceUnit}" />
+							<ObjectIdentifier title="{ServiceUnit}" text="{ServiceUnit}" />
 							<Text text="{
 											path: 'StartDate',
 											type: 'sap.ui.model.type.Date',

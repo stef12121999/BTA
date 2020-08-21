@@ -6,9 +6,10 @@
 	xmlns:core="sap.ui.core"
 	controllerName="intern2020.controller.Detail"
 	xmlns="sap.m" >
-    <Page visible="{UserInfo>/isManager}" >
+    <Page visible="{UserInfo>/isManager}" 
+	      title="Trip Page">
 
-
+    <Button  press="onGoBack"  icon="sap-icon://nav-back"/>
 	<ObjectHeader
                     responsive="true"
                     fullScreenOptimized="true"                    
