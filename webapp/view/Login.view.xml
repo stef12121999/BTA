@@ -4,10 +4,7 @@
     controllerName="intern2020.controller.Login"
     xmlns="sap.m">
 
-    <App backgroundImage="https://www.fourkites.com/wp-content/uploads/2019/05/jda-banner.jpg"
-    backgroundOpacity="0"
-    backgroundRepeat="false">
-    <Page title="{i18n>homePageTitle}" >
+    <Page title="{i18n>homePageTitle}"  enableScrolling="false">
         <ObjectHeader
                     responsive="true"
                     fullScreenOptimized="true"
@@ -60,5 +57,4 @@
     </FlexBox>
 
 </Page>
-</App>
 </mvc:View>

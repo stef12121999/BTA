@@ -7,11 +7,12 @@
 	<Page title="Manager Page"
 		enableScrolling="true"
 		class="sapUiContentPadding"
-		showNavButton="false"
+		showNavButton="true"
+	onNavBack="onGoToLogin"
 		visible="{UserInfo>/isManager}"  >
 
 		 <OverflowToolbar design="Transparent" height="5rem">
-		 <Button  press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
+		 <Button  press="onGoToLogin" text="" icon="sap-icon://nav-back"/>
 		 <ToolbarSpacer/>
 		 <ToolbarSpacer/>
 
