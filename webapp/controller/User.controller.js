@@ -62,12 +62,6 @@ sap.ui.define(
           var oBinding = oList.getBinding("items");
           oBinding.sort(new Sorter("Country"));
       },
- 
-      onSortByServiceUnit: function () {
-        var oList = this.byId("idTrips");
-        var oBinding = oList.getBinding("items");
-        oBinding.sort(new Sorter("ServiceUnit"));
-      },
 
       onDataReceived: function () {
         if (this.countLoad == 0) {
