@@ -40,7 +40,7 @@
 
 				<columns>
 					<Column width="12em">
-						<Button type="Transparent" text="Filter"/>
+						<Button iconFirst="false" type="Transparent" icon="sap-icon://sort" text="Service Unit" press=".onSortByServiceUnit"/>
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Button iconFirst="false" id="dateButton" text="Date" icon="sap-icon://sort" type="Transparent" press=".onSortByDate"/>

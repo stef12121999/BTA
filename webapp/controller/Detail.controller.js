@@ -20,27 +20,34 @@ sap.ui.define(
     "use strict";
     return BaseController.extend("intern2020.controller.Detail", {
       onInit: function (oEvent) {
+        this.alreadyLoaded = false;
         this.getRouter()
           .getRoute("detail")
           .attachPatternMatched(this.patternMatched, this);
       },
 
-      
+      setButtons: function () {
+        var status = this.getView()
+          .getModel()
+          .getData("/Front_TripSet('" + this.requestId + "')").Status;
+        if (status == 0) {
+          this.getView().byId("acceptButton").setVisible(true);
+          this.getView().byId("declineButton").setVisible(true);
+        } else {
+          this.getView().byId("acceptButton").setVisible(false);
+          this.getView().byId("declineButton").setVisible(false);
+        }
+      },
 
       patternMatched: function (oEvent) {
         this.checkLoginManager();
         this.requestId = oEvent.getParameter("arguments").sId;
-        this.getView().bindElement("/Front_TripSet('" + this.requestId + "')");
-        var oModel = this.getView().getModel();
-        var tempStatus = oModel.getData(
-          "/Front_TripSet('" + this.requestId + "')"
-        ).Status;
-        
-        if (tempStatus == 0) {
-          console.log(tempStatus);
-          this.getView().byId("acceptButton").setVisible(true);
-          this.getView().byId("declineButton").setVisible(true);
-        }
+        this.getView().bindElement({
+          path: "/Front_TripSet('" + this.requestId + "')",
+          events: {
+            change: this.setButtons.bind(this),
+          },
+        });
       },
 
       onGoBack: function (oEvent) {

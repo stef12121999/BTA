@@ -38,14 +38,6 @@ sap.ui.define(
         this.statusMap = this.getInitialStatusMap();
         this.searchFilter = null;
         this.statusFilter = null;
-
-        // this.getView()
-        //   .byId("idTrips")
-        //   .bindAggregation("items", {
-        //     path: "/Front_TripSet",
-        //     template: this.getView().byId("tripItem"),
-        //     filters: [this.userFilter],
-        //   });
       },
 
       onSortByDate: function() {
@@ -58,6 +50,12 @@ sap.ui.define(
         var oList = this.byId("idTrips");
           var oBinding = oList.getBinding("items");
           oBinding.sort(new Sorter("Country"));
+      },
+ 
+      onSortByServiceUnit: function () {
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter("ServiceUnit"));
       },
 
       onDataReceived: function () {
