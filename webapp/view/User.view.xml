@@ -40,23 +40,22 @@
 				</headerToolbar>
 
 				<columns>
-					<Column width="12em">
-						<Button  type="Transparent" text="Service Unit"/>
-					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Button iconFirst="false" id="dateButton" text="Date" icon="sap-icon://sort" type="Transparent" press=".onSortByDate"/>
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
-						<Button iconFirst="false" text="Username" type="Transparent" />
+						<Button iconFirst="false" id="totalCostButton" text="Total cost" icon="sap-icon://sort" type="Transparent" press=".onSortByTotalCost"/>
 					</Column>
 					<Column hAlign="End">
 						<Button iconFirst="false" id="countryButton" text="Country" icon="sap-icon://sort" type="Transparent" press=".onSortByCountry"/>
+					</Column>
+					<Column hAlign="End">
+						<Button iconFirst="false" id="cityButton" text="City" icon="sap-icon://sort" type="Transparent" press=".onSortByCity"/>
 					</Column>
 				</columns>
 				<items>
 					<ColumnListItem type="Navigation" press=".onPressDetail" id="tripItem">
 						<cells>
-							<ObjectIdentifier text="{ServiceUnit}" />
 							<Text text="{
 											path: 'StartDate',
 											type: 'sap.ui.model.type.Date',
@@ -68,8 +67,9 @@
 											formatOptions: {
 												style: 'short'
 												}}" />
-							<Text text="{UId}" />
+							<Text text="{Total} RON" />
 							<Text text="{Country}"/>
+							<Text text="{City}" />
 						</cells>
 					</ColumnListItem>
 				</items>
