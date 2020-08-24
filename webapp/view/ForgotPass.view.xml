@@ -1,31 +1,18 @@
-<mvc:View
-   xmlns:mvc="sap.ui.core.mvc"
-    xmlns:core="sap.ui.core"
-    controllerName="intern2020.controller.ForgotPass"
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core" controllerName="intern2020.controller.ForgotPass"
     xmlns="sap.m">
     <Page title="{i18n>forgotPageTitle}">
-    <Panel>
-    <FlexBox
-     direction="Column"
-     height="500px"
-	 alignItems="Center"
-	 justifyContent="Center"
-        
-		>
-    <items>
-    <Label text="EMAIL ADRESS"  width="15rem"/>
-    <Input id="input-c" placeholder="Email adress" width="15rem"/>
-      
-    <Button
-        text="Send Me Instructions"
-        press="onSendEmail"
-        width="15rem"
-        icon="sap-icon://action"
-        />
-    </items>
-    
-    </FlexBox>
- 
-</Panel>
-</Page>
+        <Panel>
+            <FlexBox direction="Column" height="500px" alignItems="Center" justifyContent="Center">
+                <items>
+                    <Label text="EMAIL ADRESS" width="15rem"/>
+                    <Input id="input-c" placeholder="Email adress" width="15rem"/>
+
+                    <Button text="Send Me Instructions" press="onSendEmail" width="15rem" icon="sap-icon://action" />
+                </items>
+
+            </FlexBox>
+
+        </Panel>
+    </Page>
 </mvc:View>

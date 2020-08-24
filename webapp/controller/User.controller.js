@@ -25,7 +25,12 @@ sap.ui.define(
       onInit: function () {
         this.getRouter()
           .getRoute("user")
-          .attachPatternMatched(this.checkLoginUser, this);
+          .attachPatternMatched(this.patternMatched, this);
+        this.checkLoginUser();
+      },
+
+      patternMatched: function () {
+        this.getView().byId("idTrips").setVisible(false);
         this.checkLoginUser();
 
         this.countLoad = 0;
@@ -39,13 +44,11 @@ sap.ui.define(
         this.searchFilter = null;
         this.statusFilter = null;
 
-        // this.getView()
-        //   .byId("idTrips")
-        //   .bindAggregation("items", {
-        //     path: "/Front_TripSet",
-        //     template: this.getView().byId("tripItem"),
-        //     filters: [this.userFilter],
-        //   });
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        if (oBinding != null) {
+          oBinding.refresh();
+        }
       },
 
       onSortByDate: function() {

@@ -95,13 +95,6 @@
 		</f:Form>
         
 	</VBox>
-    <footer>
-			<OverflowToolbar id="otbFooter">
-            <Button  press="onGoBack" text="Go Back" icon="sap-icon://nav-back"/>
-				<ToolbarSpacer/>
-
-			</OverflowToolbar>
-		</footer>
 
     </Page>
 </mvc:View>

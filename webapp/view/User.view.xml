@@ -2,29 +2,46 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
-	<Page showHeader="false" enableScrolling="true" class="sapUiContentPadding" showNavButton="false" visible="{UserInfo>/isUser}">
+	<Page title="User Page" enableScrolling="true" class="sapUiContentPadding" showNavButton="true" 
+	 navButtonPress="onGoToLogin" visible="{UserInfo>/isUser}">
+	 <headerContent>
+			<MenuButton text="My Profile" icon="sap-icon://customer">
+				<menu>
+					<Menu itemSelected="onMenuAction">
+						<items>
+							<MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/>
+							<MenuItem text="Change Password" icon="sap-icon://action-settings" press="onGoToSettings" />
+						</items>
+					</Menu>
+				</menu>
+			</MenuButton>
+		</headerContent>		
+
 
 		<content>
-
-			<MessageStrip text="You are logged in as USER." type="Information" showIcon="true">
-			</MessageStrip>
-
-			<FlexBox direction="Row" alignItems="Center">
-				<items>
-					<ToggleButton icon="sap-icon://accept" id="approved" text="Approved" pressed="false" press="onFilterByStatus" type="Accept"/>
-					<ToggleButton icon="sap-icon://time-account" pressed="false" id="toBeApproved" text="To Be Approved" press="onFilterByStatus" />
-					<ToggleButton icon="sap-icon://decline" pressed="false" id="declined" text="Declined" press="onFilterByStatus" type="Reject" />
-				</items>
-
-			</FlexBox>
-
 			<Link text="Do you need help planning your trip?" href="#/information"/>
 			<Link text="Manage other's trips" href="#/manager" visible="{UserInfo>/isManager}"/>
 
-			<Table visible="false" selectionChange="handleSelectionChange" id="idTrips" items="{path: '/Front_TripSet', events: {
+			<Table selectionChange="handleSelectionChange" id="idTrips" items="{path: '/Front_TripSet', events: {
 			dataReceived: '.onDataReceived'}}">
 				<headerToolbar>
 					<OverflowToolbar id="otbSubheader">
+						<ToggleButton icon="sap-icon://accept" text="Approved" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+							</layoutData>
+						</ToggleButton>
+						<ToggleButton icon="sap-icon://time-account" type="Ghost" pressed="false" text="To Be Approved" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" press="onFilterByStatus">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+							</layoutData>
+						</ToggleButton>
+						<ToggleButton icon="sap-icon://decline" pressed="false" text="Declined" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Reject">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+							</layoutData>
+						</ToggleButton>
+
 						<ToolbarSpacer/>
 						<SearchField width="50%" search=".onFilterBySearch">
 							<layoutData>
@@ -33,14 +50,12 @@
 
 						</SearchField>
 						<Button text="Reset" type="Transparent" press="onReset"/>
-						<OverflowToolbarButton type="Transparent" text="Sort" icon="sap-icon://sort" press="onSort"/>
-						<OverflowToolbarButton type="Transparent" text="Group" icon="sap-icon://group-2" press="onGroup"/>
 					</OverflowToolbar>
 				</headerToolbar>
 
 				<columns>
 					<Column width="12em">
-						<Button type="Transparent" text="Filter"/>
+						<Button  type="Transparent" text="Service Unit"/>
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Button iconFirst="false" id="dateButton" text="Date" icon="sap-icon://sort" type="Transparent" press=".onSortByDate"/>
@@ -55,7 +70,7 @@
 				<items>
 					<ColumnListItem type="Navigation" press=".onPressDetail" id="tripItem">
 						<cells>
-							<ObjectIdentifier title="{RId}" text="{RequestId}" />
+							<ObjectIdentifier text="{ServiceUnit}" />
 							<Text text="{
 											path: 'StartDate',
 											type: 'sap.ui.model.type.Date',
@@ -74,12 +89,5 @@
 				</items>
 			</Table>
 		</content>
-		<footer>
-			<OverflowToolbar id="otbFooter">
-				<Button press="onGoToLogin" text="Log out" icon="sap-icon://nav-back"/>
-
-			</OverflowToolbar>
-		</footer>
-
 	</Page>
 </mvc:View>
