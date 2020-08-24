@@ -1,9 +1,9 @@
 <mvc:View
    xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core"
-    
+    controllerName="intern2020.controller.ForgotPass"
     xmlns="sap.m">
-    <Page title="{i18n>forgotPageTitle}"><!-- controllerName="intern2020.controller.ForgotPass" -->
+    <Page title="{i18n>forgotPageTitle}">
     <Panel>
     <FlexBox
      direction="Column"

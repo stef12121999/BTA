@@ -25,25 +25,36 @@ sap.ui.define(
  
         onSendEmail: function(oEvent)
         {
-          
+          console.log("ffffffffff");
             var oView = this.getView();
             var oModel = oView.getModel();
-            var UserId = oView.byId("input-c").getValue();
+            var UId = oView.byId("input-c").getValue();
+
+
+            oModel.callFunction("/Change_Password", "POST", {"UserId": UId}, {
+                  success: function (oData) {
+                    MessageToast.show("Password changed.")
+                  }.bind(this),
+    
+                  error: function () {
+                    MessageToast.show("Login Failed");
+                  },
+                } ) ;
+
  
-            oModel.callFunction("Change_Password",{
-              Id : UserId
-            },
+            // oModel.callFunction("/Change_Password",{
+            //   UserId : UId
+            // },
+            //   {
+            //     success: function (oData) {
+            //       MessageToast.show("Password changed.")
+            //     }.bind(this),
   
-              {
-                success: function (oData) {
-                  MessageToast.show("Password changed.")
-                }.bind(this),
-  
-                error: function () {
-                  MessageToast.show("Login Failed");
-                },
-              }
-            );
+            //     error: function () {
+            //       MessageToast.show("Login Failed");
+            //     },
+            //   }
+            // );
         }
   
   
