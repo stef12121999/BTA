@@ -63,11 +63,7 @@
 						</Toolbar>
 					</f:toolbar>
 					<f:formElements>
-						<f:FormElement label="Trip Id">
-
-								<TextArea value="{TripId}" width="100%" editable="false" height="1rem"/>
-
-							</f:FormElement>
+						
 							<f:FormElement label="Reason">
 
 								<TextArea value="{Reason}" width="100%" editable="false" height="1rem"/>

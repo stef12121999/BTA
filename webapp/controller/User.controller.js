@@ -134,6 +134,7 @@ sap.ui.define(
         this.byId("otbSubheader").setWidth(iValue + "%");
         this.byId("otbFooter").setWidth(iValue + "%");
       },
+      
 
       _fnGroup: function (oContext) {
         var UserId = oContext.getProperty("UId");
@@ -148,6 +149,12 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("login");
       },
+      onPlanTrip: function (oEvent) {
+        this.logOut();
+        var oRouter = this.getRouter();
+        oRouter.navTo("information");
+      },
+
 
       onNavBack: function () {
         var oHistory = History.getInstance();

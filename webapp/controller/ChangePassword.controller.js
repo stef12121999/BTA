@@ -25,10 +25,11 @@ sap.ui.define(
         this.getRouter()
           .getRoute("changePassword")
           .attachPatternMatched(this.patternMatched, this);
-        this.checkLoginUser();
+        this.checkLoginUser(); //should not be called here and also in patternMatched (just in patternMatched) difference between: attchPatternMatched/attachMatched/attachRouteMatch
       },
 
       onNavBack: function () {
+        //this.onNavBack("user")->call function from base controoler
         var oHistory = History.getInstance();
         var sPreviousHash = oHistory.getPreviousHash();
 

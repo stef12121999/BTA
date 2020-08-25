@@ -34,7 +34,13 @@ sap.ui.define(
           .getRoute("manager")
           .attachPatternMatched(this.checkLoginManager, this);
       },
-
+/*ONLY ONE FUNCTION : onSort(oEvent) function () {
+        var sSortProperty = oEvent.getSource().getId();
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter(sSortProperty));
+      },
+}*/
       onSortByDate: function () {
         var oList = this.byId("idTrips");
         var oBinding = oList.getBinding("items");

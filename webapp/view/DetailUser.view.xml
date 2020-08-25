@@ -42,56 +42,200 @@
 						</Toolbar>
 					</f:toolbar>
 					<f:formElements>
-						<f:FormElement label="Trip Id">
+						
+							<f:FormElement label="Reason">
 
-								<TextArea value="{TripId}" width="100%" editable="false" height="1rem"/>
-
-						</f:FormElement>
-						<f:FormElement label="Status">
-
-								<TextArea value="{Status}" width="100%" editable="false" height="1rem"/>
-                               
+								<TextArea value="{Reason}" width="100%" editable="false" height="1rem"/>
 
 
-						</f:FormElement>
-						<f:FormElement label="Country">
 
-								<TextArea value="{Country}" width="100%" editable="false" height="1rem"/>
+							</f:FormElement>
+							<f:FormElement label="CountryInfo">
 
-						</f:FormElement>
-						<f:FormElement label="Cost">
+								<TextArea value="{CountryInfo}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="City">
+
+								<TextArea value="{City}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Start Date">
+
+								<TextArea value="{
+											path: 'StartDate',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												style: 'short'
+											}}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="End Date">
+
+								<TextArea value="{path: 'EndDate',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												style: 'short'
+												}}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<!-- <f:FormElement label="Status">
+						 		<TextArea value="{Status}" width="100%" editable="false" height="1rem"/>
+
+						</f:FormElement> -->
+							<f:FormElement label="Decline Reason">
+
+								<TextArea value="{DeclineReason}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer ariaLabelledBy="Title3">
+						<f:toolbar>
+							<Toolbar>
+								<Title id="Title3" text="Employee" level="H5" titleStyle="H5"/>
+								<ToolbarSpacer />
+							</Toolbar>
+						</f:toolbar>
+						<f:formElements>
+							<f:FormElement label="Firstname">
+								<TextArea value="{FirstName}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+						</f:formElements>
+						<f:formElements>
+							<f:FormElement label="Lastname">
+								<TextArea value="{LastName}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Phone">
+
+								<TextArea value="{PhoneNr}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Personal Nr">
+
+								<TextArea value="{PersonalNr}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Cost Center">
+
+								<TextArea value="{CostCenter}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Supervisor">
+
+								<TextArea value="{Supervisor}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Service Unit">
+
+								<TextArea value="{ServiceUnit}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Location">
+
+								<TextArea value="{Location}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Home ZIP">
+
+								<TextArea value="{HomeZip}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Home City">
+
+								<TextArea value="{HomeCity}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+
+					<f:FormContainer ariaLabelledBy="Title4">
+						<f:toolbar>
+							<Toolbar>
+								<Title id="Title4" text="Cost" level="H5" titleStyle="H5"/>
+								<ToolbarSpacer />
+							</Toolbar>
+						</f:toolbar>
+						<f:formElements>
+							<f:FormElement label="DIEM A">
+								<TextArea value="{DiemA}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+						</f:formElements>
+						<f:formElements>
+							<f:FormElement label="DIEM R">
+								<TextArea value="{DiemR}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Hotel">
+
+								<TextArea value="{Hotel}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Train">
+
+								<TextArea value="{Train}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+							<f:FormElement label="Rental Car">
+
+								<TextArea value="{RentalCar}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+
+							<f:FormElement label="Gas">
+
+								<TextArea value="{Gas}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+
+							<f:FormElement label="Bank">
+
+								<TextArea value="{Bank}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+
+							<f:FormElement label="Business Meal">
+
+								<TextArea value="{BusinessMeal}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+
+							<f:FormElement label="Food and Beverage">
+
+								<TextArea value="{FoodAndBev}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+
+							<f:FormElement label="IT Supplies">
+
+								<TextArea value="{ItSupplies}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+
+							<f:FormElement label="Office Supplies">
+
+								<TextArea value="{OfficeSupplies}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+
+							<f:FormElement label="Air Fare">
+
+								<TextArea value="{AirFare}" width="100%" editable="false" height="1rem"/>
+
+							</f:FormElement>
+
+							<f:FormElement label="Total">
 
 								<TextArea value="{Total}" width="100%" editable="false" height="1rem"/>
 
-						</f:FormElement>
-					</f:formElements>
-				</f:FormContainer>
-				<f:FormContainer ariaLabelledBy="Title3">
-					<f:toolbar>
-						<Toolbar>
-							<Title id="Title3" text="Employee" level="H5" titleStyle="H5"/>
-							<ToolbarSpacer />
-						</Toolbar>
-					</f:toolbar>
-					<f:formElements>
-						<f:FormElement label="Firstname">
-                        <TextArea value="{FirstName}" width="100%" editable="false" height="1rem"/>
-
-						</f:FormElement>
-                        </f:formElements>
-                        <f:formElements>
-						<f:FormElement label="Lastname">
-                        <TextArea value="{LastName}" width="100%" editable="false" height="1rem"/>
-
-						</f:FormElement>
-						<f:FormElement label="Phone">
-
-							<TextArea value="{PhoneNr}" width="100%" editable="false" height="1rem"/>
-
-						</f:FormElement>
-					</f:formElements>
-				</f:FormContainer>
-			</f:formContainers>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
 		</f:Form>
         
 	</VBox>

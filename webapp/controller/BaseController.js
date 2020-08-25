@@ -9,6 +9,7 @@ sap.ui.define(
     "sap/m/Text",
     "sap/ui/core/format/NumberFormat",
     "sap/ui/model/json/JSONModel",
+    "sap/m/MessageBox"
   ],
   function (
     Controller,
@@ -19,7 +20,8 @@ sap.ui.define(
     Dialog,
     Text,
     NumberFormat,
-    JSONModel
+    JSONModel,
+    MessageBox
   ) {
     // eslint-disable-line id-match
     "use strict";
@@ -76,13 +78,18 @@ sap.ui.define(
         recoverSession: function () {
           var data = jQuery.sap.storage.get("UserInfo");
           var oModel = new JSONModel(data);
-          this.getOwnerComponent().setModel(oModel, "UserInfo");
+     //     this.getOwnerComponent().setModel(oModel, "UserInfo");
+     //no need for this.getOwnerComponent()  -> this.getModel()
         },
 
         logOut: function () {
           var data = { isUser: false, isManager: false, username: null };
-          var oModel = new JSONModel(data);
-          this.getOwnerComponent().setModel(oModel, "UserInfo");
+      //    var oModel = new JSONModel(data);
+     //     this.getOwnerComponent().setModel(oModel, "UserInfo");
+    //another method: this.getModel("UserInfo").setData(data);
+            this.getModel("UserInfo").setProperty("isUser",false);
+            this.getModel("UserInfo").setProperty("isManager",false);
+            this.getModel("UserInfo").setProperty("username",null);
           jQuery.sap.storage.put("UserInfo", data);
         },
 
@@ -107,7 +114,7 @@ sap.ui.define(
         },
 
         showMessageBoxAndGoToLogin: function (message) {
-          jQuery.sap.require("sap.m.MessageBox");
+      //    jQuery.sap.require("sap.m.MessageBox");
           var oRouter = this.getRouter();
           sap.m.MessageBox.error(message, {
             title: "Log in",
@@ -120,6 +127,8 @@ sap.ui.define(
             initialFocus: null,
             textDirection: sap.ui.core.TextDirection.Inherit,
           });
+
+          // variabila.addStyleClass("");
         },
 
         checkLoginManager: function () {

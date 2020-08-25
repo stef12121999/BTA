@@ -11,6 +11,7 @@
 							<MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/>
 							<MenuItem text="Change Password" icon="sap-icon://action-settings" press="onGoToSettings" />
 							<MenuItem text="Manage other's trips" icon="sap-icon://suitcase" press="onGoToAllTrips"/>
+							<MenuItem text="Plan your trip" icon="sap-icon://weather-proofing" press="onPlanTrip"/>
 						</items>
 					</Menu>
 				</menu>
@@ -19,7 +20,7 @@
 
 
 		<content>
-			<Link text="Do you need help planning your trip?" href="#/information"/>
+			
 			<Link text="Manage other's trips" href="#/manager" visible="{UserInfo>/isManager}"/>
 
 			<Table selectionChange="handleSelectionChange" id="idTrips" items="{path: '/Front_TripSet', events: {
