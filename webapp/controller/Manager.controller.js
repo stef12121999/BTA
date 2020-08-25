@@ -62,6 +62,18 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("login");
       },
+      onGoToYourTrips: function (oEvent) {
+         var oRouter = this.getRouter();
+        oRouter.navTo("user");
+      },
+      onGoToProfile: function (oEvent) {
+        var oRouter = this.getRouter();
+       oRouter.navTo("profile");
+     },
+     onGoToSettings: function (oEvent) {
+      var oRouter = this.getRouter();
+     oRouter.navTo("changePassword");
+   },
 
       reFilter: function () {
         var filter = this.combineFiltersWithAnd([

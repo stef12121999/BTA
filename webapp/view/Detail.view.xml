@@ -7,9 +7,11 @@
 	controllerName="intern2020.controller.Detail"
 	xmlns="sap.m" >
     <Page visible="{UserInfo>/isManager}" 
-	      title="Trip Page">
+	      title="Trip Page" 
+		  showNavButton="true" 
+		   navButtonPress="onGoBack">
 
-    <Button  press="onGoBack"  icon="sap-icon://nav-back"/>
+    
 	<ObjectHeader
                     responsive="true"
                     fullScreenOptimized="true"                    
