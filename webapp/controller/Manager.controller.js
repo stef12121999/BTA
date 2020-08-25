@@ -8,6 +8,7 @@ sap.ui.define(
     "sap/ui/model/resource/ResourceModel",
     "sap/m/MessageToast",
     "sap/ui/model/FilterType",
+    "sap/ui/core/routing/History",
   ],
   function (
     BaseController,
@@ -17,7 +18,8 @@ sap.ui.define(
     JSONModel,
     ResourceModel,
     MessageToast,
-    FilterType
+    FilterType,
+    History
   ) {
     "use strict";
 
@@ -62,18 +64,30 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("login");
       },
+
+      onNavBack: function () {
+        var oHistory = History.getInstance();
+        var sPreviousHash = oHistory.getPreviousHash();
+
+        if (sPreviousHash !== undefined) {
+          window.history.go(-1);
+        } else {
+          this.onGoToLogin();
+        }
+      },
+
       onGoToYourTrips: function (oEvent) {
-         var oRouter = this.getRouter();
+        var oRouter = this.getRouter();
         oRouter.navTo("user");
       },
       onGoToProfile: function (oEvent) {
         var oRouter = this.getRouter();
-       oRouter.navTo("profile");
-     },
-     onGoToSettings: function (oEvent) {
-      var oRouter = this.getRouter();
-     oRouter.navTo("changePassword");
-   },
+        oRouter.navTo("profile");
+      },
+      onGoToSettings: function (oEvent) {
+        var oRouter = this.getRouter();
+        oRouter.navTo("changePassword");
+      },
 
       reFilter: function () {
         var filter = this.combineFiltersWithAnd([
@@ -112,8 +126,8 @@ sap.ui.define(
 
       onReset: function (oEvent) {
         var oTable = this.getView().byId("idTrips");
-			oTable.getBinding("items").sort(null);
-			this._resetSortingState();
+        oTable.getBinding("items").sort(null);
+        this._resetSortingState();
       },
 
       onGroup: function (oEvent) {
@@ -125,7 +139,7 @@ sap.ui.define(
         var oItems = oTable.getBinding("items"); // get the table's odata source binding for rows
         var oBindingPath = oEvent.getSource().getBindingContext().sPath; // get the sPath related to column clicked
         var bDescending = false;
-        var oSorter = new sap.ui.model.Sorter(oBindingPath, bDescending); //create a new sorter for your model based on the column clicked. 
+        var oSorter = new sap.ui.model.Sorter(oBindingPath, bDescending); //create a new sorter for your model based on the column clicked.
         oItems.sort(oSorter); // push the sorter to your model's binding
       },
 
@@ -134,7 +148,7 @@ sap.ui.define(
         var oItems = oTable.getBinding("items"); // get the table's odata source binding for rows
         var oBindingPath = oEvent.getSource().getBindingContext().contry; // get the sPath related to column clicked
         var bDescending = false;
-        var oSorter = new sap.ui.model.Sorter(oBindingPath, bDescending); //create a new sorter for your model based on the column clicked. 
+        var oSorter = new sap.ui.model.Sorter(oBindingPath, bDescending); //create a new sorter for your model based on the column clicked.
         oItems.sort(oSorter); // push the sorter to your model's binding
       },
 

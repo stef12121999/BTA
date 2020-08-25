@@ -8,6 +8,7 @@ sap.ui.define(
     "sap/ui/model/resource/ResourceModel",
     "sap/m/MessageToast",
     "sap/ui/model/FilterType",
+    "sap/ui/core/routing/History",
   ],
   function (
     BaseController,
@@ -18,6 +19,7 @@ sap.ui.define(
     ResourceModel,
     MessageToast,
     FilterType,
+    History
   ) {
     "use strict";
 
@@ -49,6 +51,19 @@ sap.ui.define(
         if (oBinding != null) {
           oBinding.refresh();
         }
+      },
+
+      onGoToAllTrips: function (oEvent) {
+        var oRouter = this.getRouter();
+        oRouter.navTo("manager");
+      },
+      onGoToProfile: function (oEvent) {
+        var oRouter = this.getRouter();
+        oRouter.navTo("profile");
+      },
+      onGoToSettings: function (oEvent) {
+        var oRouter = this.getRouter();
+        oRouter.navTo("changePassword");
       },
 
       onSortByDate: function() {
@@ -132,6 +147,17 @@ sap.ui.define(
         this.logOut();
         var oRouter = this.getRouter();
         oRouter.navTo("login");
+      },
+
+      onNavBack: function () {
+        var oHistory = History.getInstance();
+        var sPreviousHash = oHistory.getPreviousHash();
+
+        if (sPreviousHash !== undefined) {
+          window.history.go(-1);
+        } else {
+          this.onGoToLogin();
+        }
       },
 
       onPressDetail: function (oEvent) {

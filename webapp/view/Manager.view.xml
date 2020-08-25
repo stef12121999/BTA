@@ -3,7 +3,7 @@
 	xmlns="sap.m">
 
 	<Page title="Manager Page" enableScrolling="true" class="sapUiContentPadding" showNavButton="true" 
-	 navButtonPress="onGoToLogin" visible="{UserInfo>/isManager}">
+	 navButtonPress="onNavBack" visible="{UserInfo>/isManager}">
         <headerContent>
 			<MenuButton text="My Profile" icon="sap-icon://customer">
 				<menu>
