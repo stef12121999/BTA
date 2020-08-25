@@ -56,7 +56,6 @@
           "disableHeadRequestForToken": true,
           "defaultBindingMode": "TwoWay",
           "defaultCountMode": "Inline"
-
         }
       }
     },
@@ -117,10 +116,18 @@
           "pattern": "changePassword",
           "name": "changePassword",
           "target": "changePassword"
+        },
+        {
+          "pattern": "test",
+          "name": "test",
+          "target": "test"
         }
-
       ],
       "targets": {
+        "test": {
+          "viewName": "Test",
+          "viewId": "test"
+        },
         "login": {
           "viewName": "Login",
           "viewId": "login"

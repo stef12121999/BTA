@@ -57,8 +57,8 @@ sap.ui.define(
                 jQuery.sap.storage.put("UserInfo", data);
               }.bind(this),
 
-              error: function () {
-                MessageToast.show("Login Failed");
+              error: function (var1, var2, var3) {
+                MessageToast.show("Incorrect username or password.");
               },
             }
           );

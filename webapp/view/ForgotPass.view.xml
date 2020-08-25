@@ -8,7 +8,7 @@
                     <Label text="EMAIL ADDRESS" width="15rem"/>
                     <Input id="input-c" placeholder="Email address" width="15rem"/>
 
-                    <Button text="Send Me Instructions" press="onSendEmail" width="15rem" icon="sap-icon://action" />
+                    <Button text="Send me instructions" press="onSendEmail" width="15rem" icon="sap-icon://action" />
                 </items>
 
             </FlexBox>
