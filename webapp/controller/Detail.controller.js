@@ -30,6 +30,7 @@ sap.ui.define(
         var status = this.getView()
           .getModel()
           .getData("/Front_TripSet('" + this.requestId + "')").Status;
+    
         if (status == 0) {
           this.getView().byId("acceptButton").setVisible(true);
           this.getView().byId("declineButton").setVisible(true);
@@ -61,17 +62,20 @@ sap.ui.define(
         var tempStatus = oModel.getData(
           "/Front_TripSet('" + this.requestId + "')"
         ).Status;
+        //var oBindingContex = this.getView().getBindingContext()
+            //oBindingContex.getObject().Status
+            //var sPath = oBindingContex.getPath()
         if (tempStatus == 0) {
           oEntry.Status = 1;
           oEntry.DeclineReason = "";
 
-          oModel.update("/Front_TripSet('" + this.requestId + "')", oEntry, {
+          oModel.update("/Front_TripSet('" + this.requestId + "')", oEntry, { //use sPath
             //method: "PUT",
             success: function (oData) {
-              //MessageToast.show("Trip accepted successfully!");
+              MessageToast.show("Trip accepted successfully!");
             },
             error: function () {
-              //MessageToast.show("Error at accepting trip.");
+              MessageToast.show("Error at accepting trip.");
             },
           });
         }

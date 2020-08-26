@@ -77,7 +77,8 @@
 												style: 'short'
 												}}" />
 							<Text text="{UId}" />
-							<Text text="{Country}"/>
+							<Text text="{Country}" />
+						<!--	<Text text="{Country}" visbile="{= ${UserInfo>/isUser} === 'user' ? false :true}" />-->	
 						</cells>
 					</ColumnListItem>
 				</items>

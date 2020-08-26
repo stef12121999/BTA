@@ -4,30 +4,20 @@
     controllerName="intern2020.controller.Login"
     xmlns="sap.m">
 
-    <Page title="{i18n>homePageTitle}"  enableScrolling="false">
-        <ObjectHeader
-                    responsive="true"
-                    fullScreenOptimized="true"
-                    
-                    intro="You need to login with your company's username"
-                    title="Welcome to SAP Travel Tool App"
-                    showMarkers="true"
-                    markFlagged="true"
-                    
-                    numberState="Success"
-                    backgroundDesign="Translucent">
-                <attributes>
-                    <ObjectAttribute
-                            title="Team 5"
-                            />
-                </attributes>
-                <statuses>
-                    <ObjectStatus
-                            title="Status"
-                            text="Not Logged in"
-                            state="Warning"/>
-                </statuses>
-            </ObjectHeader>
+    <Page   enableScrolling="false"  >
+        <headerContent >
+			
+            <Bar>
+				<contentLeft>
+					<Image src="images/MHP19_00012.png"  width="8rem"/>
+				</contentLeft>
+				<contentMiddle>
+					<Title  text="{i18n>homePageTitle}" level="H3"/>
+				</contentMiddle>
+			</Bar>
+
+            
+		</headerContent>
     <FlexBox
         direction="Column"
         alignItems="Center"
@@ -37,21 +27,21 @@
     <Input
       id="username"
       placeholder="Username" 
-      width="12rem"
+      width="15rem"
       type="Text"/>
       <Input
       id="password"
       placeholder="Password"
       type="Password"
-      width="12rem"
+      width="15rem"
       />
     <Button
         text="Login"
         press="onValidation"
-        width="10rem"
+        width="15rem"
         icon="sap-icon://action"
         />
-        <Link id="link" text="Forgot Password?" emphasized="true" press="onForgotPass"/>
+        <Link id="link" text="Forgot Password?"  press="onForgotPass"/>
     </items>
     
     </FlexBox>

@@ -4,7 +4,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true">
 	<Shell 	 
-	backgroundImage="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/1109c798219983.5ed7ad1c18d50.jpg">
+	backgroundImage="/images/CZ21V10OX0003.jpg" class="customsShellCss">
 		 <App id="appControl"  
 		class="myApp"
   		  backgroundOpacity="0"
