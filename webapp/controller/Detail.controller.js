@@ -30,7 +30,8 @@ sap.ui.define(
         var status = this.getView()
           .getModel()
           .getData("/Front_TripSet('" + this.requestId + "')").Status;
-    
+        console.log(status)
+
         if (status == 0) {
           this.getView().byId("acceptButton").setVisible(true);
           this.getView().byId("declineButton").setVisible(true);
@@ -38,6 +39,12 @@ sap.ui.define(
           this.getView().byId("acceptButton").setVisible(false);
           this.getView().byId("declineButton").setVisible(false);
         }
+
+        if (status == 1){
+          console.log("here")
+          this.getView().byId("declineReason").setVisible(false);
+        }
+
       },
 
       patternMatched: function (oEvent) {

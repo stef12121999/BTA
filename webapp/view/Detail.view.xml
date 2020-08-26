@@ -66,7 +66,7 @@
 						
 							<f:FormElement label="Reason">
 
-								<TextArea value="{Reason}" width="100%" editable="false" height="1rem"/>
+								<Input editable="false" value="{Reason}" width="100%"  />
 
 
 
@@ -83,12 +83,12 @@
 							</f:FormElement>
 							<f:FormElement label="Start Date">
 
-								<TextArea value="{
+								<Input value="{
 											path: 'StartDate',
 											type: 'sap.ui.model.type.Date',
 											formatOptions: {
 												style: 'short'
-											}}" width="100%" editable="false" height="1rem"/>
+											}}" width="100%" editable="false"/>
 
 							</f:FormElement>
 							<f:FormElement label="End Date">
@@ -104,9 +104,9 @@
 						 		<TextArea value="{Status}" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement> -->
-							<f:FormElement label="Decline Reason">
+							<f:FormElement visible="{= ${Status} === 1 ? false:true}" id="declineReason" label="Decline Reason">
 
-								<TextArea value="{DeclineReason}" width="100%" editable="false" height="1rem"/>
+								<TextArea  value="{DeclineReason}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
 

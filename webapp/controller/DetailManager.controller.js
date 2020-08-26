@@ -28,9 +28,12 @@ sap.ui.define(
         patternMatched: function (oEvent) {
           this.checkLoginManager();
           this.requestId = oEvent.getParameter("arguments").sId;
+          
           this.getView().bindElement({
             path: "/Front_TripSet('" + this.requestId + "')"
           });
+
+          
         },
   
         onNavBack: function (oEvent) {

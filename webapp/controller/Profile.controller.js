@@ -23,7 +23,10 @@ sap.ui.define(
             
         },
   
-  
+        onNavBack : function(oEvent){
+          var oRouter = this.getRouter();
+          oRouter.navTo("user");
+        }
       });
     }
   );

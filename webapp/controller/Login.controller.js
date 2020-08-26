@@ -19,7 +19,7 @@ sap.ui.define(
         var oModel = oView.getModel();
         var UserId = oView.byId("username").getValue();
         var UserPassword = oView.byId("password").getValue();
-
+        console.log(UserId +  " " + UserPassword);
         if (UserId == "") {
           MessageToast.show("Please Enter Username");
           return false;

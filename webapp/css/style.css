@@ -1,3 +1,26 @@
 .customsShellCss .sapUiGlobalBackgroundColor, .customsShellCss .sapMShellGlobalInnerBackground {
-    background-color: #fafafa52;
+    background-color: #fafafa1c;
+}
+
+.sapMLnk {
+    font-size:1rem;
+}
+
+.sapMLnk:visited {
+    text-decoration: none;
+    color: #131841;
+    
+}
+
+.sapMLabel{
+    font-size:1rem;
+    color: #132a41 ;
+}
+
+.sapMBtnTransparent>.sapMBtnIcon{
+    font-size:0.75rem;
+}
+
+#__button3-inner, #__button7-inner{
+    background-color: rgba(255, 255, 255, 0.849);
 }

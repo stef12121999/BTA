@@ -3,12 +3,14 @@
     xmlns="sap.m">
     <Page title="{i18n>forgotPageTitle}">
         <Panel>
-            <FlexBox direction="Column" height="500px" alignItems="Center" justifyContent="Center">
+            <FlexBox  direction="Column" height="500px" alignItems="Center" justifyContent="Center">
                 <items>
-                    <Label text="EMAIL ADDRESS" width="15rem"/>
-                    <Input id="input-c" placeholder="Email address" width="15rem"/>
+                    <Label 
+                            class="sapUiMediumMarginBottom"
+                            text="{i18n>instructions}" />
+                    <Input id="input-c" placeholder="Email address" width="25rem"/>
 
-                    <Button text="Send me instructions" press="onSendEmail" width="15rem" icon="sap-icon://action" />
+                    <Button text="{i18n>sendInstruction}" press="onSendEmail" width="25rem" icon="sap-icon://action" />
                 </items>
 
             </FlexBox>
