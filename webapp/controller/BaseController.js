@@ -43,28 +43,10 @@ sap.ui.define(
     var oBaseController = Controller.extend(
       "intern2020.controller.BaseController",
       {
-        /* =========================================================== */
-        /* Getter functions                                            */
-        /* =========================================================== */
-
-        /* =========================================================== */
-        /* Helper functions */
-        /* =========================================================== */
-
-        /**
-         * Get router for current view
-         * @returns {sap.m.routing.Router} router object
-         * @memberOf porsche.pbs.controller.BaseController
-         */
         getRouter: function () {
-          // return the Router for the current view
           return sap.ui.core.UIComponent.getRouterFor(this);
         },
-        /**
-         * Getter for the resource bundle.
-         * @public
-         * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
-         */
+
         getResourceBundle: function () {
           return this.getOwnerComponent().getModel("i18n").getResourceBundle();
         },
@@ -77,6 +59,11 @@ sap.ui.define(
           var data = jQuery.sap.storage.get("UserInfo");
           var oModel = new JSONModel(data);
           this.getOwnerComponent().setModel(oModel, "UserInfo");
+        },
+
+        goToLoginAndLogOut: function () {
+          this.logOut();
+          this.getRouter().navTo("login");
         },
 
         logOut: function () {

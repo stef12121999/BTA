@@ -1,7 +1,7 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.uxap"
 	xmlns:m="sap.m"
-	xmlns:block="intern2020.detailBlocks" height="100%" controllerName="intern2020.controller.DetailUser">
+	xmlns:block="intern2020.controller.detailBlocks" height="100%" controllerName="intern2020.controller.DetailUser">
 
 	<ObjectPageLayout id="detailUserPage" useIconTabBar="true" showFooter="true" upperCaseAnchorBar="false">
 		<headerTitle>

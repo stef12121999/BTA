@@ -3,10 +3,6 @@ sap.ui.define([
 ], function (BaseController) {
    "use strict";
    return BaseController.extend("intern2020.controller.App", {
-      
-      
-
-  
-      
+       
    });
 });

@@ -72,14 +72,3 @@ sap.ui.define(
     });
   }
 );
-// userName:user,
-//password:''
-/*
-create function import ("changePassword") - se creeaza in odata
-  parameter of function import : username
-
-  oModel.callFunction("changePassword",{
-    username:'blabla'
-  },success: "password has changed")
-
-*/
