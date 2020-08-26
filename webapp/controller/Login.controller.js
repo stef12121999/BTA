@@ -27,11 +27,6 @@ sap.ui.define(
           MessageToast.show("Please Enter Password");
           return false;
         } else {
-          //var sPath = oModel.createKey("/EmployeeSet", {
-          //Id : UserId,
-          //Password : UserPassword
-          //});
-
           oModel.read(
             "/EmployeeSet(Id='" + UserId + "',Password='" + UserPassword + "')",
 
@@ -52,8 +47,7 @@ sap.ui.define(
                   isManager = false;
                 }
                 var data = { isUser: isUser, isManager: isManager, username: username };
-                var oModel = new JSONModel(data);
-                this.getOwnerComponent().setModel(oModel, "UserInfo");
+                this.getModel("UserInfo").setData(data);
                 jQuery.sap.storage.put("UserInfo", data);
               }.bind(this),
 

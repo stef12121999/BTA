@@ -71,23 +71,6 @@ sap.ui.define(
         oBinding.sort(null);
       },
 
-      onGoToLogin: function (oEvent) {
-        this.logOut();
-        var oRouter = this.getRouter();
-        oRouter.navTo("login");
-      },
-
-      onNavBack: function () {
-        var oHistory = History.getInstance();
-        var sPreviousHash = oHistory.getPreviousHash();
-
-        if (sPreviousHash !== undefined) {
-          window.history.go(-1);
-        } else {
-          this.onGoToLogin();
-        }
-      },
-
       onGoToYourTrips: function (oEvent) {
         var oRouter = this.getRouter();
         oRouter.navTo("user");

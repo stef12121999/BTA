@@ -3,13 +3,13 @@
 	xmlns="sap.m">
 
 	<Page title="Manager Page" enableScrolling="true" class="sapUiContentPadding" showNavButton="true" 
-	 navButtonPress="onNavBack" visible="{UserInfo>/isManager}">
+	 navButtonPress="goToLoginAndLogOut" visible="{UserInfo>/isManager}">
         <headerContent>
 			<MenuButton text="My Profile" icon="sap-icon://customer">
 				<menu>
 					<Menu itemSelected="onMenuAction">
 						<items>
-							<MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/>
+							<!-- <MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/> -->
 							<MenuItem text="Change Password" icon="sap-icon://action-settings" press="onGoToSettings" />
 							<MenuItem text="Your own trips" icon="sap-icon://suitcase" press="onGoToYourTrips"/>
 						</items>

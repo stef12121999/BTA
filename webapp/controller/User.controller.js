@@ -28,7 +28,6 @@ sap.ui.define(
         this.getRouter()
           .getRoute("user")
           .attachPatternMatched(this.patternMatched, this);
-        this.checkLoginUser();
       },
 
       patternMatched: function () {
@@ -66,6 +65,11 @@ sap.ui.define(
       onGoToSettings: function (oEvent) {
         var oRouter = this.getRouter();
         oRouter.navTo("changePassword");
+      },
+
+      onGoToPlanTrip: function() {
+        var oRouter = this.getRouter();
+        oRouter.navTo("information")
       },
 
       onSortByDate: function () {
