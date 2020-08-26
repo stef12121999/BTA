@@ -57,37 +57,45 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("manager");
       },
+
       onGoToProfile: function (oEvent) {
         var oRouter = this.getRouter();
         oRouter.navTo("profile");
       },
+
       onGoToSettings: function (oEvent) {
         var oRouter = this.getRouter();
         oRouter.navTo("changePassword");
       },
 
-      onSortByDate: function() {
+      onSortByDate: function () {
         var oList = this.byId("idTrips");
-          var oBinding = oList.getBinding("items");
-          oBinding.sort(new Sorter("StartDate"));
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter("StartDate"));
       },
 
-      onSortByCountry: function() {
+      onSortByCountry: function () {
         var oList = this.byId("idTrips");
-          var oBinding = oList.getBinding("items");
-          oBinding.sort(new Sorter("Country"));
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter("Country"));
       },
 
-      onSortByCity: function() {
+      onSortByCity: function () {
         var oList = this.byId("idTrips");
-          var oBinding = oList.getBinding("items");
-          oBinding.sort(new Sorter("City"));
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter("City"));
       },
 
-      onSortByTotalCost: function() {
+      onSortByTotalCost: function () {
         var oList = this.byId("idTrips");
-          var oBinding = oList.getBinding("items");
-          oBinding.sort(new Sorter("Total"));
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter("Total"));
+      },
+
+      onSortByNothing: function () {
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(null);
       },
 
       onDataReceived: function () {
@@ -122,49 +130,12 @@ sap.ui.define(
 
       onFilterByStatus: function (oEvent) {
         var buttonText = oEvent.oSource.mProperties.text;
+        console.log(buttonText);
         var buttonPressed = oEvent.oSource.mProperties.pressed;
         this.statusMap.set(buttonText, buttonPressed);
 
         this.statusFilter = this.getStatusFilter(this.statusMap);
         this.reFilter();
-      },
-
-      onSliderMoved: function (oEvent) {
-        var iValue = oEvent.getParameter("value");
-        this.byId("otbSubheader").setWidth(iValue + "%");
-        this.byId("otbFooter").setWidth(iValue + "%");
-      },
-      
-
-      _fnGroup: function (oContext) {
-        var UserId = oContext.getProperty("UId");
-        return {
-          key: UserId,
-          text: UserId,
-        };
-      },
-
-      onGoToLogin: function (oEvent) {
-        this.logOut();
-        var oRouter = this.getRouter();
-        oRouter.navTo("login");
-      },
-      onPlanTrip: function (oEvent) {
-        this.logOut();
-        var oRouter = this.getRouter();
-        oRouter.navTo("information");
-      },
-
-
-      onNavBack: function () {
-        var oHistory = History.getInstance();
-        var sPreviousHash = oHistory.getPreviousHash();
-
-        if (sPreviousHash !== undefined) {
-          window.history.go(-1);
-        } else {
-          this.onGoToLogin();
-        }
       },
 
       onPressDetail: function (oEvent) {
@@ -175,12 +146,16 @@ sap.ui.define(
         });
       },
 
-      onTogglePress: function (oEvent) {
-        var oButton = oEvent.getSource(),
-          bPressedState = oButton.getPressed(),
-          sStateToDisplay = bPressedState ? "Pressed" : "Unpressed";
-
-        MessageToast.show(oButton.getId() + " " + sStateToDisplay);
+      onReset: function () {
+        this.statusMap = this.getInitialStatusMap();
+        this.searchFilter = null;
+        this.statusFilter = null;
+        this.reFilter();
+        this.getView().byId("approvedButton").setPressed(false);
+        this.getView().byId("toBeApprovedButton").setPressed(false);
+        this.getView().byId("declinedButton").setPressed(false);
+        this.getView().byId("searchField").setValue("");
+        this.onSortByNothing();
       },
     });
 

@@ -64,26 +64,6 @@ sap.ui.define(
       patternMatched: function (oEvent) {
         this.checkLoginUser();
       },
-
-      //     onSendEmail: function (oEvent) {
-
-      //       var oView = this.getView();
-      //       var oModel = oView.getModel();
-      //       var UserId = oView.byId("input-c").getValue();
-
-      //       oModel.callFunction("/Change_Password", {
-      //         method: "POST",
-      //         urlParameters: {
-      //           UserId: UserId,
-      //         },
-      //         success: function (oData) {
-      //           MessageToast.show("Your new password will be sent to you in an email.");
-      //         }.bind(this),
-      //         error: function () {
-      //           MessageToast.show("Are you sure that this is your correct email address?");
-      //         },
-      //       });
-      //     },
     });
   }
 );

@@ -65,6 +65,12 @@ sap.ui.define(
         oBinding.sort(new Sorter("ServiceUnit"));
       },
 
+      onSortByNothing: function () {
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(null);
+      },
+
       onGoToLogin: function (oEvent) {
         this.logOut();
         var oRouter = this.getRouter();
@@ -86,10 +92,12 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("user");
       },
+
       onGoToProfile: function (oEvent) {
         var oRouter = this.getRouter();
         oRouter.navTo("profile");
       },
+
       onGoToSettings: function (oEvent) {
         var oRouter = this.getRouter();
         oRouter.navTo("changePassword");
@@ -123,69 +131,21 @@ sap.ui.define(
 
       onPressDetail: function (oEvent) {
         var sID = oEvent.getSource().getBindingContext().getObject().RId;
-
         var oRouter = this.getRouter();
         oRouter.navTo("detailManager", {
           sId: sID,
         });
       },
 
-      onReset: function (oEvent) {
-        var oTable = this.getView().byId("idTrips");
-        oTable.getBinding("items").sort(null);
-        this._resetSortingState();
-      },
-
-      onGroup: function (oEvent) {
-        this.bGrouped = !this.bGrouped;
-        this.fnApplyFiltersAndOrdering();
-      },
-      onID: function (oEvent) {
-        var oTable = this.getView().byId("idTrips");
-        var oItems = oTable.getBinding("items"); // get the table's odata source binding for rows
-        var oBindingPath = oEvent.getSource().getBindingContext().sPath; // get the sPath related to column clicked
-        var bDescending = false;
-        var oSorter = new sap.ui.model.Sorter(oBindingPath, bDescending); //create a new sorter for your model based on the column clicked.
-        oItems.sort(oSorter); // push the sorter to your model's binding
-      },
-
-      onSort: function (oEvent) {
-        var oTable = this.getView().byId("idTrips");
-        var oItems = oTable.getBinding("items"); // get the table's odata source binding for rows
-        var oBindingPath = oEvent.getSource().getBindingContext().contry; // get the sPath related to column clicked
-        var bDescending = false;
-        var oSorter = new sap.ui.model.Sorter(oBindingPath, bDescending); //create a new sorter for your model based on the column clicked.
-        oItems.sort(oSorter); // push the sorter to your model's binding
-      },
-
-      onFilter: function (oEvent) {
-        this.sSearchQuery = oEvent.getSource().getValue();
-        this.fnApplyFiltersAndOrdering();
-      },
-
-      fnApplyFiltersAndOrdering: function (oEvent) {
-        var aFilters = [],
-          aSorters = [];
-
-        if (this.bGrouped) {
-          aSorters.push(new Sorter("UId", this.bDescending, this._fnGroup));
-        } else {
-          aSorters.push(new Sorter("Country", this.bDescending));
-        }
-
-        if (this.sSearchQuery) {
-          var oFilter = new Filter(
-            "RId",
-            FilterOperator.Contains,
-            this.sSearchQuery
-          );
-          aFilters.push(oFilter);
-        }
-
-        this.byId("idTrips")
-          .getBinding("items")
-          .filter(aFilters)
-          .sort(aSorters);
+      onReset: function () {
+        this.searchFilter = null;
+        this.statusFilter = null;
+        this.reFilter();
+        this.getView().byId("approvedButton").setPressed(false);
+        this.getView().byId("toBeApprovedButton").setPressed(false);
+        this.getView().byId("declinedButton").setPressed(false);
+        this.getView().byId("searchField").setValue("");
+        this.onSortByNothing();
       },
     });
 

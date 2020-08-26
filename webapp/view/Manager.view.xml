@@ -22,24 +22,24 @@
 			<Table selectionChange="handleSelectionChange" id="idTrips" items="{/Front_TripSet}">
 				<headerToolbar >
 					<OverflowToolbar id="otbSubheader">
-						<ToggleButton icon="sap-icon://accept" text="Approved" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
+						<ToggleButton id="approvedButton" icon="sap-icon://accept" text="Approved" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton icon="sap-icon://time-account" type="Ghost" pressed="false" text="To Be Approved" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" press="onFilterByStatus">
+						<ToggleButton id="toBeApprovedButton" icon="sap-icon://time-account" type="Ghost" pressed="false" text="To Be Approved" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" press="onFilterByStatus">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton icon="sap-icon://decline" pressed="false" text="Declined" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Reject">
+						<ToggleButton id="declinedButton" icon="sap-icon://decline" pressed="false" text="Declined" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Reject">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
 						
 						<ToolbarSpacer/>
-						<SearchField width="50%" search="onFilterBySearch">
+						<SearchField id="searchField" width="50%" search="onFilterBySearch">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="200px" maxWidth="400px" shrinkable="true"/>
 							</layoutData>
