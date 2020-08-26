@@ -1,0 +1,50 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	xmlns:block="intern2020.detailBlocks" height="100%">
+	<m:Bar>
+		<m:contentLeft>
+			<m:Button text="" icon="sap-icon://nav-back" press="onNavBack"/>
+		</m:contentLeft>
+		<m:contentMiddle>
+			<m:Title text="Trip details"/>
+		</m:contentMiddle>
+	</m:Bar>
+	<ObjectPageLayout id="ObjectPageLayout" useIconTabBar="true">
+
+		<sections>
+			<ObjectPageSection title="General">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<block:General id="generalBlock"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection title="Employee">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<block:Employee id="employeeBlock"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection title="Cost">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<block:Cost id="costBlock"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+		</sections>
+
+	</ObjectPageLayout>
+</mvc:View>

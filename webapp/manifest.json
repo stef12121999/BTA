@@ -1,0 +1,179 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "intern2020",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "travelTool": {
+        "uri": "/sap/opu/odata/sap/ZBUSINESSTRIPAPP_SRV",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "intern2020.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "dependencies": {
+      "minUI5Version": "1.60",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "intern2020.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "travelTool",
+        "settings": {
+          "json": true,
+          "useBatch": false,
+          "preload": true,
+          "disableHeadRequestForToken": true,
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+          {
+              "uri": "css/style.css"
+          }
+      ]
+  },
+  
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewPath": "intern2020.view",
+        "viewType": "XML",
+        "controlId": "appControl",
+        "controlAggregation": "pages",
+        "bypassed": {
+          "target": "notFound"
+        },
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "login",
+          "target": "login"
+        },
+        {
+          "pattern": "manager",
+          "name": "manager",
+          "target": "manager"
+        },
+        {
+          "pattern": "detail/{sId}",
+          "name": "detail",
+          "target": "detail"
+        },
+        {
+          "pattern": "detailUser/{sId}",
+          "name": "detailUser",
+          "target": "detailUser"
+        },
+        {
+          "pattern": "user",
+          "name": "user",
+          "target": "user"
+        },
+        {
+          "pattern": "information",
+          "name": "information",
+          "target": "information"
+        },
+        {
+          "pattern": "forgotPass",
+          "name": "forgotPass",
+          "target": "forgotPass"
+        },
+        {
+          "pattern": "profile",
+          "name": "profile",
+          "target": "profile"
+        },
+        {
+          "pattern": "changePassword",
+          "name": "changePassword",
+          "target": "changePassword"
+        },
+        {
+          "pattern": "detailManager/{sId}",
+          "name": "detailManager",
+          "target": "detailManager"
+        }
+      ],
+      "targets": {
+        "detailManager": {
+          "viewName": "DetailManager",
+          "viewId": "detailManager"
+        },
+        "login": {
+          "viewName": "Login",
+          "viewId": "login"
+        },
+        "manager": {
+          "viewName": "Manager",
+          "viewId": "manager"
+        },
+        "user": {
+          "viewName": "User",
+          "viewId": "user"
+        },
+
+        "information": {
+          "viewName": "Information",
+          "viewId": "information"
+        },
+        "detail": {
+          "viewName": "Detail",
+          "viewId": "detail"
+        },
+        "detailUser": {
+          "viewName": "DetailUser",
+          "viewId": "detailUser"
+        },
+        "forgotPass": {
+          "viewName": "ForgotPass",
+          "viewId": "forgotPass"
+        },
+        "profile": {
+          "viewName": "Profile",
+          "viewId": "profile"
+        },
+        "changePassword": {
+          "viewName": "ChangePassword",
+          "viewId": "changePassword"
+        }
+      }
+    }
+  }
+}
