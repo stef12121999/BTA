@@ -41,9 +41,7 @@ sap.ui.define(
               oView.byId("detailUserPage").setVisible(true);
               oView.bindElement("/Front_TripSet('" + this.requestId + "')");
             }
-
           }.bind(this),
-
           error: function () {
             console.log("error");
             this.showMessageBoxAndGoToLogin("You must be logged in if you want to use the application");
@@ -51,7 +49,7 @@ sap.ui.define(
         });
       },
 
-      onGoBack: function (oEvent) {
+      onNavBack: function (oEvent) {
         var oRouter = this.getRouter();
         oRouter.navTo("user");
       },

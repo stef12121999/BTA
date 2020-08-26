@@ -1,9 +1,9 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.uxap"
 	xmlns:m="sap.m"
-	xmlns:block="intern2020.detailBlocks" height="100%" controllerName="intern2020.controller.DetailUser">
+	xmlns:block="intern2020.detailBlocks" height="100%" controllerName="intern2020.controller.DetailManager">
 
-	<ObjectPageLayout id="detailUserPage" useIconTabBar="true" showFooter="true" upperCaseAnchorBar="false">
+	<ObjectPageLayout id="ObjectPageLayout" useIconTabBar="true" showFooter="true" upperCaseAnchorBar="false">
 		<headerTitle>
 			<ObjectPageHeader  id="pageHeader" objectTitle="Status: {= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}">
 				<navigationBar>
@@ -52,6 +52,24 @@
 
 
 		</sections>
+		<footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:ToolbarSpacer/>
+
+				<m:Button id="acceptButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Accept" text="Accept" width="12rem" press="onPressAccept">
+					<m:layoutData>
+						<m:OverflowToolbarLayoutData priority="NeverOverflow" />
+					</m:layoutData>
+				</m:Button>
+				<m:Button id="declineButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Reject" text="Reject" width="12rem" press="onPressDecline">
+					<m:layoutData>
+						<m:OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</m:layoutData>
+				</m:Button>
+				<m:ToolbarSpacer/>
+
+			</m:OverflowToolbar>
+		</footer>
 
 	</ObjectPageLayout>
 

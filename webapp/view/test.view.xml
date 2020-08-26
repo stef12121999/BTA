@@ -1,62 +1,43 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.uxap"
 	xmlns:m="sap.m"
-	xmlns:block="intern2020.detailBlocks"
-	height="100%">
+	xmlns:block="intern2020.detailBlocks" height="100%">
+	<m:Bar>
+		<m:contentLeft>
+			<m:Button text="" icon="sap-icon://nav-back" press="onNavBack"/>
+		</m:contentLeft>
+		<m:contentMiddle>
+			<m:Title text="Trip details"/>
+		</m:contentMiddle>
+	</m:Bar>
 	<ObjectPageLayout id="ObjectPageLayout" useIconTabBar="true">
-		<headerTitle>
-			<ObjectPageHeader objectTitle="Section sample">
-			</ObjectPageHeader>
-		</headerTitle>
-
-		<headerContent>
-			<m:ObjectAttribute title="" text="This example explains the rules for the rendering of sections"/>
-		</headerContent>
 
 		<sections>
-			<ObjectPageSection title="Section 1">
+			<ObjectPageSection title="General">
 				<subSections>
-					<ObjectPageSubSection title="Subsection 1.1 ">
+					<ObjectPageSubSection>
 						<blocks>
-							<block:General id="bbt1"/>
-						</blocks>
-					</ObjectPageSubSection>
-					<ObjectPageSubSection title="Subsection 1.2 ">
-						<blocks>
-							<block:General id="bbt2"/>
+							<block:General id="generalBlock"/>
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection title="Section 2">
-			</ObjectPageSection>
-
-			<ObjectPageSection title="Section 3">
+			<ObjectPageSection title="Employee">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
-							<block:Cost id="bbt3"/>
+							<block:Employee id="employeeBlock"/>
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection>
+			<ObjectPageSection title="Cost">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
-							<block:Cost id="bbt4"/>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-
-			<ObjectPageSection title="Section 5">
-				<subSections>
-					<ObjectPageSubSection>
-						<blocks>
-							<block:Cost id="bbt5"/>
+							<block:Cost id="costBlock"/>
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>
@@ -67,94 +48,3 @@
 
 	</ObjectPageLayout>
 </mvc:View>
-
-
-<!-- <core:View xmlns:core="sap.ui.core" xmlns="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:m="sap.m" height="100%">
-
-<ObjectPageLayout id="ObjectPageLayout" showAnchorBar="true">       
-    <headerTitle>
-        <ObjectPageHeader id="headerExpandedGrid" />
-    </headerTitle>
-    <sections>
-        <ObjectPageSection id="section1" title="Employee Info">
-            <customAnchorBarButton>
-<m:ToggleButton text="Employee Info" />
-</customAnchorBarButton>
-</ObjectPageSection>
-
-<ObjectPageSection id="section2" title="Personal Info">
-<customAnchorBarButton>
-<m:Button type="Accept" text="Personal Info" />
-</customAnchorBarButton>
-</ObjectPageSection>
-
-</sections>
-</ObjectPageLayout>
-</core:View> -->
-
-<!-- <core:View xmlns:core="sap.ui.core" xmlns="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:m="sap.m" xmlns:sample="sap.uxap.sample.AnchorBar.block" xmlns:blockcolor="sap.uxap.sample.SharedBlocks" height="100%">
-
-	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false">
-		<headerTitle>
-			<ObjectPageHeader objectTitle="Section sample">
-			</ObjectPageHeader>
-		</headerTitle>
-
-		<headerContent>
-			<m:ObjectAttribute title="" text="This example explains the rules for the rendering of sections"/>
-		</headerContent>
-
-		<sections>
-			<ObjectPageSection title="Section 1">
-				<subSections>
-					<ObjectPageSubSection title="Subsection 1.1 ">
-						<blocks>
-							<blockcolor:BlockBlueT1 id="bbt1"/>
-						</blocks>
-					</ObjectPageSubSection>
-					<ObjectPageSubSection title="Subsection 1.2 ">
-						<blocks>
-							<blockcolor:BlockBlueT2 id="bbt2"/>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-
-			<ObjectPageSection title="Section 2">
-			</ObjectPageSection>
-
-			<ObjectPageSection title="Section 3">
-				<subSections>
-					<ObjectPageSubSection title=" ">
-						<blocks>
-							<blockcolor:BlockBlueT3 id="bbt3"/>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-
-			<ObjectPageSection title="Section 4">
-				<subSections>
-					<ObjectPageSubSection title="Subsection 4.1 ">
-						<blocks>
-							<blockcolor:BlockBlueT4 id="bbt4"/>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-
-			<ObjectPageSection title="Section 5">
-				<subSections>
-					<ObjectPageSubSection title=" ">
-						<blocks>
-							<blockcolor:BlockBlueT5 id="bbt5"/>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-
-
-		</sections>
-
-	</ObjectPageLayout>
-</core:View> -->

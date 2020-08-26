@@ -1,9 +1,46 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
-xmlns:html="http://www.w3.org/1999/xhtml">
-    <html:div style="height:auto;min-height:4em; background-color: #A9EAFF ;line-height: 4em;">
-		The title of the first section is not shown in the page but it <html:br/> aaa
-        <html:br/> aaa
-        <html:br/> aaa
-        <html:br/> aaa
-    </html:div>
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <VBox class="sapUiSmallMargin">
+        <f:Form id="FormToolbar" editable="true" ariaLabelledBy="Title1">
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer ariaLabelledBy="Title2">
+                    <f:formElements>
+                        <f:FormElement label="Reason for travel">
+                            <TextArea value="{Reason}" width="100%" editable="false" height="1rem"/>
+                        </f:FormElement>
+                        <f:FormElement label="Country information">
+                            <TextArea value="{CountryInfo}" width="100%" editable="false" height="1rem"/>
+                        </f:FormElement>
+                        <f:FormElement label="City">
+                            <TextArea value="{City}" width="100%" editable="false" height="1rem"/>
+                        </f:FormElement>
+                        <f:FormElement label="Start date">
+                            <TextArea value="{
+											path: 'StartDate',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												style: 'short'
+											}}" width="100%" editable="false" height="1rem"/>
+                        </f:FormElement>
+                        <f:FormElement label="End date">
+                            <TextArea value="{path: 'EndDate',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												style: 'short'
+												}}" width="100%" editable="false" height="1rem"/>
+                        </f:FormElement>
+                        <f:FormElement label="Reason for decline">
+                            <TextArea value="{DeclineReason}" width="100%" editable="false" height="1rem"/>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
 </mvc:View>

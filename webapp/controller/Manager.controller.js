@@ -119,7 +119,7 @@ sap.ui.define(
         var sID = oEvent.getSource().getBindingContext().getObject().RId;
 
         var oRouter = this.getRouter();
-        oRouter.navTo("detail", {
+        oRouter.navTo("detailManager", {
           sId: sID,
         });
       },

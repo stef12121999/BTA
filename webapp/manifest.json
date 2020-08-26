@@ -118,15 +118,15 @@
           "target": "changePassword"
         },
         {
-          "pattern": "test",
-          "name": "test",
-          "target": "test"
+          "pattern": "detailManager/{sId}",
+          "name": "detailManager",
+          "target": "detailManager"
         }
       ],
       "targets": {
-        "test": {
-          "viewName": "Test",
-          "viewId": "test"
+        "detailManager": {
+          "viewName": "DetailManager",
+          "viewId": "detailManager"
         },
         "login": {
           "viewName": "Login",

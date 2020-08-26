@@ -1,0 +1,49 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+  xmlns:l="sap.ui.layout"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m">
+  <VBox class="sapUiSmallMargin">
+    <f:Form id="FormToolbar" editable="true" ariaLabelledBy="Title1">
+      <f:layout>
+        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+      </f:layout>
+      <f:formContainers>
+        <f:FormContainer ariaLabelledBy="Title2">
+          <f:formElements>
+            <f:FormElement label="First name">
+              <TextArea value="{FirstName}" width="100%" editable="false" height="1rem"/>
+            </f:FormElement>
+            <f:FormElement label="Last name">
+              <TextArea value="{LastName}" width="100%" editable="false" height="1rem"/>
+            </f:FormElement>
+            <f:FormElement label="Phone">
+              <TextArea value="{PhoneNr}" width="100%" editable="false" height="1rem"/>
+            </f:FormElement>
+            <f:FormElement label="Personnel number">
+              <TextArea value="{PersonalNr}" width="100%" editable="false" height="1rem"/>
+            </f:FormElement>
+            <f:FormElement label="Cost center">
+              <TextArea value="{CostCenter}" width="100%" editable="false" height="1rem"/>
+            </f:FormElement>
+            <f:FormElement label="Supervisor">
+              <TextArea value="{Supervisor}" width="100%" editable="false" height="1rem"/>
+            </f:FormElement>
+            <f:FormElement label="Service unit">
+              <TextArea value="{ServiceUnit}" width="100%" editable="false" height="1rem"/>
+            </f:FormElement>
+            <f:FormElement label="Location">
+              <TextArea value="{Location}" width="100%" editable="false" height="1rem"/>
+            </f:FormElement>
+            <f:FormElement label="Home ZIP">
+              <TextArea value="{HomeZip}" width="100%" editable="false" height="1rem"/>
+            </f:FormElement>
+            <f:FormElement label="Home city">
+              <TextArea value="{HomeCity}" width="100%" editable="false" height="1rem"/>
+            </f:FormElement>
+          </f:formElements>
+        </f:FormContainer>
+      </f:formContainers>
+    </f:Form>
+  </VBox>
+</mvc:View>

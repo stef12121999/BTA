@@ -10,7 +10,7 @@
 						<items>
 							<MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/>
 							<MenuItem text="Change Password" icon="sap-icon://action-settings" press="onGoToSettings" />
-							<MenuItem text="Manage other's trips" icon="sap-icon://suitcase" press="onGoToAllTrips"/>
+							<MenuItem visible="{UserInfo>/isManager}" text="Manage other's trips" icon="sap-icon://suitcase" press="onGoToAllTrips"/>
 						</items>
 					</Menu>
 				</menu>
@@ -81,7 +81,7 @@
 											formatOptions: {
 												style: 'short'
 												}}" />
-							<Text text="{Total} RON" />
+							<Text text="{Total} EUR" />
 							<Text text="{Country}"/>
 							<Text text="{City}" />
 						</cells>
