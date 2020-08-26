@@ -27,21 +27,21 @@
     <Input
       id="username"
       placeholder="Username" 
-      width="12rem"
+      width="15rem"
       type="Text"/>
       <Input
       id="password"
       placeholder="Password"
       type="Password"
-      width="12rem"
+      width="15rem"
       />
     <Button
         text="Login"
         press="onValidation"
-        width="10rem"
+        width="15rem"
         icon="sap-icon://action"
         />
-        <Link id="link" text="Forgot Password?" emphasized="true" press="onForgotPass"/>
+        <Link id="link" text="Forgot Password?"  press="onForgotPass"/>
     </items>
     
     </FlexBox>
