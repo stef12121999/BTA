@@ -1,0 +1,76 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	xmlns:block="intern2020.controller.detailBlocks" height="100%" controllerName="intern2020.controller.DetailManager">
+
+	<ObjectPageLayout id="ObjectPageLayout" useIconTabBar="true" showFooter="true" upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageHeader  id="pageHeader" objectTitle="Status: {= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}">
+				<navigationBar>
+					<m:Bar>
+						<m:contentLeft>
+							<m:Button text="" icon="sap-icon://nav-back" press="onNavBack"/>
+						</m:contentLeft>
+						<m:contentMiddle>
+							<m:Title text="Trip details"/>
+						</m:contentMiddle>
+					</m:Bar>
+				</navigationBar>
+			</ObjectPageHeader>
+		</headerTitle>
+
+		<sections>
+			<ObjectPageSection title="General">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<block:General id="generalBlock"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection title="Employee">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<block:Employee id="employeeBlock"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection title="Cost">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<block:Cost id="costBlock"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+		</sections>
+		<footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:ToolbarSpacer/>
+
+				<m:Button id="acceptButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Accept" text="Accept" width="12rem" press="onPressAccept">
+					<m:layoutData>
+						<m:OverflowToolbarLayoutData priority="NeverOverflow" />
+					</m:layoutData>
+				</m:Button>
+				<m:Button id="declineButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Reject" text="Reject" width="12rem" press="onPressDecline">
+					<m:layoutData>
+						<m:OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</m:layoutData>
+				</m:Button>
+				<m:ToolbarSpacer/>
+
+			</m:OverflowToolbar>
+		</footer>
+
+	</ObjectPageLayout>
+
+</mvc:View>

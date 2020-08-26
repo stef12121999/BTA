@@ -1,0 +1,27 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core" controllerName="intern2020.controller.Information"
+    xmlns="sap.m">
+    <Page title="Travel information" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack">
+
+        <Panel>
+            <HBox alignItems="Center" class="sapUiTinyMargin sapUiSmallMarginBottom">
+                <Label text="Where are you going? (City, country, ...)" />
+                <Input id="place" class="sapUiSmallMarginBegin"/>
+                <Button text="Get travel information" class="sapUiLargeMarginBegin" press=".onGetInfo"/>
+            </HBox>
+            <Label id="foundPlace" text="" class="sapUiTinyMargin"/>
+            <HBox alignItems="Center" class="sapUiTinyMargin sapUiMediumMarginBottom">
+                <Label text="Latitude" />
+                <Input id="latitude" class="sapUiSmallMarginBegin"/>
+                <Label text="Longitude" class="sapUiLargeMarginBegin"/>
+                <Input id="longitude" class="sapUiSmallMarginBegin"/>
+                <Button text="Get travel information by coordinates" class="sapUiLargeMarginBegin" press=".onGetInfoByCoordinates"/>
+            </HBox>
+
+            <Title text="Weather forecast for the next 7 days" class="sapUiTinyMargin" visible="true" id="forecastTitle"/>
+            <HBox justifyContent="SpaceBetween" id="forecast" class="sapUiTinyMargin">
+
+            </HBox>
+        </Panel>
+    </Page>
+</mvc:View>
