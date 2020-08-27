@@ -27,7 +27,7 @@
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton icon="sap-icon://time-account" type="Ghost" pressed="false" text="To Be Approved" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" press="onFilterByStatus">
+						<ToggleButton icon="sap-icon://time-account" type="Ghost" pressed="false" text="To Be Approved" class="sapUiTinyMarginBegin sapUiTinyMarginEnd buton" press="onFilterByStatus">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
@@ -44,7 +44,7 @@
 								<OverflowToolbarLayoutData minWidth="200px" maxWidth="400px" shrinkable="true"/>
 							</layoutData>
 						</SearchField>
-						<Button text="Reset" type="Transparent" press="onReset" tooltip="Clear all sortings"/>
+						<Button text="Reset"  press="onReset" class="resetare" type="Ghost" tooltip="Clear all sortings"/>
 					</OverflowToolbar>
 				</headerToolbar>
 				<columns>
