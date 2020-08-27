@@ -1,3 +1,17 @@
 .customsShellCss .sapUiGlobalBackgroundColor, .customsShellCss .sapMShellGlobalInnerBackground {
-    background-color: #fafafa52;
+    background-color: #97af712a;
+}
+.sapMColumnHeader .sapMBtnText .sapMBtnIcon{
+    font-size:15px !important;
+}
+.sapMBtnGhost {
+    background-image: none;
+    border-color: rgba(52,97,135,0.5);
+    background-color: #f7f7f7;
+    color: #346187;
+}
+
+.sapMPage.sapUiContentPadding > section {
+    padding: 1rem;
+    box-sizing: border-box;
 }
