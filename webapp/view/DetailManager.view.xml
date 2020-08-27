@@ -1,12 +1,8 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.uxap"
 	xmlns:m="sap.m"
-<<<<<<< HEAD
-	xmlns:block="intern2020.controller.detailBlocks" height="100%" controllerName="intern2020.controller.DetailManager">
-=======
 	xmlns:layout="sap.ui.layout"
 	xmlns:block="intern2020.detailBlocks" height="100%" controllerName="intern2020.controller.DetailManager">
->>>>>>> alex
 
 	<ObjectPageLayout id="ObjectPageLayout" useIconTabBar="true" showFooter="true" upperCaseAnchorBar="false">
 		<headerTitle>
