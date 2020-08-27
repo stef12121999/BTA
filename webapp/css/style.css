@@ -16,3 +16,14 @@
     box-sizing: border-box;
     background-color: #fafafa17;
 }
+.sapMColumnHeader {
+    display: contents;
+    flex: 0 -5 auto;
+    padding: 1rem 0.5rem 1rem;
+}
+.sapUxAPObjectPageHeaderIdentifier.sapUxAPObjectPageHeaderIdentifierForce {
+    display: none !important;
+}
+.sapMTitleStyleAuto {
+    font-size: 1.2rem;
+}
