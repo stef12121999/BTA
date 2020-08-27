@@ -43,7 +43,7 @@
       type="Text"/>
       <Input
       id="password"
-      placeholder="{i18n>Password}"
+      placeholder="{i18n>Password} " 
       type="Password"
       width="20rem"
       />
@@ -52,8 +52,8 @@
         press="onValidation"
         width="20rem"
         icon="sap-icon://action"
-        />
-        <Link id="link"  class="sapUiMediumMarginTop" text="{i18n>forgotPass}"  press="onForgotPass"/>
+    />
+    <Button type="Emphasized" width="20rem" id="link" icon="sap-icon://hide" class="sapUiMediumMarginTop" text="{i18n>forgotPass}"  press="onForgotPass"/>
     </items>
     
     </FlexBox>

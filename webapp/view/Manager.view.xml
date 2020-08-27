@@ -32,29 +32,29 @@
 							
 							
 							
-							<ToggleButton icon="sap-icon://accept" text="{i18n>Approved}" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
+							<ToggleButton icon="sap-icon://accept" text="{i18n>Approved}" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd decreaseFont accept" type="Accept">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="10em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="8em" maxWidth="10em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton icon="sap-icon://time-account" type="Ghost" pressed="false" text="{i18n>TBA}" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" press="onFilterByStatus">
+						<ToggleButton icon="sap-icon://time-account" type="Ghost" pressed="false" text="{i18n>TBA}" class="sapUiTinyMarginBegin sapUiTinyMarginEnd decreaseFont" press="onFilterByStatus">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="10em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="8em" maxWidth="10em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton icon="sap-icon://decline" pressed="false" text="{i18n>Declined}" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Reject">
+						<ToggleButton icon="sap-icon://decline" pressed="false" text="{i18n>Declined}" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd decreaseFont decline" type="Reject">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="10em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="8em" maxWidth="10em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
 						
 						<ToolbarSpacer/>
-						<SearchField width="25%" search="onFilterBySearch">
+						<SearchField width="20%" search="onFilterBySearch">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="200px" maxWidth="400px" shrinkable="true"/>
 							</layoutData>
 						</SearchField>
-						<Button text="{i18n>Reset}" type="Transparent" press="onReset" tooltip="Clear all sortings"/>
+						<Button text="{i18n>Reset}" type="Emphasized" press="onReset" tooltip="{i18n>Clear}"/>
 					</OverflowToolbar>
 				</headerToolbar>
 				<columns>

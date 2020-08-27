@@ -1,11 +1,12 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.uxap"
 	xmlns:m="sap.m"
+	xmlns:layout="sap.ui.layout"
 	xmlns:block="intern2020.detailBlocks" height="100%" controllerName="intern2020.controller.DetailManager">
 
 	<ObjectPageLayout id="ObjectPageLayout" useIconTabBar="true" showFooter="true" upperCaseAnchorBar="false">
 		<headerTitle>
-			<ObjectPageHeader  id="pageHeader" objectTitle="Status: {= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}">
+			<ObjectPageHeader >
 				<navigationBar>
 					<m:Bar>
 						<m:contentLeft>
@@ -18,6 +19,21 @@
 				</navigationBar>
 			</ObjectPageHeader>
 		</headerTitle>
+
+		<headerContent >
+		<layout:VerticalLayout>
+				<m:ObjectStatus title="User" text="{FirstName} {LastName}"/>
+				<m:ObjectStatus title="Functional Area" text="{ServiceUnit}"/>
+				<m:ObjectStatus title="Cost Center" text="{Total} EUR"/>
+				<m:ObjectStatus title="Email" text="{Email}"/>
+				<m:ObjectStatus title="Phone" text="{PhoneNr}"/>
+			</layout:VerticalLayout>
+                    <m:ObjectStatus
+                            title="Status"
+                            text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}"
+                            state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}"
+							class="sapUiTinyMarginEnd" />
+            </headerContent>
 
 		<sections>
 			<ObjectPageSection title="General">

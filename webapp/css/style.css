@@ -3,19 +3,25 @@
 }
 
 .sapMLnk {
-    font-size:1rem;
+    font-size:1.1rem;
+   
+}
+
+.sapMLnk:hover{
+    color:#4b071b;
+    text-decoration: none;
 }
 
 .sapMLnk:visited {
     text-decoration: none;
-    color: #131841;
-    
+    color: #160420;
+    font-weight: bold;
 }
 
 .sapMLabel, .text{
     font-size:1.1rem;
-  
-    color: #132a41 ;
+    font-weight: bold;
+    color: #061c31 ;
 }
 
 .sapMBtnTransparent>.sapMBtnIcon{
@@ -27,4 +33,17 @@
     font-weight: bold;
     font-size:1rem;
     color:#4b071b;
+}
+
+.sapMBtn.decreaseFont .sapMBtnIcon {
+    font-size: 0.7rem;
+}
+
+.sapMBtnInner .accept{
+    font-size: 0.6rem;
+    
+}
+
+.sapMBtnInner.sapMBtnAccept{
+    color:black;
 }

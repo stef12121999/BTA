@@ -12,43 +12,43 @@
                 <f:FormContainer ariaLabelledBy="Title2">
 						<f:formElements>
 							<f:FormElement label="{i18n>DiemA}">
-								<TextArea value="{DiemA} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{DiemA} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>DiemR}">
-								<TextArea value="{DiemR} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{DiemR} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>Hotel}">
-								<TextArea value="{Hotel} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{Hotel} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>Train}">
-								<TextArea value="{Train} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{Train} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>RentalCar}">
-								<TextArea value="{RentalCar} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{RentalCar} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>Gas}">
-								<TextArea value="{Gas} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{Gas} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>Bank}">
-								<TextArea value="{Bank} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{Bank} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>BusinessMeal}">
-								<TextArea value="{BusinessMeal} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{BusinessMeal} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>FoodAndBev}">
-								<TextArea value="{FoodAndBev} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{FoodAndBev} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>ItSupplies}">
-								<TextArea value="{ItSupplies} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{ItSupplies} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>OfficeSupplies}">
-								<TextArea value="{OfficeSupplies} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{OfficeSupplies} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>AirFare}">
-								<TextArea value="{AirFare} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{AirFare} EUR" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>Total}">
-								<TextArea value="{Total} EUR" width="100%" editable="false" height="1rem"/>
+								<Input value="{Total} EUR" width="100%" editable="false" />
 							</f:FormElement>
 						</f:formElements>
                 </f:FormContainer>
