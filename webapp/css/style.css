@@ -1,5 +1,5 @@
 .customsShellCss .sapUiGlobalBackgroundColor, .customsShellCss .sapMShellGlobalInnerBackground {
-    background-color: #fafafa1c;
+    background-color: #fafafa0c;
 }
 
 .sapMLnk {
@@ -12,8 +12,9 @@
     
 }
 
-.sapMLabel{
-    font-size:1rem;
+.sapMLabel, .text{
+    font-size:1.1rem;
+  
     color: #132a41 ;
 }
 
@@ -22,7 +23,8 @@
 }
 
 .instr{
-    font-style:italic;
+    
+    font-weight: bold;
     font-size:1rem;
     color:#4b071b;
 }

@@ -11,43 +11,43 @@
             <f:formContainers>
                 <f:FormContainer ariaLabelledBy="Title2">
 						<f:formElements>
-							<f:FormElement label="Allowence per day">
+							<f:FormElement label="{i18n>DiemA}">
 								<TextArea value="{DiemA} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="Rate per day">
+							<f:FormElement label="{i18n>DiemR}">
 								<TextArea value="{DiemR} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="Hotel cost">
+							<f:FormElement label="{i18n>Hotel}">
 								<TextArea value="{Hotel} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="Train cost">
+							<f:FormElement label="{i18n>Train}">
 								<TextArea value="{Train} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="Rental car cost">
+							<f:FormElement label="{i18n>RentalCar}">
 								<TextArea value="{RentalCar} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="Gas cost">
+							<f:FormElement label="{i18n>Gas}">
 								<TextArea value="{Gas} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="Bank cost">
+							<f:FormElement label="{i18n>Bank}">
 								<TextArea value="{Bank} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="Business meal cost">
+							<f:FormElement label="{i18n>BusinessMeal}">
 								<TextArea value="{BusinessMeal} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="Food and beverage cost">
+							<f:FormElement label="{i18n>FoodAndBev}">
 								<TextArea value="{FoodAndBev} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="IT supplies cost">
+							<f:FormElement label="{i18n>ItSupplies}">
 								<TextArea value="{ItSupplies} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="Office supplies cost">
+							<f:FormElement label="{i18n>OfficeSupplies}">
 								<TextArea value="{OfficeSupplies} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="Air fare cost">
+							<f:FormElement label="{i18n>AirFare}">
 								<TextArea value="{AirFare} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
-							<f:FormElement label="Total cost">
+							<f:FormElement label="{i18n>Total}">
 								<TextArea value="{Total} EUR" width="100%" editable="false" height="1rem"/>
 							</f:FormElement>
 						</f:formElements>

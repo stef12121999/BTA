@@ -34,17 +34,17 @@
 							
 							<ToggleButton icon="sap-icon://accept" text="{i18n>Approved}" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="10em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
 						<ToggleButton icon="sap-icon://time-account" type="Ghost" pressed="false" text="{i18n>TBA}" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" press="onFilterByStatus">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="10em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
 						<ToggleButton icon="sap-icon://decline" pressed="false" text="{i18n>Declined}" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Reject">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="10em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
 						
@@ -67,8 +67,14 @@
 					<Column minScreenWidth="Phone" demandPopin="true" hAlign="End">
 						<Button iconFirst="false" id="usernameButton" text="{i18n>Username}" icon="sap-icon://sort" type="Transparent" press=".onSortByUsername"/>
 					</Column>
-					<Column hAlign="End">
+					<Column minScreenWidth="Phone" demandPopin="true" hAlign="End">
 						<Button iconFirst="false" id="countryButton" text="{i18n>Country}" icon="sap-icon://sort" type="Transparent" press=".onSortByCountry"/>
+					</Column>
+					<Column minScreenWidth="Phone" demandPopin="true" hAlign="End">
+						<Button iconFirst="false" id="priceButton" text="{i18n>Total}" icon="sap-icon://sort" type="Transparent" press=".onSortByPrice"/>
+					</Column>
+					<Column hAlign="End">
+						<Button iconFirst="false" id="statusButton" text="{i18n>Status}" icon="sap-icon://sort" type="Transparent" press=".onSortByStatus"/>
 					</Column>
 				</columns>
 				<items>
@@ -88,6 +94,8 @@
 												}}" />
 							<Text text="{UId}" />
 							<Text text="{Country}" />
+							<Text text="{Total}"/>
+							<Text text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}"/>
 						<!--	<Text text="{Country}" visbile="{= ${UserInfo>/isUser} === 'user' ? false :true}" />-->	
 						</cells>
 					</ColumnListItem>
