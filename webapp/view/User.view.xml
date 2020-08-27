@@ -55,23 +55,29 @@
 				</headerToolbar>
 
 				<columns>
-					<Column minScreenWidth="Tablet" demandPopin="true">
+				<Column minScreenWidth="Small" >
+						<Button iconFirst="false" id="serviceUnitButton" text="{i18n>Serviceunit}" icon="sap-icon://sort" type="Transparent" press=".onSortByServiceUnit"/>
+					</Column>
+					<Column minScreenWidth="Phone" demandPopin="true">
 						<Button iconFirst="false" id="dateButton" text="{i18n>Date}" icon="sap-icon://sort" type="Transparent" press=".onSortByDate"/>
 					</Column>
-					
-					<Column hAlign="End">
+					<Column minScreenWidth="Phone" demandPopin="true" hAlign="End">
+						<Button iconFirst="false" id="usernameButton" text="{i18n>Username}" icon="sap-icon://sort" type="Transparent" press=".onSortByUsername"/>
+					</Column>
+					<Column minScreenWidth="Phone" demandPopin="true" hAlign="End">
 						<Button iconFirst="false" id="countryButton" text="{i18n>Country}" icon="sap-icon://sort" type="Transparent" press=".onSortByCountry"/>
 					</Column>
-					<Column hAlign="End">
-						<Button iconFirst="false" id="cityButton" text="{i18n>City}" icon="sap-icon://sort" type="Transparent" press=".onSortByCity"/>
+					<Column minScreenWidth="Phone" demandPopin="true" hAlign="End">
+						<Button iconFirst="false" id="priceButton" text="{i18n>Total}" icon="sap-icon://sort" type="Transparent" press=".onSortByPrice"/>
 					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
-						<Button iconFirst="false" id="totalCostButton" text="{i18n>Total}" icon="sap-icon://sort" type="Transparent" press=".onSortByTotalCost"/>
+					<Column hAlign="End">
+						<Button iconFirst="false" id="statusButton" text="{i18n>Status}" icon="sap-icon://sort" type="Transparent" press=".onSortByStatus"/>
 					</Column>
 				</columns>
 				<items>
 					<ColumnListItem type="Navigation" press=".onPressDetail" id="tripItem">
 						<cells>
+							<ObjectIdentifier text="{ServiceUnit}" />
 							<Text text="{
 											path: 'StartDate',
 											type: 'sap.ui.model.type.Date',
@@ -83,10 +89,10 @@
 											formatOptions: {
 												style: 'short'
 												}}" />
-							
-							<Text text="{Country}"/>
-							<Text text="{City}" />
-							<Text text="{Total} EUR" />
+							<Text text="{UId}" />
+							<Text text="{Country}" />
+							<Text text="{Total} EUR"/>
+							<Text text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
