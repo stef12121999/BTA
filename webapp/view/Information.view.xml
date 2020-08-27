@@ -1,9 +1,9 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core" controllerName="intern2020.controller.Information"
     xmlns="sap.m">
-    <Page title="Travel information" enableScrolling="false">
+    <Page title="Travel information" backgroundDesign="Solid" enableScrolling="false">
 
-        <Panel>
+        <Panel >
             <HBox alignItems="Center" class="sapUiTinyMargin sapUiSmallMarginBottom">
                 <Label text="{i18n>dest}" />
                 <Input id="place" class="sapUiSmallMarginBegin"/>

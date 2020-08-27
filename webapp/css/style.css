@@ -28,10 +28,8 @@
 }
 
 .instr{
-    
-    font-weight: bold;
-    font-size:1rem;
-    color:#4b071b;
+    font-size:1.1rem;
+    color:#12032b;
 }
 
 .sapMBtn.decreaseFont .sapMBtnIcon {
@@ -46,3 +44,7 @@
 .sapMBtnInner.sapMBtnAccept{
     color:black;
 }
+
+/*.customsShellCss .sapUiGlobalBackgroundColor, .customsShellCss .sapMShellGlobalInnerBackground #changePassPage {
+    background-color: #dcebf586;
+}*/
