@@ -11,44 +11,44 @@
             <f:formContainers>
                 <f:FormContainer ariaLabelledBy="Title2">
 						<f:formElements>
-							<f:FormElement label="Allowence per day">
-								<Input value="{DiemA} EUR" width="100%" editable="false"  height="1rem"/>
+							<f:FormElement label="{i18n>DiemA}">
+								<Input value="{DiemA} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="Rate per day">
-								<Input value="{DiemR} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>DiemR}">
+								<Input value="{DiemR} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="Hotel cost">
-								<Input value="{Hotel} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>Hotel}">
+								<Input value="{Hotel} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="Train cost">
-								<Input value="{Train} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>Train}">
+								<Input value="{Train} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="Rental car cost">
-								<Input value="{RentalCar} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>RentalCar}">
+								<Input value="{RentalCar} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="Gas cost">
-								<Input value="{Gas} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>Gas}">
+								<Input value="{Gas} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="Bank cost">
-								<Input value="{Bank} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>Bank}">
+								<Input value="{Bank} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="Business meal cost">
-								<Input value="{BusinessMeal} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>BusinessMeal}">
+								<Input value="{BusinessMeal} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="Food and beverage cost">
-								<Input value="{FoodAndBev} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>FoodAndBev}">
+								<Input value="{FoodAndBev} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="IT supplies cost">
-								<Input value="{ItSupplies} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>ItSupplies}">
+								<Input value="{ItSupplies} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="Office supplies cost">
-								<Input value="{OfficeSupplies} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>OfficeSupplies}">
+								<Input value="{OfficeSupplies} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="Air fare cost">
-								<Input value="{AirFare} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>AirFare}">
+								<Input value="{AirFare} EUR" width="100%" editable="false" />
 							</f:FormElement>
-							<f:FormElement label="Total cost">
-								<Input value="{Total} EUR" width="100%" editable="false" height="1rem"/>
+							<f:FormElement label="{i18n>Total}">
+								<Input value="{Total} EUR" width="100%" editable="false" />
 							</f:FormElement>
 						</f:formElements>
                 </f:FormContainer>

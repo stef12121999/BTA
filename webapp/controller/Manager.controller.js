@@ -26,7 +26,6 @@ sap.ui.define(
     return BaseController.extend("intern2020.controller.Manager", {
       onInit: function (oContext) {
         this.statusMap = this.getInitialStatusMap();
-
         this.searchFilter = null;
         this.statusFilter = null;
 
@@ -41,6 +40,22 @@ sap.ui.define(
         oBinding.sort(new Sorter(sSortProperty));
       },
 }*/
+
+
+
+    onSortByTotalPrice: function(oEvent) {
+      
+      var oList = this.byId("idTrips");
+      var oBinding = oList.getBinding("items");
+      oBinding.sort(new Sorter("Total"));
+    },
+
+    onSortByStatus: function(){
+      var oList = this.byId("idTrips");
+      var oBinding = oList.getBinding("items");
+      oBinding.sort(new Sorter("Status"));
+    },
+
       onSortByDate: function () {
         var oList = this.byId("idTrips");
         var oBinding = oList.getBinding("items");

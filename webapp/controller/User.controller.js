@@ -102,6 +102,12 @@ sap.ui.define(
         oBinding.sort(null);
       },
 
+      onSortByStatus: function(){
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter("Status"));
+      },
+
       onDataReceived: function () {
         if (this.countLoad == 0) {
           var oList = this.byId("idTrips");

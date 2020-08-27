@@ -19,7 +19,7 @@ sap.ui.define(
         var oModel = oView.getModel();
         var UserId = oView.byId("username").getValue();
         var UserPassword = oView.byId("password").getValue();
-
+        
         if (UserId == "") {
           MessageToast.show("Please Enter Username");
           return false;
@@ -27,6 +27,11 @@ sap.ui.define(
           MessageToast.show("Please Enter Password");
           return false;
         } else {
+          //var sPath = oModel.createKey("/EmployeeSet", {
+          //Id : UserId,
+          //Password : UserPassword
+          //});
+          console.log(UserId +  " " + UserPassword);
           oModel.read(
             "/EmployeeSet(Id='" + UserId + "',Password='" + UserPassword + "')",
 
@@ -63,6 +68,15 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("forgotPass");
       },
+      
+      onSwitchToEnglish: function() {
+        sap.ui.getCore().getConfiguration().setLanguage("en");
+      },
+
+      onSwitchToGerman: function() {
+        sap.ui.getCore().getConfiguration().setLanguage("de");
+      },
+
       onSwitchLanguage: function(oEvent){
         console.log(oEvent.getSource().getState());
         if(oEvent.getSource().getState() == true)

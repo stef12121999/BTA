@@ -8,21 +8,26 @@
          <headerContent >
             
             <Bar>
-                <contentLeft>
-                    <Image src="images/MHP17_00180_300_cmyk.jpg"  width="8rem"/>
-                </contentLeft>
-                <contentMiddle>
-                    <Title  text="{i18n>homePageTitle}" level="H3"/>
-                </contentMiddle>
+				<contentLeft>
+					<Image src="images/MHP_Logo.jpg"  width="8rem"/>
+				</contentLeft>
+				<contentMiddle>
+					<Title  text="{i18n>homePageTitle}" level="H3"/>
+				</contentMiddle>
                 <contentRight>
-                <Switch state="false" customTextOn="DE" customTextOff="EN" id="switchLanguage" change="onSwitchLanguage">
-					<layoutData>
-						<FlexItemData growFactor="1" />
-					</layoutData>
-				</Switch>
+                    <MenuButton  icon="sap-icon://globe">
+				    <menu>
+					<Menu itemSelected="onMenuAction">
+						<items>
+							<MenuItem text="DE" icon="images/DE_Flag.png" press="onSwitchToEnglish"/>
+                            <MenuItem text="EN" icon="images/EN_Flag.png" press="onSwitchToGerman"/>
+						</items>
+					</Menu>
+				</menu>
+			</MenuButton>
                 </contentRight>
-            </Bar>
- 
+			</Bar>
+
             
         </headerContent>
     <FlexBox
@@ -34,17 +39,17 @@
     <items>
     <Input
       id="username"
-      placeholder="Username" 
-      width="15rem"
+      placeholder="{i18n>Username}" 
+      width="20rem"
       type="Text"/>
       <Input
       id="password"
-      placeholder="Password"
+      placeholder="{i18n>Password} " 
       type="Password"
-      width="15rem"
+      width="20rem"
       />
     <Button
-        text="Login"
+        text="{i18n>Login}"
         press="onValidation"
         width="15rem"
         class="sapUiSmallMarginBottom"

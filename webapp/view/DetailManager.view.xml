@@ -21,15 +21,21 @@
 		</headerTitle>
 
 		<headerContent >
-		<layout:VerticalLayout>
+		<layout:HorizontalLayout >
+		
+			<layout:VerticalLayout class="sapUiLargeMarginEnd">
 				<m:ObjectStatus title="User" text="{FirstName} {LastName}"/>
 				<m:ObjectStatus title="Functional Area" text="{ServiceUnit}"/>
+				<m:ObjectStatus title="Cost Center" text="{Total} EUR"/>
+
 			</layout:VerticalLayout>
 			<layout:VerticalLayout>
-				<m:ObjectStatus title="Cost Center" text="{Total} EUR"/>
 				
+				<m:ObjectStatus title="Email" text="{Email}"/>
 				<m:ObjectStatus title="Phone" text="{PhoneNr}"/>
 			</layout:VerticalLayout>
+		</layout:HorizontalLayout>
+		
                     <m:ObjectStatus
                             title="Status"
                             text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}"

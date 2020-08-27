@@ -12,34 +12,34 @@
         <f:FormContainer ariaLabelledBy="Title2">
           <f:formElements>
             <f:FormElement label="First name">
-              <Input value="{FirstName}" width="100%" editable="false" height="1rem"/>
+              <Input value="{FirstName}" width="100%" editable="false"  />
             </f:FormElement>
             <f:FormElement label="Last name">
-              <Input value="{LastName}" width="100%" editable="false" height="1rem"/>
+              <Input value="{LastName}" width="100%" editable="false"  />
             </f:FormElement>
             <f:FormElement label="Phone">
-              <Input value="{PhoneNr}" width="100%" editable="false" height="1rem"/>
+              <Input value="{PhoneNr}" width="100%" editable="false"  />
             </f:FormElement>
             <f:FormElement label="Personnel number">
-              <Input value="{PersonalNr}" width="100%" editable="false" height="1rem"/>
+              <Input value="{PersonalNr}" width="100%" editable="false"  />
             </f:FormElement>
             <f:FormElement label="Cost center">
-              <Input value="{CostCenter}" width="100%" editable="false" height="1rem"/>
+              <Input value="{CostCenter}" width="100%" editable="false"  />
             </f:FormElement>
             <f:FormElement label="Supervisor">
-              <Input value="{Supervisor}" width="100%" editable="false" height="1rem"/>
+              <Input value="{Supervisor}" width="100%" editable="false"  />
             </f:FormElement>
             <f:FormElement label="Service unit">
-              <Input value="{ServiceUnit}" width="100%" editable="false" height="1rem"/>
+              <Input value="{ServiceUnit}" width="100%" editable="false"  />
             </f:FormElement>
             <f:FormElement label="Location">
-              <Input value="{Location}" width="100%" editable="false" height="1rem"/>
+              <Input value="{Location}" width="100%" editable="false"  />
             </f:FormElement>
             <f:FormElement label="Home ZIP">
-              <Input value="{HomeZip}" width="100%" editable="false" height="1rem"/>
+              <Input value="{HomeZip}" width="100%" editable="false"  />
             </f:FormElement>
             <f:FormElement label="Home city">
-              <Input value="{HomeCity}" width="100%" editable="false" height="1rem"/>
+              <Input value="{HomeCity}" width="100%" editable="false"  />
             </f:FormElement>
           </f:formElements>
         </f:FormContainer>

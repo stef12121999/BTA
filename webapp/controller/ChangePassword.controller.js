@@ -37,6 +37,10 @@ sap.ui.define(
         var oView = this.getView();
         var oldPass = oView.byId("inputOld").getValue();
         var newPass = oView.byId("inputNew").getValue();
+        var newPassCheck = oView.byId("inputNewCheck").getValue();
+        if (newPass!=newPassCheck){
+          MessageToast.show("The passwords are not identical.");
+        }else{
         oModel.update(
           "/EmployeeSet(Id='" + username + "',Password='" + oldPass + "')",
           { Password: newPass },
@@ -48,7 +52,7 @@ sap.ui.define(
               MessageToast.show("Old password is incorrect.");
             },
           }
-        );
+        );}
       },
 
       patternMatched: function (oEvent) {
