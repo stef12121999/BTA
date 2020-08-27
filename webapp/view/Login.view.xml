@@ -26,19 +26,19 @@
     <items>
     <Input
       id="username"
-      placeholder="Username" 
-      width="25rem"
+      placeholder="{i18n>Username}" 
+      width="20rem"
       type="Text"/>
       <Input
       id="password"
-      placeholder="Password"
+      placeholder="{i18n>Password}"
       type="Password"
-      width="25rem"
+      width="20rem"
       />
     <Button
-        text="Login"
+        text="{i18n>Login}"
         press="onValidation"
-        width="25rem"
+        width="20rem"
         icon="sap-icon://action"
         />
         <Link id="link"  class="sapUiMediumMarginTop" text="{i18n>forgotPass}"  press="onForgotPass"/>

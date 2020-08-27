@@ -120,52 +120,52 @@
 							</Toolbar>
 						</f:toolbar>
 						<f:formElements>
-							<f:FormElement label="Firstname">
+							<f:FormElement label="{i18n>Firstname}">
 								<TextArea value="{FirstName}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
 						</f:formElements>
 						<f:formElements>
-							<f:FormElement label="Lastname">
+							<f:FormElement label="{i18n>Lastname}">
 								<TextArea value="{LastName}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Phone">
+							<f:FormElement label="{i18n>Phone}">
 
 								<TextArea value="{PhoneNr}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Personal Nr">
+							<f:FormElement label="{i18n>PersonalNr}">
 
 								<TextArea value="{PersonalNr}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Cost Center">
+							<f:FormElement label="{i18n>CostCenter}">
 
 								<TextArea value="{CostCenter}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Supervisor">
+							<f:FormElement label="{i18n>Supervisor}">
 
 								<TextArea value="{Supervisor}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Service Unit">
+							<f:FormElement label="{i18n>ServiceUnit}">
 
 								<TextArea value="{ServiceUnit}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Location">
+							<f:FormElement label="{i18n>Location}">
 
 								<TextArea value="{Location}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Home ZIP">
+							<f:FormElement label="{i18n>ZipCode}">
 
 								<TextArea value="{HomeZip}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Home City">
+							<f:FormElement label="{i18n>HomeCity}">
 
 								<TextArea value="{HomeCity}" width="100%" editable="false" height="1rem"/>
 
@@ -176,80 +176,80 @@
 					<f:FormContainer ariaLabelledBy="Title4">
 						<f:toolbar>
 							<Toolbar>
-								<Title id="Title4" text="Cost" level="H5" titleStyle="H5"/>
+								<Title id="Title4" text="{i18n>Cost}" level="H5" titleStyle="H5"/>
 								<ToolbarSpacer />
 							</Toolbar>
 						</f:toolbar>
 						<f:formElements>
-							<f:FormElement label="DIEM A">
+							<f:FormElement label="{i18n>DiemA}">
 								<TextArea value="{DiemA}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
 						</f:formElements>
 						<f:formElements>
-							<f:FormElement label="DIEM R">
+							<f:FormElement label="{i18n>DiemR}">
 								<TextArea value="{DiemR}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Hotel">
+							<f:FormElement label="{i18n>Hotel}">
 
 								<TextArea value="{Hotel}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Train">
+							<f:FormElement label="{i18n>Train}">
 
 								<TextArea value="{Train}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Rental Car">
+							<f:FormElement label="{i18n>RentalCar}">
 
 								<TextArea value="{RentalCar}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
 
-							<f:FormElement label="Gas">
+							<f:FormElement label="{i18n>Gas}">
 
 								<TextArea value="{Gas}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
 
-							<f:FormElement label="Bank">
+							<f:FormElement label="{i18n>Bank}">
 
 								<TextArea value="{Bank}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
 
-							<f:FormElement label="Business Meal">
+							<f:FormElement label="{i18n>BusinessMeal}">
 
 								<TextArea value="{BusinessMeal}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
 
-							<f:FormElement label="Food and Beverage">
+							<f:FormElement label="{i18n>FoodAndBev}">
 
 								<TextArea value="{FoodAndBev}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
 
-							<f:FormElement label="IT Supplies">
+							<f:FormElement label="{i18n>ItSupplies}">
 
 								<TextArea value="{ItSupplies}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
 
-							<f:FormElement label="Office Supplies">
+							<f:FormElement label="{i18n>OfficeSupplies}">
 
 								<TextArea value="{OfficeSupplies}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
 
-							<f:FormElement label="Air Fare">
+							<f:FormElement label="{i18n>AirFare}">
 
 								<TextArea value="{AirFare}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
 
-							<f:FormElement label="Total">
+							<f:FormElement label="{i18n>Total}">
 
 								<TextArea value="{Total}" width="100%" editable="false" height="1rem"/>
 
