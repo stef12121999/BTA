@@ -1,68 +1,46 @@
-<mvc:View
-   xmlns:mvc="sap.ui.core.mvc"
-    xmlns:core="sap.ui.core"
-    controllerName="intern2020.controller.Login"
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core" controllerName="intern2020.controller.Login"
     xmlns="sap.m">
 
     <Page enableScrolling="false">
-         <headerContent >
-            
+        <headerContent >
+
             <Bar>
-				<contentLeft>
-					<Image src="images/MHP_Logo.jpg"  width="8rem"/>
-				</contentLeft>
-				<contentMiddle>
-					<Title  text="{i18n>homePageTitle}" level="H3"/>
-				</contentMiddle>
+                <contentLeft>
+                    <Image src="images/MHP_Logo.jpg" width="8rem"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Title text="{i18n>homePageTitle}" level="H3"/>
+                </contentMiddle>
                 <contentRight>
-                    <MenuButton  icon="sap-icon://globe">
-				    <menu>
-					<Menu itemSelected="onMenuAction">
-						<items>
-							<MenuItem text="DE" icon="images/DE_Flag.png" press="onSwitchToEnglish"/>
-                            <MenuItem text="EN" icon="images/EN_Flag.png" press="onSwitchToGerman"/>
-						</items>
-					</Menu>
-				</menu>
-			</MenuButton>
+                    <MenuButton icon="sap-icon://globe">
+                        <menu>
+                            <Menu itemSelected="onMenuAction">
+                                <items>
+                                    <MenuItem text="DE" icon="images/DE_Flag.png" press="onSwitchToEnglish"/>
+                                    <MenuItem text="EN" icon="images/EN_Flag.png" press="onSwitchToGerman"/>
+                                </items>
+                            </Menu>
+                        </menu>
+                    </MenuButton>
                 </contentRight>
-			</Bar>
+            </Bar>
 
-            
+
         </headerContent>
-    <FlexBox
-    direction="Column"
-        alignItems="Center"
-        justifyContent="Center"
-        height="550px">
-   
-    <items>
-    <Input
-      id="username"
-      placeholder="{i18n>Username}" 
-      width="20rem"
-      type="Text"/>
-      <Input
-      id="password"
-      placeholder="{i18n>Password} " 
-      type="Password"
-      width="20rem"
-      />
-    <Button
-        text="{i18n>Login}"
-        press="onValidation"
-        width="15rem"
-        class="sapUiSmallMarginBottom"
-        icon="sap-icon://action"
-        class="sapUiTinyMarginBottom"
-        />
-        <Link id="link" text="Forgot Password?"  press="onForgotPass"/>
-    </items>
-    
-    </FlexBox>
-   
+        <FlexBox direction="Column" alignItems="Center" justifyContent="Center" height="550px">
 
-    
+            <items>
+                <Input id="username" placeholder="{i18n>Username}" width="15rem" type="Text"/>
+                <Input id="password" placeholder="{i18n>Password} " type="Password" width="15rem" />
+                <Button text="{i18n>Login}" press="onValidation" width="15rem" class="sapUiSmallMarginBottom" icon="sap-icon://action" />
+                <Link id="link" text="Forgot Password?" press="onForgotPass"/>
+            </items>
 
-</Page>
+        </FlexBox>
+
+
+
+
+    </Page>
 </mvc:View>

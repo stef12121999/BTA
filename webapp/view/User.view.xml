@@ -2,8 +2,8 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
-	<Page title="{i18n>userPage}" enableScrolling="true" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack" visible="{UserInfo>/isUser}">
-        <headerContent>
+	<Page title="{i18n>userPage}" enableScrolling="true" class="sapUiContentPadding" showNavButton="true" navButtonPress="goToLoginAndLogOut" visible="{UserInfo>/isUser}">
+		<headerContent>
 			<MenuButton text="{i18n>MyProfile}" icon="sap-icon://customer">
 				<menu>
 					<Menu itemSelected="onMenuAction">
@@ -46,12 +46,12 @@
 							</layoutData>
 
 						</SearchField>
-						<Button text="{i18n>Reset}" press="onReset" class="resetare" type="Ghost" type="Transparent" press="onReset"/>
+						<Button text="{i18n>Reset}" class="resetare" type="Ghost" press="onReset"/>
 					</OverflowToolbar>
 				</headerToolbar>
 
 				<columns>
-				<Column minScreenWidth="Small" >
+					<Column minScreenWidth="Small">
 						<Button iconFirst="false" id="serviceUnitButton" text="{i18n>Serviceunit}" icon="sap-icon://sort" type="Transparent" press=".onSortByServiceUnit"/>
 					</Column>
 					<Column minScreenWidth="Phone" demandPopin="true">

@@ -67,9 +67,9 @@ sap.ui.define(
         oRouter.navTo("changePassword");
       },
 
-      onGoToPlanTrip: function() {
+      onGoToPlanTrip: function () {
         var oRouter = this.getRouter();
-        oRouter.navTo("information")
+        oRouter.navTo("information");
       },
 
       onSortByDate: function () {
@@ -102,7 +102,7 @@ sap.ui.define(
         oBinding.sort(null);
       },
 
-      onSortByStatus: function(){
+      onSortByStatus: function () {
         var oList = this.byId("idTrips");
         var oBinding = oList.getBinding("items");
         oBinding.sort(new Sorter("Status"));
