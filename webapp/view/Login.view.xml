@@ -9,7 +9,7 @@
 			
             <Bar>
 				<contentLeft>
-					<Image src="images/MHP19_00012.png"  width="8rem"/>
+					<Image src="images/MHP17_00180_300_cmyk.jpg"  width="8rem"/>
 				</contentLeft>
 				<contentMiddle>
 					<Title  text="{i18n>homePageTitle}" level="H3"/>
@@ -19,10 +19,11 @@
             
 		</headerContent>
     <FlexBox
-        direction="Column"
+    direction="Column"
         alignItems="Center"
         justifyContent="Center"
-        height="600px">
+        height="550px">
+   
     <items>
     <Input
       id="username"
@@ -39,12 +40,15 @@
         text="Login"
         press="onValidation"
         width="15rem"
+        class="sapUiSmallMarginBottom"
         icon="sap-icon://action"
         />
+        <!-- textfield gol -->
         <Link id="link" text="Forgot Password?"  press="onForgotPass"/>
     </items>
     
     </FlexBox>
+   
 
 </Page>
 </mvc:View>
