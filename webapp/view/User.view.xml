@@ -8,7 +8,7 @@
 				<menu>
 					<Menu itemSelected="onMenuAction">
 						<items>
-							<!-- <MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/> -->
+							<MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/>
 							<MenuItem text="Change Password" icon="sap-icon://action-settings" press="onGoToSettings" />
 							<MenuItem visible="{UserInfo>/isManager}" text="Manage other's trips" icon="sap-icon://suitcase" press="onGoToAllTrips"/>
 							<MenuItem text="Plan your trip" icon="sap-icon://weather-proofing" press="onGoToPlanTrip"/>
