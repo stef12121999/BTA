@@ -84,10 +84,16 @@ sap.ui.define(
           oBinding.sort(new Sorter("City"));
       },
 
-      onSortByTotalCost: function() {
+      onSortByTotalPrice: function() {
         var oList = this.byId("idTrips");
           var oBinding = oList.getBinding("items");
           oBinding.sort(new Sorter("Total"));
+      },
+
+      onSortByStatus: function(){
+        var oList = this.byId("idTrips");
+        var oBinding = oList.getBinding("items");
+        oBinding.sort(new Sorter("Status"));
       },
 
       onDataReceived: function () {

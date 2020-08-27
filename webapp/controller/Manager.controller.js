@@ -41,7 +41,17 @@ sap.ui.define(
         oBinding.sort(new Sorter(sSortProperty));
       },
 }*/
+    onSortByTotalPrice: function() {
+      var oList = this.byId("idTrips");
+      var oBinding = oList.getBinding("items");
+      oBinding.sort(new Sorter("Total"));
+    },
 
+    onSortByStatus: function(){
+      var oList = this.byId("idTrips");
+      var oBinding = oList.getBinding("items");
+      oBinding.sort(new Sorter("Status"));
+    },
 
       onSortByDate: function () {
         var oList = this.byId("idTrips");

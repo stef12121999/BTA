@@ -68,7 +68,7 @@
 						<Button iconFirst="false" id="countryButton" text="{i18n>Country}" icon="sap-icon://sort" type="Transparent" press=".onSortByCountry"/>
 					</Column>
 					<Column minScreenWidth="Phone" demandPopin="true" hAlign="End">
-						<Button iconFirst="false" id="priceButton" text="{i18n>Total}" icon="sap-icon://sort" type="Transparent" press=".onSortByPrice"/>
+						<Button iconFirst="false" id="priceButton" text="{i18n>Total}" icon="sap-icon://sort" type="Transparent" press=".onSortByTotalCost"/>
 					</Column>
 					<Column hAlign="End">
 						<Button iconFirst="false" id="statusButton" text="{i18n>Status}" icon="sap-icon://sort" type="Transparent" press=".onSortByStatus"/>
