@@ -40,9 +40,6 @@ sap.ui.define(
             this.getOwnerComponent().setModel(new JSONModel(oData), "profile");
           }.bind(this),
           error: function () {
-            MessageToast.show(
-              "Are you sure that this is your correct email address?"
-            );
           },
         });
       },

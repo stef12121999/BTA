@@ -47,3 +47,7 @@
 .customsShellCss .nonTransparentPage {
     background-color:#f7f7f7;
 }
+
+.languageDropdown .sapMImg  {
+    width: 1.5rem;
+}

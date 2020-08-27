@@ -31,7 +31,6 @@ sap.ui.define(
           //Id : UserId,
           //Password : UserPassword
           //});
-          console.log(UserId +  " " + UserPassword);
           oModel.read(
             "/EmployeeSet(Id='" + UserId + "',Password='" + UserPassword + "')",
 
@@ -77,17 +76,16 @@ sap.ui.define(
         sap.ui.getCore().getConfiguration().setLanguage("de");
       },
 
-      onSwitchLanguage: function(oEvent){
-        console.log(oEvent.getSource().getState());
-        if(oEvent.getSource().getState() == true)
-        {
-          sap.ui.getCore().getConfiguration().setLanguage("de");
-        }
-        else
-        {
-          sap.ui.getCore().getConfiguration().setLanguage("en");
-        }
-      }
+      // onSwitchLanguage: function(oEvent){
+      //   if(oEvent.getSource().getState() == true)
+      //   {
+      //     sap.ui.getCore().getConfiguration().setLanguage("de");
+      //   }
+      //   else
+      //   {
+      //     sap.ui.getCore().getConfiguration().setLanguage("en");
+      //   }
+      // }
     });
   }
 );

@@ -1,7 +1,7 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core" controllerName="intern2020.controller.Information"
     xmlns="sap.m">
-    <Page title="Travel information" class="sapUiContentPadding nonTransparentPage" showNavButton="true" navButtonPress="onNavBack">
+    <Page title="Travel information" class="sapUiContentPadding nonTransparentPage" showNavButton="true"  visible="{UserInfo>/isUser}" navButtonPress="onNavBack">
 
         <Panel >
             <HBox alignItems="Center" class="sapUiTinyMargin sapUiSmallMarginBottom">

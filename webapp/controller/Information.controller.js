@@ -95,6 +95,13 @@ sap.ui.define(
       },
 
       onInit: function (oEvent) {
+        this.getRouter()
+        .getRoute("information")
+        .attachPatternMatched(this.patternMatched, this);
+      },
+
+      patternMatched: function () {
+        this.checkLoginUser();
       },
 
       onNavBack: function() {

@@ -9,7 +9,8 @@ sap.ui.define(
     "sap/m/Text",
     "sap/ui/core/format/NumberFormat",
     "sap/ui/model/json/JSONModel",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "sap/ui/model/Sorter",
   ],
   function (
     Controller,
@@ -21,7 +22,8 @@ sap.ui.define(
     Text,
     NumberFormat,
     JSONModel,
-    MessageBox
+    MessageBox,
+    Sorter
   ) {
     // eslint-disable-line id-match
     "use strict";
@@ -66,6 +68,21 @@ sap.ui.define(
         goToLoginAndLogOut: function () {
           this.logOut();
           this.getRouter().navTo("login");
+        },
+
+        sortList: function (oList, sorter) {
+          var oBinding = oList.getBinding("items");
+          oBinding.sort(sorter);
+        },
+
+        getIdFromGlobalId: function (globalId) {
+          var array = globalId.split("--");
+          return array[array.length - 1];
+        },
+
+        onGoToPage: function (oEvent) {
+          var page = this.getIdFromGlobalId(oEvent.getSource().getId());
+          this.getRouter().navTo(page);
         },
 
         navBackTo: function (defaultPage) {

@@ -7,7 +7,7 @@
 
             <Bar>
                 <contentLeft>
-                    <Image src="images/MHP_Logo.jpg" width="8rem"/>
+                    <Image src="images/MHP_Logo_No_Background.png" width="8rem"/>
                 </contentLeft>
                 <contentMiddle>
                     <Title text="{i18n>homePageTitle}" level="H3"/>
@@ -15,10 +15,10 @@
                 <contentRight>
                     <MenuButton icon="sap-icon://globe">
                         <menu>
-                            <Menu itemSelected="onMenuAction">
+                            <Menu class="languageDropdown" itemSelected="onMenuAction">
                                 <items>
-                                    <MenuItem text="DE" icon="images/DE_Flag.png" press="onSwitchToEnglish"/>
-                                    <MenuItem text="EN" icon="images/EN_Flag.png" press="onSwitchToGerman"/>
+                                    <MenuItem text="EN" icon="images/EN_Flag.png" press="onSwitchToEnglish"/>
+                                    <MenuItem text="DE" icon="images/DE_Flag.png" press="onSwitchToGerman"/>
                                 </items>
                             </Menu>
                         </menu>
