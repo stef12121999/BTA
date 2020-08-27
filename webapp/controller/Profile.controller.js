@@ -20,7 +20,22 @@ sap.ui.define(
       "use strict";
       return BaseController.extend("intern2020.controller.Profile", {
         onInit: function (oEvent) {
-            
+          var oView = this.getView();
+          var oModel = oView.getModel();
+          var UserId = oView.byId("").getValue();
+  
+          oModel.callFunction("/Employee_Details", {
+            method: "GET",
+            urlParameters: {
+              UserId: UserId,
+            },
+            success: function (oData) {
+              
+            }.bind(this),
+            error: function () {
+              MessageToast.show("error occured");
+            },
+          });
         },
   
         onNavBack : function(oEvent){
