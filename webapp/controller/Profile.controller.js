@@ -20,7 +20,7 @@ sap.ui.define(
       "use strict";
       return BaseController.extend("intern2020.controller.Profile", {
         onInit: function (oEvent) {
-          
+          console.log(oEvent)
         },
   
         onNavBack : function(oEvent){

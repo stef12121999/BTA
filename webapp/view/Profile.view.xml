@@ -60,11 +60,7 @@
 								<Text text="{Url}" />
 							</f:fields>
 						</f:FormElement>
-						<f:FormElement label="{i18n>Twitter}">
-							<f:fields>
-								<Text text="{Twitter}" />
-							</f:fields>
-						</f:FormElement>
+						
 					</f:formElements>
 				</f:FormContainer>
 			</f:formContainers>
