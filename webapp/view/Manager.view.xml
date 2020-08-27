@@ -18,11 +18,21 @@
 			</MenuButton>
 		</headerContent>		
 
+
+
+
+
 		<content>
+
+
 			<Table selectionChange="handleSelectionChange" id="idTrips" items="{/Front_TripSet}">
 				<headerToolbar >
 					<OverflowToolbar id="otbSubheader">
-						<ToggleButton icon="sap-icon://accept" text="{i18n>Approved}" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
+							
+							
+							
+							
+							<ToggleButton icon="sap-icon://accept" text="{i18n>Approved}" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
@@ -39,7 +49,7 @@
 						</ToggleButton>
 						
 						<ToolbarSpacer/>
-						<SearchField width="50%" search="onFilterBySearch">
+						<SearchField width="25%" search="onFilterBySearch">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="200px" maxWidth="400px" shrinkable="true"/>
 							</layoutData>
@@ -48,13 +58,13 @@
 					</OverflowToolbar>
 				</headerToolbar>
 				<columns>
-					<Column width="12em">
+					<Column minScreenWidth="Small" >
 						<Button iconFirst="false" id="serviceUnitButton" text="{i18n>Serviceunit}" icon="sap-icon://sort" type="Transparent" press=".onSortByServiceUnit"/>
 					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
+					<Column minScreenWidth="Phone" demandPopin="true">
 						<Button iconFirst="false" id="dateButton" text="{i18n>Date}" icon="sap-icon://sort" type="Transparent" press=".onSortByDate"/>
 					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+					<Column minScreenWidth="Phone" demandPopin="true" hAlign="End">
 						<Button iconFirst="false" id="usernameButton" text="{i18n>Username}" icon="sap-icon://sort" type="Transparent" press=".onSortByUsername"/>
 					</Column>
 					<Column hAlign="End">

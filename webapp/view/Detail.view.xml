@@ -64,24 +64,24 @@
 					</f:toolbar>
 					<f:formElements>
 						
-							<f:FormElement label="Reason">
+							<f:FormElement label="{i18n>Reason}">
 
 								<Input editable="false" value="{Reason}" width="100%"  />
 
 
 
 							</f:FormElement>
-							<f:FormElement label="CountryInfo">
+							<f:FormElement label="{i18n>CountryInfo}">
 
 								<TextArea value="{CountryInfo}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="City">
+							<f:FormElement label="{i18n>City}">
 
 								<TextArea value="{City}" width="100%" editable="false" height="1rem"/>
 
 							</f:FormElement>
-							<f:FormElement label="Start Date">
+							<f:FormElement label="{i18n>StartDate}">
 
 								<Input value="{
 											path: 'StartDate',
@@ -91,22 +91,22 @@
 											}}" width="100%" editable="false"/>
 
 							</f:FormElement>
-							<f:FormElement label="End Date">
+							<f:FormElement label="{i18n>EndDate}">
 
-								<TextArea value="{path: 'EndDate',
+								<Input value="{path: 'EndDate',
 											type: 'sap.ui.model.type.Date',
 											formatOptions: {
 												style: 'short'
-												}}" width="100%" editable="false" height="1rem"/>
+												}}" width="100%" editable="false" />
 
 							</f:FormElement>
 							<!-- <f:FormElement label="Status">
 						 		<TextArea value="{Status}" width="100%" editable="false" height="1rem"/>
 
 						</f:FormElement> -->
-							<f:FormElement visible="{= ${Status} === 1 ? false:true}" id="declineReason" label="Decline Reason">
+							<f:FormElement visible="{= ${Status} === 1 ? false:true}" id="declineReason" label="{i18n>DeclineReason}">
 
-								<TextArea  value="{DeclineReason}" width="100%" editable="false" height="1rem"/>
+								<TextArea  value="{DeclineReason}" width="100%" editable="false" height="4rem" />
 
 							</f:FormElement>
 

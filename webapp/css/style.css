@@ -21,6 +21,7 @@
     font-size:0.75rem;
 }
 
-#__button3-inner, #__button7-inner{
-    background-color: rgba(255, 255, 255, 0.849);
+#instrPass{
+    font-size:1rem;
+    color:#30010f;
 }
