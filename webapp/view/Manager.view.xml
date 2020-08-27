@@ -2,7 +2,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
-	<Page title="{i18n>managerPage}" enableScrolling="true" class="sapUiContentPadding" showNavButton="true" navButtonPress="goToLoginAndLogOut" visible="{UserInfo>/isManager}">
+	<Page title="{i18n>managerPage}" enableScrolling="true" class="nonTransparentPage sapUiContentPadding" showNavButton="true" navButtonPress="goToLoginAndLogOut" visible="{UserInfo>/isManager}">
         <headerContent>
 			<MenuButton text="{i18n>MyProfile}" icon="sap-icon://customer">
 				<menu>

@@ -1,55 +1,49 @@
-.sapMLabel,
-.text {
-  font-size: 1.1rem;
-  color: #061c31;
-}
-.instr {
-  font-size: 1.1rem;
-  color: #12032b;
-}
-.sapMBtn.decreaseFont .sapMBtnIcon {
-  font-size: 0.7rem;
-}
+.sapMLabel, .text{    font-size:1.1rem;    color: #061c31 ;}
+.instr{    font-size:1.1rem;    color:#12032b;}
+.sapMBtn.decreaseFont .sapMBtnIcon {    font-size: 0.7rem;}
 
-.customsShellCss .sapUiGlobalBackgroundColor,
-.customsShellCss .sapMShellGlobalInnerBackground {
-  background-color: #97af712a;
+.customsShellCss .sapUiGlobalBackgroundColor, .customsShellCss .sapMShellGlobalInnerBackground {
+    background-color: #97af712a;
 }
-.sapMColumnHeader .sapMBtnText .sapMBtnIcon {
-  font-size: 15px !important;
+.sapMColumnHeader .sapMBtnText .sapMBtnIcon{
+    font-size:15px !important;
 }
 .sapMBtnGhost {
-  background-image: none;
-  border-color: rgba(52, 97, 135, 0.5);
-  background-color: #f7f7f7;
-  color: #346187;
+    background-image: none;
+    border-color: rgba(52,97,135,0.5);
+    background-color: #f7f7f7;
+    color: #346187;
 }
-
+ 
 .sapMPage.sapUiContentPadding > section {
-  padding: 1rem;
-  box-sizing: border-box;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 .sapMColumnHeader {
-  display: contents;
-  flex: 0 -5 auto;
-  padding: 1rem 0.5rem 1rem;
+    display: contents;
+    flex: 0 -5 auto;
+    padding: 1rem 0.5rem 1rem;
 }
 .sapUxAPObjectPageHeaderIdentifier.sapUxAPObjectPageHeaderIdentifierForce {
-  display: none !important;
+    display: none !important;
 }
 .sapMTitleStyleAuto {
-  font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 .sapMLnk:visited {
-  color: #000000;
+    color: #000000;
+}
+ 
+.sapMShellBrandingBar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 2;
+    background-color: #ff003400;
 }
 
-.sapMShellBrandingBar {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 4px;
-  z-index: 2;
-  background-color: #ff003400;
+.customsShellCss .nonTransparentPage {
+    background-color:#f7f7f7;
 }

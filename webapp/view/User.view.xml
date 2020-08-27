@@ -2,13 +2,13 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
-	<Page title="{i18n>userPage}" enableScrolling="true" class="sapUiContentPadding" showNavButton="true" navButtonPress="goToLoginAndLogOut" visible="{UserInfo>/isUser}">
+	<Page title="{i18n>userPage}" enableScrolling="true" class="sapUiContentPadding nonTransparentPage" showNavButton="true" navButtonPress="goToLoginAndLogOut" visible="{UserInfo>/isUser}">
 		<headerContent>
 			<MenuButton text="{i18n>MyProfile}" icon="sap-icon://customer">
 				<menu>
 					<Menu itemSelected="onMenuAction">
 						<items>
-							<!-- <MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/> -->
+							<MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/>
 							<MenuItem text="Change Password" icon="sap-icon://action-settings" press="onGoToSettings" />
 							<MenuItem visible="{UserInfo>/isManager}" text="Manage other's trips" icon="sap-icon://suitcase" press="onGoToAllTrips"/>
 							<MenuItem text="Plan your trip" icon="sap-icon://weather-proofing" press="onGoToPlanTrip"/>

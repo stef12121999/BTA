@@ -134,7 +134,7 @@ sap.ui.define(
 
       onFilterBySearch: function (oEvent) {
         var sQuery = oEvent.getParameter("query");
-        this.searchFilter = this.getSearchFilter(sQuery);
+        this.searchFilter = this.getSearchFilterUser(sQuery);
         this.reFilter();
       },
 

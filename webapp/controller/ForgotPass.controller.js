@@ -29,6 +29,7 @@ sap.ui.define(
 
         var oView = this.getView();
         var oModel = oView.getModel();
+        console.log(oModel);
         var UserId = oView.byId("input-c").getValue();
 
         oModel.callFunction("/Change_Password", {
