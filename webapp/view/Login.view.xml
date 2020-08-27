@@ -4,20 +4,27 @@
     controllerName="intern2020.controller.Login"
     xmlns="sap.m">
 
-    <Page   enableScrolling="false"  >
-        <headerContent >
-			
-            <Bar>
-				<contentLeft>
-					<Image src="images/MHP17_00180_300_cmyk.jpg"  width="8rem"/>
-				</contentLeft>
-				<contentMiddle>
-					<Title  text="{i18n>homePageTitle}" level="H3"/>
-				</contentMiddle>
-			</Bar>
-
+    <Page enableScrolling="false">
+         <headerContent >
             
-		</headerContent>
+            <Bar>
+                <contentLeft>
+                    <Image src="images/MHP17_00180_300_cmyk.jpg"  width="8rem"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Title  text="{i18n>homePageTitle}" level="H3"/>
+                </contentMiddle>
+                <contentRight>
+                <Switch state="false" customTextOn="DE" customTextOff="EN" id="switchLanguage" change="onSwitchLanguage">
+					<layoutData>
+						<FlexItemData growFactor="1" />
+					</layoutData>
+				</Switch>
+                </contentRight>
+            </Bar>
+ 
+            
+        </headerContent>
     <FlexBox
     direction="Column"
         alignItems="Center"
@@ -42,13 +49,15 @@
         width="15rem"
         class="sapUiSmallMarginBottom"
         icon="sap-icon://action"
+        class="sapUiTinyMarginBottom"
         />
-        <!-- textfield gol -->
         <Link id="link" text="Forgot Password?"  press="onForgotPass"/>
     </items>
     
     </FlexBox>
    
+
+    
 
 </Page>
 </mvc:View>

@@ -63,6 +63,17 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("forgotPass");
       },
+      onSwitchLanguage: function(oEvent){
+        console.log(oEvent.getSource().getState());
+        if(oEvent.getSource().getState() == true)
+        {
+          sap.ui.getCore().getConfiguration().setLanguage("de");
+        }
+        else
+        {
+          sap.ui.getCore().getConfiguration().setLanguage("en");
+        }
+      }
     });
   }
 );
