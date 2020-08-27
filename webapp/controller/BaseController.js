@@ -151,11 +151,25 @@ sap.ui.define(
           return statusMap;
         },
 
-        getSearchFilter: function (text) {
+        getSearchFilterUser: function (text) {
           var searchFilters = [];
           if (text != null && text.length > 0) {
             searchFilters.push(new Filter("Country", FilterOperator.Contains, text));
+            searchFilters.push(new Filter("City", FilterOperator.Contains, text));
+            return new Filter({
+              filters: searchFilters,
+              and: false,
+            });
+          }
+          return null;
+        },
+
+        getSearchFilterManager: function (text) {
+          var searchFilters = [];
+          if (text != null && text.length > 0) {
+            searchFilters.push(new Filter("ServiceUnit", FilterOperator.Contains, text));
             searchFilters.push(new Filter("UId", FilterOperator.Contains, text));
+            searchFilters.push(new Filter("Country", FilterOperator.Contains, text));
             return new Filter({
               filters: searchFilters,
               and: false,
