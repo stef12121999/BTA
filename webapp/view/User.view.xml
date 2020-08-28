@@ -8,11 +8,13 @@
 				<menu>
 					<Menu itemSelected="onMenuAction">
 						<items>
-							<MenuItem text="Account Info" id="profile" icon="sap-icon://account" press="onGoToPage"/>
-							<MenuItem text="Change Password" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />
+							<MenuItem text="{i18n>AccInfo}" id="profile" icon="sap-icon://account" press="onGoToPage"/>
+							
 							<MenuItem visible="{UserInfo>/isManager}" id="manager" text="Manage other's trips" icon="sap-icon://suitcase" press="onGoToPage"/>
 							<MenuItem text="Plan your trip" id="information" icon="sap-icon://weather-proofing" press="onGoToPage"/>
-						</items>
+							<MenuItem text="{i18n>ChangePasswd}" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />
+							<MenuItem text="{i18n>Back}" id="back" icon="sap-icon://log" press="goToLoginAndLogOut"/>
+							</items>
 					</Menu>
 				</menu>
 			</MenuButton>
