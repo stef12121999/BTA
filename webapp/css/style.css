@@ -1,7 +1,6 @@
-.sapMLabel, .text{    font-size:1.1rem;    color: #061c31 ;}
+.sapMLabel, .text{    font-size:1rem;    color: #1e2329 ;}
 .instr{    font-size:1.1rem;    color:#12032b;}
 .sapMBtn.decreaseFont .sapMBtnIcon {    font-size: 0.7rem;}
-
 .customsShellCss .sapUiGlobalBackgroundColor, .customsShellCss .sapMShellGlobalInnerBackground {
     background-color: #97af712a;
 }
@@ -24,34 +23,15 @@
     flex: 0 -5 auto;
     padding: 1rem 0.5rem 1rem;
 }
-<<<<<<< HEAD
-
-.instr{
-    font-size:1.1rem;
-    color:#12032b;
-=======
 .sapUxAPObjectPageHeaderIdentifier.sapUxAPObjectPageHeaderIdentifierForce {
     display: none !important;
 }
 .sapMTitleStyleAuto {
     font-size: 1.2rem;
->>>>>>> merger
 }
 .sapMLnk:visited {
     color: #000000;
 }
-<<<<<<< HEAD
-.sapMBtnTransparent>.sapMBtnIcon{
-    font-size:0.75rem;
-}
-
-
-
-
-.sapMBtnInner .accept{
-    font-size: 0.6rem;
-    
-=======
  
 .sapMShellBrandingBar {
     position: absolute;
@@ -61,22 +41,10 @@
     height: 4px;
     z-index: 2;
     background-color: #ff003400;
->>>>>>> merger
 }
-
 .customsShellCss .nonTransparentPage {
     background-color:#f7f7f7;
 }
-
-<<<<<<< HEAD
-/*.customsShellCss .sapUiGlobalBackgroundColor, .customsShellCss .sapMShellGlobalInnerBackground #changePassPage {
-    background-color: #dcebf586;
-}*/
-
-.sapMShellBrandingBar{
-    background-color: rgba(221, 95, 5, 0);
-=======
 .languageDropdown .sapMImg  {
     width: 1.5rem;
->>>>>>> merger
 }

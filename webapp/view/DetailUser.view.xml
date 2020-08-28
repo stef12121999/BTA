@@ -13,7 +13,7 @@
 							<m:Button text="" icon="sap-icon://nav-back" press="onNavBack"/>
 						</m:contentLeft>
 						<m:contentMiddle>
-							<m:Title text="Trip details"/>
+							<m:Title text="{i18n>TripDetails}"/>
 						</m:contentMiddle>
 					</m:Bar>
 				</navigationBar>
@@ -22,9 +22,9 @@
 
 		<headerContent >
 		<layout:VerticalLayout>
-				<m:ObjectStatus title="User" text="{FirstName} {LastName}"/>
-				<m:ObjectStatus title="Functional Area" text="{ServiceUnit}"/>
-				<m:ObjectStatus title="Cost Center" text="{Total} EUR"/>
+				<m:ObjectStatus title="{i18n>User}" text="{FirstName} {LastName}"/>
+				<m:ObjectStatus title="{i18n>ServiceUnit}" text="{ServiceUnit}"/>
+				<m:ObjectStatus title="{i18n>CostCenter}" text="{Total} EUR"/>
 				<m:ObjectStatus title="Email" text="{Email}"/>
 				<m:ObjectStatus title="Phone" text="{PhoneNr}"/>
 			</layout:VerticalLayout>

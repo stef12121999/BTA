@@ -13,53 +13,13 @@
                     <Title text="{i18n>homePageTitle}" level="H3"/>
                 </contentMiddle>
                 <contentRight>
-                    <MenuButton icon="sap-icon://globe">
-                        <menu>
-                            <Menu class="languageDropdown" itemSelected="onMenuAction">
-                                <items>
-                                    <MenuItem text="EN" icon="images/EN_Flag.png" press="onSwitchToEnglish"/>
-                                    <MenuItem text="DE" icon="images/DE_Flag.png" press="onSwitchToGerman"/>
-                                </items>
-                            </Menu>
-                        </menu>
-                    </MenuButton>
+                    <HBox><items>
+                    
+                    <Button type="Ghost" text="DE" icon="images/DE_Flag.png" press="onSwitchToGerman"/>
+                    <Button type="Ghost" text="EN" icon="images/EN_Flag.png" press="onSwitchToEnglish"/>
+                    </items></HBox>
+                    
                 </contentRight>
-<<<<<<< HEAD
-			</Bar>
-
-            
-		</headerContent>
-    <FlexBox
-        height="500px"
-        direction="Column"
-        alignItems="Center"
-        justifyContent="Center"
-       >
-    <items>
-    <Input
-      id="username"
-      placeholder="{i18n>Username}" 
-      width="17rem"
-      type="Text"/>
-      <Input
-      id="password"
-      placeholder="{i18n>Password} " 
-      type="Password"
-      width="17rem"
-      />
-    <Button
-        text="{i18n>Login}"
-        press="onValidation"
-        width="17rem"
-        icon="sap-icon://action"
-    />
-   <Link width="10rem" id="link" class="sapUiLargeMarginTop" text="{i18n>forgotPass}"  press="onForgotPass"/>
-    </items>
-    
-    </FlexBox>
-
-</Page>
-=======
             </Bar>
 
 
@@ -79,5 +39,4 @@
 
 
     </Page>
->>>>>>> merger
 </mvc:View>

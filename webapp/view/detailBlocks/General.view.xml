@@ -11,13 +11,13 @@
             <f:formContainers>
                 <f:FormContainer ariaLabelledBy="Title2">
                     <f:formElements>
-                        <f:FormElement label="Reason for travel">
+                        <f:FormElement label="{i18n>Reason}">
                             <Input value="{Reason}" width="100%" editable="false"  />
                         </f:FormElement>
-                        <f:FormElement label="Country information">
+                        <f:FormElement label="{i18n>CountryInfo}">
                             <Input value="{CountryInfo}" width="100%" editable="false"  />
                         </f:FormElement>
-                        <f:FormElement label="City">
+                        <f:FormElement label="{i18n>City}">
                             <Input value="{City}" width="100%" editable="false"  />
                         </f:FormElement>
                         <f:FormElement label="Start date">

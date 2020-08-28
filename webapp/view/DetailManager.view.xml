@@ -13,7 +13,7 @@
 							<m:Button text="" icon="sap-icon://nav-back" press="onNavBack"/>
 						</m:contentLeft>
 						<m:contentMiddle>
-							<m:Title text="Trip details"/>
+							<m:Title text="{i18n>TripDetails}"/>
 						</m:contentMiddle>
 					</m:Bar>
 				</navigationBar>
@@ -24,27 +24,30 @@
 		<layout:HorizontalLayout >
 		
 			<layout:VerticalLayout class="sapUiLargeMarginEnd">
-				<m:ObjectStatus title="User" text="{FirstName} {LastName}"/>
-				<m:ObjectStatus title="Functional Area" text="{ServiceUnit}"/>
-				<m:ObjectStatus title="Cost Center" text="{Total} EUR"/>
+				<m:ObjectStatus title="{i18n>Username}" text="{FirstName} {LastName}"/>
+				<m:ObjectStatus title="{i18n>ServiceUnit}" text="{ServiceUnit}"/>
+				
 
 			</layout:VerticalLayout>
 			<layout:VerticalLayout>
 				
-				<m:ObjectStatus title="Email" text="{Email}"/>
-				<m:ObjectStatus title="Phone" text="{PhoneNr}"/>
+				<m:ObjectStatus title="{i18n>Email}" text="{Email}"/>
+				<m:ObjectStatus title="{i18n>Phone}" text="{PhoneNr}"/>
 			</layout:VerticalLayout>
-		</layout:HorizontalLayout>
-		
+			<layout:VerticalLayout class="sapUiSmallMarginBegin">
+				<m:ObjectStatus title="{i18n>Total}" text="{Total} EUR"/>
                     <m:ObjectStatus
                             title="Status"
                             text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}"
                             state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}"
 							class="sapUiTinyMarginEnd" />
+	</layout:VerticalLayout>
+
+							</layout:HorizontalLayout>
             </headerContent>
 
 		<sections>
-			<ObjectPageSection title="General">
+			<ObjectPageSection title="{i18n>General}">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
@@ -54,7 +57,7 @@
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection title="Employee">
+			<ObjectPageSection title="{i18n>Employee}">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
