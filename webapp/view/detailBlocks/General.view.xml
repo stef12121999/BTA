@@ -3,22 +3,22 @@
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core"
     xmlns="sap.m">
-    <VBox class="sapUiSmallMargin">
+    <VBox class="sapUiSmallMargin" >
         <f:Form id="FormToolbar" editable="true" ariaLabelledBy="Title1">
             <f:layout>
-                <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+                <f:ResponsiveGridLayout labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="2" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" />
             </f:layout>
             <f:formContainers>
                 <f:FormContainer ariaLabelledBy="Title2">
                     <f:formElements>
                         <f:FormElement label="Reason for travel">
-                            <Input value="{Reason}" width="100%" editable="false" height="1rem"/>
+                            <Input value="{Reason}" width="100%" editable="false"  />
                         </f:FormElement>
                         <f:FormElement label="Country information">
-                            <Input value="{CountryInfo}" width="100%" editable="false" height="1rem"/>
+                            <Input value="{CountryInfo}" width="100%" editable="false"  />
                         </f:FormElement>
                         <f:FormElement label="City">
-                            <Input value="{City}" width="100%" editable="false" height="1rem"/>
+                            <Input value="{City}" width="100%" editable="false"  />
                         </f:FormElement>
                         <f:FormElement label="Start date">
                             <Input value="{
@@ -26,14 +26,14 @@
 											type: 'sap.ui.model.type.Date',
 											formatOptions: {
 												style: 'short'
-											}}" width="100%" editable="false" height="1rem"/>
+											}}" width="100%" editable="false"  />
                         </f:FormElement>
                         <f:FormElement label="End date">
                             <Input value="{path: 'EndDate',
 											type: 'sap.ui.model.type.Date',
 											formatOptions: {
 												style: 'short'
-												}}" width="100%" editable="false" height="1rem"/>
+												}}" width="100%" editable="false"  />
                         </f:FormElement>
                         <f:FormElement visible="{= ${Status} === 1 ? false : ${Status} === 0 ? false : true}" label="Reason for decline">
                             <TextArea value="{DeclineReason}" width="100%" editable="false" height="4rem" rows="5"/>

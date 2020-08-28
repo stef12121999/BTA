@@ -9,7 +9,8 @@ sap.ui.define(
     "sap/m/Text",
     "sap/ui/core/format/NumberFormat",
     "sap/ui/model/json/JSONModel",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "sap/ui/model/Sorter",
   ],
   function (
     Controller,
@@ -21,7 +22,8 @@ sap.ui.define(
     Text,
     NumberFormat,
     JSONModel,
-    MessageBox
+    MessageBox,
+    Sorter
   ) {
     // eslint-disable-line id-match
     "use strict";
@@ -68,6 +70,21 @@ sap.ui.define(
           this.getRouter().navTo("login");
         },
 
+        sortList: function (oList, sorter) {
+          var oBinding = oList.getBinding("items");
+          oBinding.sort(sorter);
+        },
+
+        getIdFromGlobalId: function (globalId) {
+          var array = globalId.split("--");
+          return array[array.length - 1];
+        },
+
+        onGoToPage: function (oEvent) {
+          var page = this.getIdFromGlobalId(oEvent.getSource().getId());
+          this.getRouter().navTo(page);
+        },
+
         navBackTo: function (defaultPage) {
           var oHistory = History.getInstance();
           var sPreviousHash = oHistory.getPreviousHash();
@@ -96,6 +113,24 @@ sap.ui.define(
             );
           }
         },
+        goToLoginAndLogOutUser: function () {
+          this.recoverSession();
+          var userInfo = this.getModel("UserInfo").getData();
+          if (!userInfo.isUser) {
+          this.logOut();
+          this.getRouter().navTo("login");
+        }else{ var oHistory = History.getInstance();
+          var sPreviousHash = oHistory.getPreviousHash();
+          console.log(sPreviousHash);
+          if (sPreviousHash !== undefined) {
+            window.history.go(-1);
+          } else {
+            var oRouter = this.getRouter();
+            oRouter.navTo(defaultPage, true);
+          }
+
+        }
+      },
 
         getUsername: function () {
           var userInfo = this.getModel("UserInfo").getData();
@@ -151,11 +186,25 @@ sap.ui.define(
           return statusMap;
         },
 
-        getSearchFilter: function (text) {
+        getSearchFilterUser: function (text) {
           var searchFilters = [];
           if (text != null && text.length > 0) {
             searchFilters.push(new Filter("Country", FilterOperator.Contains, text));
+            searchFilters.push(new Filter("City", FilterOperator.Contains, text));
+            return new Filter({
+              filters: searchFilters,
+              and: false,
+            });
+          }
+          return null;
+        },
+
+        getSearchFilterManager: function (text) {
+          var searchFilters = [];
+          if (text != null && text.length > 0) {
+            searchFilters.push(new Filter("ServiceUnit", FilterOperator.Contains, text));
             searchFilters.push(new Filter("UId", FilterOperator.Contains, text));
+            searchFilters.push(new Filter("Country", FilterOperator.Contains, text));
             return new Filter({
               filters: searchFilters,
               and: false,

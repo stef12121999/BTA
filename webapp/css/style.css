@@ -1,3 +1,7 @@
+.sapMLabel, .text{    font-size:1.1rem;    color: #061c31 ;}
+.instr{    font-size:1.1rem;    color:#12032b;}
+.sapMBtn.decreaseFont .sapMBtnIcon {    font-size: 0.7rem;}
+
 .customsShellCss .sapUiGlobalBackgroundColor, .customsShellCss .sapMShellGlobalInnerBackground {
     background-color: #97af712a;
 }
@@ -10,7 +14,7 @@
     background-color: #f7f7f7;
     color: #346187;
 }
-
+ 
 .sapMPage.sapUiContentPadding > section {
     padding: 1rem;
     box-sizing: border-box;
@@ -29,7 +33,7 @@
 .sapMLnk:visited {
     color: #000000;
 }
-
+ 
 .sapMShellBrandingBar {
     position: absolute;
     left: 0;
@@ -39,3 +43,12 @@
     z-index: 2;
     background-color: #ff003400;
 }
+
+.customsShellCss .nonTransparentPage {
+    background-color:#f7f7f7;
+}
+
+.languageDropdown .sapMImg  {
+    width: 1.5rem;
+}
+

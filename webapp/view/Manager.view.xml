@@ -2,75 +2,73 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
-	<Page title="Manager Page" enableScrolling="true" class="sapUiContentPadding" showNavButton="true" 
-	 navButtonPress="goToLoginAndLogOut" visible="{UserInfo>/isManager}">
-        <headerContent>
-			<MenuButton text="My Profile" icon="sap-icon://customer">
+	<Page title="{i18n>managerPage}" enableScrolling="true" class="nonTransparentPage sapUiContentPadding"  visible="{UserInfo>/isManager}">
+		<headerContent>
+			<MenuButton text="{i18n>MyProfile}" icon="sap-icon://customer">
 				<menu>
 					<Menu itemSelected="onMenuAction">
 						<items>
-							<!-- <MenuItem text="Account Info" icon="sap-icon://account" press="onGoToProfile"/> -->
-							<MenuItem text="Change Password" icon="sap-icon://action-settings" press="onGoToSettings" />
-							<MenuItem text="Your own trips" icon="sap-icon://suitcase" press="onGoToYourTrips"/>
+							<MenuItem text="{i18n>AccInfo}" id="profile" icon="sap-icon://account" press="onGoToPage"/>
+							<MenuItem text="{i18n>Own}" id="user" icon="sap-icon://suitcase" press="onGoToPage"/>
+							<MenuItem text="{i18n>ChangePasswd}" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />
+							<MenuItem text="{i18n>Back}" id="back" icon="sap-icon://log" press="goToLoginAndLogOut"/>
 						</items>
 					</Menu>
 				</menu>
 			</MenuButton>
-		</headerContent>		
-
+		</headerContent>
 		<content>
 			<Table selectionChange="handleSelectionChange" id="idTrips" items="{/Front_TripSet}">
 				<headerToolbar >
 					<OverflowToolbar id="otbSubheader">
-						<ToggleButton id="approvedButton" icon="sap-icon://accept" text="Approved" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
+						<ToggleButton id="approvedButton" icon="sap-icon://accept" text="{i18n>Approved}" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton id="toBeApprovedButton" icon="sap-icon://time-account" type="Ghost" pressed="false" text="To Be Approved" class="sapUiTinyMarginBegin sapUiTinyMarginEnd buton" press="onFilterByStatus">
+						<ToggleButton id="toBeApprovedButton" icon="sap-icon://time-account" type="Ghost" pressed="false" text="{i18n>TBA}" class="sapUiTinyMarginBegin sapUiTinyMarginEnd buton" press="onFilterByStatus">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton id="declinedButton" icon="sap-icon://decline" pressed="false" text="Declined" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Reject">
+						<ToggleButton id="declinedButton" icon="sap-icon://decline" pressed="false" text="{i18n>Declined}" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Reject">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						
+
 						<ToolbarSpacer/>
 						<SearchField id="searchField" width="25%" search="onFilterBySearch">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="200px" maxWidth="400px" shrinkable="true"/>
 							</layoutData>
 						</SearchField>
-						<Button text="Reset"  press="onReset" class="resetare" type="Ghost" tooltip="Clear all sortings"/>
+						<Button text="{i18n>Reset}" press="onReset" class="resetare" type="Ghost" tooltip="{i18n>Clear}"/>
 					</OverflowToolbar>
 				</headerToolbar>
 				<columns>
-					<Column  hAlign="Center">
-						<Button iconFirst="false" id="serviceUnitButton" text="Service unit" icon="sap-icon://sort" type="Transparent" press=".onSortByServiceUnit"/>
+					<Column minScreenWidth="370px" hAlign="Center">
+						<Button iconFirst="false" id="StartDate" text="{i18n>Date}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
-						<Button iconFirst="false" id="dateButton" text="Date" icon="sap-icon://sort" type="Transparent" press=".onSortByDate"/>
+					<Column minScreenWidth="Phone" hAlign="Center">
+						<Button iconFirst="false" id="UId" text="{i18n>Username}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
-						<Button iconFirst="false" id="usernameButton" text="Username" icon="sap-icon://sort" type="Transparent" press=".onSortByUsername"/>
+					<Column minScreenWidth="Phone" hAlign="Center">
+						<Button iconFirst="false" id="Country" text="{i18n>Country}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
-					<Column hAlign="Center" >
-						<Button iconFirst="false" id="countryButton" text="Country" icon="sap-icon://sort" type="Transparent" press=".onSortByCountry"/>
+					<Column minScreenWidth="Tablet" hAlign="Center">
+						<Button iconFirst="false" id="ServiceUnit" text="{i18n>Serviceunit}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
-					<Column hAlign="Center">
-						<Button iconFirst="false" id="price" text="Price" icon="sap-icon://sort" type="Transparent" press=".onSortByStatus"/>
+					<Column minScreenWidth="Large" hAlign="Center">
+						<Button iconFirst="false" id="Status" text="{i18n>Status}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
-					<Column hAlign="Center">
-						<Button iconFirst="false" id="status" text="Status" icon="sap-icon://sort" type="Transparent" press=".onSortByStatus"/>
+					<Column minScreenWidth="Desktop" hAlign="Center">
+						<Button iconFirst="false" id="Total" text="{i18n>Total}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
 				</columns>
 				<items>
 					<ColumnListItem type="Navigation" press=".onPressDetail">
 						<cells>
-							<ObjectIdentifier text="{ServiceUnit}" />
 							<Text text="{
 											path: 'StartDate',
 											type: 'sap.ui.model.type.Date',
@@ -84,10 +82,10 @@
 												}}" />
 							<Text text="{UId}" />
 							<Text text="{Country}" />
+							<Text text="{ServiceUnit}" />
+							<ObjectNumber number="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" />
 							<Text text="{Total} EUR" />
-							<ObjectNumber number="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}"
-							     	      state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" />
-						<!--	<Text text="{Country}" visbile="{= ${UserInfo>/isUser} === 'user' ? false :true}" />-->	
+							<!--	<Text text="{Country}" visbile="{= ${UserInfo>/isUser} === 'user' ? false :true}" />-->
 						</cells>
 					</ColumnListItem>
 				</items>

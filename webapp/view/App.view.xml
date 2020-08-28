@@ -6,12 +6,12 @@
 	<Shell 	 
 	backgroundImage="/images/CZ17K17OX0010_powerpoint.jpg" class="customsShellCss">
 		 <App id="appControl"  
-		class="myApp"
+		  class="myApp"
   		  backgroundOpacity="0"
    		 backgroundRepeat="false">
         <pages>
         </pages>
     </App>
-
-	</Shell>
+ 
+    </Shell>
 </mvc:View>
