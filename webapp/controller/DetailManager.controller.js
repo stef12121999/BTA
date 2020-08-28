@@ -55,7 +55,7 @@ sap.ui.define(
           if (tempStatus == 0) {
             oEntry.Status = 1;
             oEntry.DeclineReason = "";
-  
+
             oModel.update("/Front_TripSet('" + this.requestId + "')", oEntry, {
               //method: "PUT",
               success: function (oData) {
