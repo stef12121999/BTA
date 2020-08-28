@@ -4,6 +4,7 @@
 	xmlns:f="sap.ui.layout.form"
 	xmlns:core="sap.ui.core">
 	<Page title="Your profile" enableScrolling="true" class="sapUiContentPadding nonTransparentPage" showNavButton="true" navButtonPress="onNavBack" visible="{UserInfo>/isUser}">
+		
 		<VBox class="sapUiSmallMargin">
 			<f:Form id="FormToolbar" editable="true" ariaLabelledBy="Title1">
 				<f:layout>

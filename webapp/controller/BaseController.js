@@ -113,6 +113,24 @@ sap.ui.define(
             );
           }
         },
+        goToLoginAndLogOutUser: function () {
+          this.recoverSession();
+          var userInfo = this.getModel("UserInfo").getData();
+          if (!userInfo.isUser) {
+          this.logOut();
+          this.getRouter().navTo("login");
+        }else{ var oHistory = History.getInstance();
+          var sPreviousHash = oHistory.getPreviousHash();
+          console.log(sPreviousHash);
+          if (sPreviousHash !== undefined) {
+            window.history.go(-1);
+          } else {
+            var oRouter = this.getRouter();
+            oRouter.navTo(defaultPage, true);
+          }
+
+        }
+      },
 
         getUsername: function () {
           var userInfo = this.getModel("UserInfo").getData();
