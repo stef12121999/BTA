@@ -2,7 +2,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
-	<Page title="{i18n>managerPage1}" enableScrolling="true" class="nonTransparentPage sapUiContentPadding"  visible="{UserInfo>/isManager}">
+	<Page title="{i18n>managerPage}" enableScrolling="true" class="nonTransparentPage sapUiContentPadding"  visible="{UserInfo>/isManager}">
 		<headerContent>
 			<MenuButton text="{i18n>MyProfile}" icon="sap-icon://customer">
 				<menu>
@@ -26,7 +26,7 @@
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton id="toBeApprovedButton" icon="sap-icon://time-account" type="Ghost" pressed="false" text="{i18n>TBA}" class="sapUiTinyMarginBegin sapUiTinyMarginEnd buton" press="onFilterByStatus">
+						<ToggleButton id="toBeApprovedButton" icon="sap-icon://time-account" type="Ghost" pressed="false" text="{i18n>TBA}" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" press="onFilterByStatus">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
