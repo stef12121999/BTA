@@ -2,19 +2,21 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
-	<Page title="{i18n>userPage}" enableScrolling="true" class="sapUiContentPadding nonTransparentPage" showNavButton="true" navButtonPress="goToLoginAndLogOut" visible="{UserInfo>/isUser}">
+	<Page title="{i18n>userPage}" enableScrolling="true" 
+	class="sapUiContentPadding nonTransparentPage" showNavButton="{= ${UserInfo>/isManager} ? true : false}" navButtonPress="goToManager"
+	visible="{UserInfo>/isUser}">
+	
 		<headerContent>
 			<MenuButton text="{i18n>MyProfile}" icon="sap-icon://customer">
 				<menu>
 					<Menu itemSelected="onMenuAction">
 						<items>
-							<MenuItem text="{i18n>AccInfo}" id="profile" icon="sap-icon://account" press="onGoToPage"/>
-							
-							<MenuItem visible="{UserInfo>/isManager}" id="manager" text="{i18n>Manage}" icon="sap-icon://suitcase" press="onGoToPage"/>
-							<MenuItem text="{i18n>Plan}" id="information" icon="sap-icon://weather-proofing" press="onGoToPage"/>
-							<MenuItem text="{i18n>ChangePasswd}" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />
+							<MenuItem text="Account Info" id="profile" icon="sap-icon://account" press="onGoToPage"/>
+							<MenuItem visible="{UserInfo>/isManager}" id="manager" text="Manage other's trips" icon="sap-icon://suitcase" press="onGoToPage"/>
+							<MenuItem text="Plan your trip" id="information" icon="sap-icon://weather-proofing" press="onGoToPage"/>
+							<MenuItem text="Change Password" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />
 							<MenuItem text="{i18n>Back}" id="back" icon="sap-icon://log" press="goToLoginAndLogOut"/>
-							</items>
+						</items>
 					</Menu>
 				</menu>
 			</MenuButton>
@@ -89,7 +91,7 @@
 							<Text text="{Country}" />
 							<Text text="{City}" />
 							<Text text="{Reason}" />
-							<Text text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}"/>
+							<ObjectNumber number="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" />
 							<Text text="{Total} EUR"/>
 						</cells>
 					</ColumnListItem>

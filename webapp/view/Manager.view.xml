@@ -2,15 +2,18 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
+<<<<<<< HEAD
 	<Page title="{i18n>managerPage}" enableScrolling="true" 
 			class="nonTransparentPage sapUiContentPadding"  visible="{UserInfo>/isManager}">
+=======
+	<Page title="{i18n>managerPage1}" enableScrolling="true" class="nonTransparentPage sapUiContentPadding"  visible="{UserInfo>/isManager}">
+>>>>>>> merger
 		<headerContent>
 			<MenuButton text="{i18n>MyProfile}" icon="sap-icon://customer">
 				<menu>
 					<Menu itemSelected="onMenuAction">
 						<items>
 							<MenuItem text="{i18n>AccInfo}" id="profile" icon="sap-icon://account" press="onGoToPage"/>
-							<MenuItem text="{i18n>ChangePasswd}" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />
 							<MenuItem text="{i18n>Own}" id="user" icon="sap-icon://suitcase" press="onGoToPage"/>
 							<MenuItem text="{i18n>Back}" id="back" icon="sap-icon://log" press="goToLoginAndLogOut"/>
 						</items>
@@ -54,12 +57,14 @@
 					<Column minScreenWidth="Phone" hAlign="Center">
 						<Button iconFirst="false" id="UId" text="{i18n>Username}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
-					<Column minScreenWidth="Phone" hAlign="Center">
-						<Button iconFirst="false" id="Country" text="{i18n>Country}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
-					</Column>
 					<Column minScreenWidth="Tablet" hAlign="Center">
 						<Button iconFirst="false" id="ServiceUnit" text="{i18n>Serviceunit}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
+					
+					<Column minScreenWidth="Phone" hAlign="Center">
+						<Button iconFirst="false" id="Country" text="{i18n>Country}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
+					</Column>
+					
 					<Column minScreenWidth="Large" hAlign="Center">
 						<Button iconFirst="false" id="Status" text="{i18n>Status}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
@@ -81,9 +86,11 @@
 											formatOptions: {
 												style: 'short'
 												}}" />
+							
 							<Text text="{UId}" />
-							<Text text="{Country}" />
 							<Text text="{ServiceUnit}" />
+							<Text text="{Country}" />
+							
 							<ObjectNumber number="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" />
 							<Text text="{Total} EUR" />
 							<!--	<Text text="{Country}" visbile="{= ${UserInfo>/isUser} === 'user' ? false :true}" />-->
