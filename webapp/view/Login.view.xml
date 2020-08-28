@@ -13,11 +13,16 @@
                     <Title text="{i18n>homePageTitle}" level="H3"/>
                 </contentMiddle>
                 <contentRight>
-                    <HBox><items>
-                    
-                    <Button type="Ghost" text="DE" icon="images/DE_Flag.png" press="onSwitchToGerman"/>
-                    <Button type="Ghost" text="EN" icon="images/EN_Flag.png" press="onSwitchToEnglish"/>
-                    </items></HBox>
+                   <MenuButton icon="sap-icon://globe">
+                        <menu>
+                            <Menu class="languageDropdown" itemSelected="onMenuAction">
+                                <items>
+                                    <MenuItem text="EN" icon="images/EN_Flag.png" press="onSwitchToEnglish"/>
+                                    <MenuItem text="DE" icon="images/DE_Flag.png" press="onSwitchToGerman"/>
+                                </items>
+                            </Menu>
+                        </menu>
+                    </MenuButton>
                     
                 </contentRight>
             </Bar>
