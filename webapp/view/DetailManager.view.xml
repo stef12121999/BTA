@@ -4,7 +4,7 @@
 	xmlns:layout="sap.ui.layout"
 	xmlns:block="intern2020.controller.detailBlocks" height="100%" controllerName="intern2020.controller.DetailManager">
 
-	<ObjectPageLayout id="ObjectPageLayout" useIconTabBar="true" showFooter="true" upperCaseAnchorBar="false">
+	<ObjectPageLayout visible="{UserInfo>/isManager}" id="ObjectPageLayout" useIconTabBar="true" showFooter="true" upperCaseAnchorBar="false">
 		<headerTitle>
 			<ObjectPageHeader  >
 				<navigationBar>
