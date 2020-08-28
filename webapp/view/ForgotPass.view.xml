@@ -12,9 +12,6 @@
 
                     <Button text="{i18n>sendInstruction}" press="onSendEmail" width="25rem" icon="sap-icon://action" />
                 </items>
-
             </FlexBox>
-
-        
     </Page>
 </mvc:View>
