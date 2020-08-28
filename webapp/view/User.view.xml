@@ -3,7 +3,7 @@
 	xmlns="sap.m">
 
 	<Page title="{i18n>userPage}" enableScrolling="true" 
-	class="sapUiContentPadding nonTransparentPage" showNavButton="true" navButtonPress="goToLoginAndLogOutUser"
+	class="sapUiContentPadding nonTransparentPage" showNavButton="{= ${UserInfo>/isManager} ? true : false}" navButtonPress="goToManager"
 	visible="{UserInfo>/isUser}"
 	navButtonTooltip="{= ${UserInfo>/isManager} === true ? 'Back' : ${UserInfo>/isManager} === false ? 'Log out': 'Log out'}">
 	
@@ -13,7 +13,6 @@
 					<Menu itemSelected="onMenuAction">
 						<items>
 							<MenuItem text="Account Info" id="profile" icon="sap-icon://account" press="onGoToPage"/>
-							
 							<MenuItem visible="{UserInfo>/isManager}" id="manager" text="Manage other's trips" icon="sap-icon://suitcase" press="onGoToPage"/>
 							<MenuItem text="Plan your trip" id="information" icon="sap-icon://weather-proofing" press="onGoToPage"/>
 							<MenuItem text="Change Password" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />

@@ -97,6 +97,11 @@ sap.ui.define(
         this.reFilter();
       },
 
+      goToManager: function () {
+        var oRouter = this.getRouter();
+        oRouter.navTo("manager");
+      },
+
       onPressDetail: function (oEvent) {
         var oRouter = this.getRouter();
         var sID = oEvent.getSource().getBindingContext().getObject().RId;

@@ -15,20 +15,6 @@
 						<m:contentMiddle>
 							<m:Title text="Trip details"/>
 						</m:contentMiddle>
-						<m:contentRight>
-							<m:MenuButton text="{i18n>MyProfile}" icon="sap-icon://customer">
-								<m:menu>
-									<m:Menu itemSelected="onMenuAction">
-										<m:items>
-											<m:MenuItem text="{i18n>AccInfo}" id="profile" icon="sap-icon://account" press="onGoToPage"/>
-											<m:MenuItem text="{i18n>Own}" id="user" icon="sap-icon://suitcase" press="onGoToPage"/>
-											<m:MenuItem text="{i18n>ChangePasswd}" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />
-											<m:MenuItem text="{i18n>Back}" id="back" icon="sap-icon://log" press="goToLoginAndLogOut"/>
-										</m:items>
-									</m:Menu>
-								</m:menu>
-							</m:MenuButton>
-						</m:contentRight>
 					</m:Bar>
 				</navigationBar>
 			</ObjectPageHeader>
