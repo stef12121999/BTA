@@ -2,11 +2,11 @@
 	xmlns="sap.uxap"
 	xmlns:m="sap.m"
 	xmlns:layout="sap.ui.layout"
-	xmlns:block="intern2020.detailBlocks" height="100%" controllerName="intern2020.controller.DetailManager">
+	xmlns:block="intern2020.controller.detailBlocks" height="100%" controllerName="intern2020.controller.DetailManager">
 
-	<ObjectPageLayout id="ObjectPageLayout" useIconTabBar="true" showFooter="true" upperCaseAnchorBar="false">
+	<ObjectPageLayout id="ObjectPageLayout" useIconTabBar="true" showFooter="true" upperCaseAnchorBar="false" >
 		<headerTitle>
-			<ObjectPageHeader >
+			<ObjectPageHeader  >
 				<navigationBar>
 					<m:Bar>
 						<m:contentLeft>
@@ -79,18 +79,8 @@
 		<footer>
 			<m:OverflowToolbar id="otbFooter">
 				<m:ToolbarSpacer/>
-
-				<m:Button id="acceptButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Accept" text="Accept" width="12rem" press="onPressAccept">
-					<m:layoutData>
-						<m:OverflowToolbarLayoutData priority="NeverOverflow" />
-					</m:layoutData>
-				</m:Button>
-				<m:Button id="declineButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Reject" text="Reject" width="12rem" press="onPressDecline">
-					<m:layoutData>
-						<m:OverflowToolbarLayoutData priority="NeverOverflow"/>
-					</m:layoutData>
-				</m:Button>
-				<m:ToolbarSpacer/>
+				<m:Button id="acceptButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Accept" text="Accept" width="10rem" press="onPressAccept"/>	
+				<m:Button id="declineButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Reject" text="Reject" width="10rem" press="onPressDecline"/>
 
 			</m:OverflowToolbar>
 		</footer>

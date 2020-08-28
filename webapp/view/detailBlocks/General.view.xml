@@ -35,8 +35,8 @@
 												style: 'short'
 												}}" width="100%" editable="false"  />
                         </f:FormElement>
-                        <f:FormElement visible="{= ${Status} === 1 ? false:true}" label="Reason for decline">
-                            <Input value="{DeclineReason}" width="100%" editable="false"  />
+                        <f:FormElement visible="{= ${Status} === 1 ? false : ${Status} === 0 ? false : true}" label="Reason for decline">
+                            <TextArea value="{DeclineReason}" width="100%" editable="false" height="4rem" rows="5"/>
                         </f:FormElement>
                     </f:formElements>
                 </f:FormContainer>

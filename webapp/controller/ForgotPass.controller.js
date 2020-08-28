@@ -21,10 +21,15 @@ sap.ui.define(
     return BaseController.extend("intern2020.controller.ForgotPass", {
       onInit: function (oEvent) {},
 
+      onNavBack: function() {
+        this.getRouter().navTo("login");
+      },
+
       onSendEmail: function (oEvent) {
 
         var oView = this.getView();
         var oModel = oView.getModel();
+        console.log(oModel);
         var UserId = oView.byId("input-c").getValue();
 
         oModel.callFunction("/Change_Password", {

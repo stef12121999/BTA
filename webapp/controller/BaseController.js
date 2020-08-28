@@ -9,7 +9,8 @@ sap.ui.define(
     "sap/m/Text",
     "sap/ui/core/format/NumberFormat",
     "sap/ui/model/json/JSONModel",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "sap/ui/model/Sorter",
   ],
   function (
     Controller,
@@ -21,7 +22,8 @@ sap.ui.define(
     Text,
     NumberFormat,
     JSONModel,
-    MessageBox
+    MessageBox,
+    Sorter
   ) {
     // eslint-disable-line id-match
     "use strict";
@@ -45,59 +47,66 @@ sap.ui.define(
     var oBaseController = Controller.extend(
       "intern2020.controller.BaseController",
       {
-        /* =========================================================== */
-        /* Getter functions                                            */
-        /* =========================================================== */
-
-        /* =========================================================== */
-        /* Helper functions */
-        /* =========================================================== */
-
-        /**
-         * Get router for current view
-         * @returns {sap.m.routing.Router} router object
-         * @memberOf porsche.pbs.controller.BaseController
-         */
         getRouter: function () {
-          // return the Router for the current view
           return sap.ui.core.UIComponent.getRouterFor(this);
         },
-        /**
-         * Getter for the resource bundle.
-         * @public
-         * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
-         */
+
         getResourceBundle: function () {
           return this.getOwnerComponent().getModel("i18n").getResourceBundle();
         },
 
         getModel: function (sText) {
-          return this.getView().getModel(sText);
+          return this.getOwnerComponent().getModel(sText);
         },
 
         recoverSession: function () {
           var data = jQuery.sap.storage.get("UserInfo");
           var oModel = new JSONModel(data);
           this.getOwnerComponent().setModel(oModel, "UserInfo");
-     //no need for this.getOwnerComponent()  -> this.getModel()
+        },
+
+        goToLoginAndLogOut: function () {
+          this.logOut();
+          this.getRouter().navTo("login");
+        },
+
+        sortList: function (oList, sorter) {
+          var oBinding = oList.getBinding("items");
+          oBinding.sort(sorter);
+        },
+
+        getIdFromGlobalId: function (globalId) {
+          var array = globalId.split("--");
+          return array[array.length - 1];
+        },
+
+        onGoToPage: function (oEvent) {
+          var page = this.getIdFromGlobalId(oEvent.getSource().getId());
+          this.getRouter().navTo(page);
+        },
+
+        navBackTo: function (defaultPage) {
+          var oHistory = History.getInstance();
+          var sPreviousHash = oHistory.getPreviousHash();
+          console.log(sPreviousHash);
+          if (sPreviousHash !== undefined) {
+            window.history.go(-1);
+          } else {
+            var oRouter = this.getRouter();
+            oRouter.navTo(defaultPage, true);
+          }
         },
 
         logOut: function () {
           var data = { isUser: false, isManager: false, username: null };
          var oModel = new JSONModel(data);
-         this.getOwnerComponent().setModel(oModel, "UserInfo");
-    //another method: this.getModel("UserInfo").setData(data);
-            // this.getModel("UserInfo").setProperty("isUser",false);
-            // this.getModel("UserInfo").setProperty("isManager",false);
-            // this.getModel("UserInfo").setProperty("username",null);
+         this.getModel("UserInfo").setData(data);
           jQuery.sap.storage.put("UserInfo", data);
         },
 
         checkLoginUser: function () {
           this.recoverSession();
-          var userInfo = this.getOwnerComponent()
-            .getModel("UserInfo")
-            .getData();
+          var userInfo = this.getModel("UserInfo").getData();
           if (!userInfo.isUser) {
             this.showMessageBoxAndGoToLogin(
               "You must be logged in if you want to use the application"
@@ -106,15 +115,12 @@ sap.ui.define(
         },
 
         getUsername: function () {
-          var userInfo = this.getOwnerComponent()
-            .getModel("UserInfo")
-            .getData();
+          var userInfo = this.getModel("UserInfo").getData();
           var username = userInfo.username;
           return username;
         },
 
         showMessageBoxAndGoToLogin: function (message) {
-      //    jQuery.sap.require("sap.m.MessageBox");
           var oRouter = this.getRouter();
           sap.m.MessageBox.error(message, {
             title: "Log in",
@@ -133,9 +139,7 @@ sap.ui.define(
 
         checkLoginManager: function () {
           this.recoverSession();
-          var userInfo = this.getOwnerComponent()
-            .getModel("UserInfo")
-            .getData();
+          var userInfo = this.getModel("UserInfo").getData();
           if (!userInfo.isManager) {
             this.showMessageBoxAndGoToLogin(
               "You must be logged in if you want to use the application"
@@ -164,11 +168,25 @@ sap.ui.define(
           return statusMap;
         },
 
-        getSearchFilter: function (text) {
+        getSearchFilterUser: function (text) {
           var searchFilters = [];
           if (text != null && text.length > 0) {
             searchFilters.push(new Filter("Country", FilterOperator.Contains, text));
+            searchFilters.push(new Filter("City", FilterOperator.Contains, text));
+            return new Filter({
+              filters: searchFilters,
+              and: false,
+            });
+          }
+          return null;
+        },
+
+        getSearchFilterManager: function (text) {
+          var searchFilters = [];
+          if (text != null && text.length > 0) {
+            searchFilters.push(new Filter("ServiceUnit", FilterOperator.Contains, text));
             searchFilters.push(new Filter("UId", FilterOperator.Contains, text));
+            searchFilters.push(new Filter("Country", FilterOperator.Contains, text));
             return new Filter({
               filters: searchFilters,
               and: false,

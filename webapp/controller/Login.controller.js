@@ -31,7 +31,6 @@ sap.ui.define(
           //Id : UserId,
           //Password : UserPassword
           //});
-          console.log(UserId +  " " + UserPassword);
           oModel.read(
             "/EmployeeSet(Id='" + UserId + "',Password='" + UserPassword + "')",
 
@@ -52,8 +51,7 @@ sap.ui.define(
                   isManager = false;
                 }
                 var data = { isUser: isUser, isManager: isManager, username: username };
-                var oModel = new JSONModel(data);
-                this.getOwnerComponent().setModel(oModel, "UserInfo");
+                this.getModel("UserInfo").setData(data);
                 jQuery.sap.storage.put("UserInfo", data);
               }.bind(this),
 
@@ -69,17 +67,25 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("forgotPass");
       },
+      
+      onSwitchToEnglish: function() {
+        sap.ui.getCore().getConfiguration().setLanguage("en");
+      },
+
+      onSwitchToGerman: function() {
+        sap.ui.getCore().getConfiguration().setLanguage("de");
+      },
+
+      // onSwitchLanguage: function(oEvent){
+      //   if(oEvent.getSource().getState() == true)
+      //   {
+      //     sap.ui.getCore().getConfiguration().setLanguage("de");
+      //   }
+      //   else
+      //   {
+      //     sap.ui.getCore().getConfiguration().setLanguage("en");
+      //   }
+      // }
     });
   }
 );
-// userName:user,
-//password:''
-/*
-create function import ("changePassword") - se creeaza in odata
-  parameter of function import : username
-
-  oModel.callFunction("changePassword",{
-    username:'blabla'
-  },success: "password has changed")
-
-*/

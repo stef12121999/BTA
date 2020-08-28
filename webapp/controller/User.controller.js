@@ -28,7 +28,6 @@ sap.ui.define(
         this.getRouter()
           .getRoute("user")
           .attachPatternMatched(this.patternMatched, this);
-        this.checkLoginUser();
       },
 
       patternMatched: function () {
@@ -53,47 +52,10 @@ sap.ui.define(
         }
       },
 
-      onGoToAllTrips: function (oEvent) {
-        var oRouter = this.getRouter();
-        oRouter.navTo("manager");
-      },
-      onGoToProfile: function (oEvent) {
-        var oRouter = this.getRouter();
-        oRouter.navTo("profile");
-      },
-      onGoToSettings: function (oEvent) {
-        var oRouter = this.getRouter();
-        oRouter.navTo("changePassword");
-      },
-
-      onSortByDate: function() {
+      onSortUser: function (oEvent) {
+        var sortBy = this.getIdFromGlobalId(oEvent.getSource().getId());
         var oList = this.byId("idTrips");
-          var oBinding = oList.getBinding("items");
-          oBinding.sort(new Sorter("StartDate"));
-      },
-
-      onSortByCountry: function() {
-        var oList = this.byId("idTrips");
-          var oBinding = oList.getBinding("items");
-          oBinding.sort(new Sorter("Country"));
-      },
-
-      onSortByCity: function() {
-        var oList = this.byId("idTrips");
-          var oBinding = oList.getBinding("items");
-          oBinding.sort(new Sorter("City"));
-      },
-
-      onSortByTotalPrice: function() {
-        var oList = this.byId("idTrips");
-          var oBinding = oList.getBinding("items");
-          oBinding.sort(new Sorter("Total"));
-      },
-
-      onSortByStatus: function(){
-        var oList = this.byId("idTrips");
-        var oBinding = oList.getBinding("items");
-        oBinding.sort(new Sorter("Status"));
+        this.sortList(oList, new Sorter(sortBy));
       },
 
       onDataReceived: function () {
@@ -122,7 +84,7 @@ sap.ui.define(
 
       onFilterBySearch: function (oEvent) {
         var sQuery = oEvent.getParameter("query");
-        this.searchFilter = this.getSearchFilter(sQuery);
+        this.searchFilter = this.getSearchFilterUser(sQuery);
         this.reFilter();
       },
 
@@ -135,39 +97,6 @@ sap.ui.define(
         this.reFilter();
       },
 
-      onSliderMoved: function (oEvent) {
-        var iValue = oEvent.getParameter("value");
-        this.byId("otbSubheader").setWidth(iValue + "%");
-        this.byId("otbFooter").setWidth(iValue + "%");
-      },
-      
-
-      _fnGroup: function (oContext) {
-        var UserId = oContext.getProperty("UId");
-        return {
-          key: UserId,
-          text: UserId,
-        };
-      },
-
-      onGoToLogin: function (oEvent) {
-        this.logOut();
-        var oRouter = this.getRouter();
-        oRouter.navTo("login");
-      },
-      onPlanTrip: function (oEvent) {
-        this.logOut();
-        var oRouter = this.getRouter();
-        oRouter.navTo("information");
-      },
-
-
-      onNavBack: function () {
-
-          this.onGoToLogin();
-
-      },
-
       onPressDetail: function (oEvent) {
         var oRouter = this.getRouter();
         var sID = oEvent.getSource().getBindingContext().getObject().RId;
@@ -176,12 +105,17 @@ sap.ui.define(
         });
       },
 
-      onTogglePress: function (oEvent) {
-        var oButton = oEvent.getSource(),
-          bPressedState = oButton.getPressed(),
-          sStateToDisplay = bPressedState ? "Pressed" : "Unpressed";
-
-        MessageToast.show(oButton.getId() + " " + sStateToDisplay);
+      onReset: function () {
+        this.statusMap = this.getInitialStatusMap();
+        this.searchFilter = null;
+        this.statusFilter = null;
+        this.reFilter();
+        this.getView().byId("approvedButton").setPressed(false);
+        this.getView().byId("toBeApprovedButton").setPressed(false);
+        this.getView().byId("declinedButton").setPressed(false);
+        this.getView().byId("searchField").setValue("");
+        var oList = this.byId("idTrips");
+        this.sortList(oList, null);
       },
     });
 

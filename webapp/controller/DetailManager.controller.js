@@ -48,9 +48,10 @@ sap.ui.define(
         onPressAccept(oEvent) {
           var oModel = this.getView().getModel();
           var oEntry = {};
-          var tempStatus = oModel.getData(
-            "/Front_TripSet('" + this.requestId + "')"
-          ).Status;
+          // var tempStatus = oModel.getData(
+          //   "/Front_TripSet('" + this.requestId + "')"
+          // ).Status;
+          var tempStatus = this.getView().getBindingContext().getObject().Status;
           if (tempStatus == 0) {
             oEntry.Status = 1;
             oEntry.DeclineReason = "";
@@ -98,9 +99,10 @@ sap.ui.define(
                   .getValue();
                 var oModel = this.getView().getModel();
                 var oEntry = {};
-                var tempStatus = oModel.getData(
-                  "/Front_TripSet('" + this.requestId + "')"
-                ).Status;
+                // var tempStatus = oModel.getData(
+                //   "/Front_TripSet('" + this.requestId + "')"
+                // ).Status;
+                var tempStatus = this.getView().getBindingContext().getObject().Status;
   
                 if (tempStatus == 0) {
                   oEntry.Status = 2;

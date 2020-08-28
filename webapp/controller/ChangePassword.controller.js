@@ -25,20 +25,10 @@ sap.ui.define(
         this.getRouter()
           .getRoute("changePassword")
           .attachPatternMatched(this.patternMatched, this);
-        this.checkLoginUser(); //should not be called here and also in patternMatched (just in patternMatched) difference between: attchPatternMatched/attachMatched/attachRouteMatch
       },
 
       onNavBack: function () {
-        //this.onNavBack("user")->call function from base controoler
-        var oHistory = History.getInstance();
-        var sPreviousHash = oHistory.getPreviousHash();
-
-        if (sPreviousHash !== undefined) {
-          window.history.go(-1);
-        } else {
-          var oRouter = this.getRouter();
-          oRouter.navTo("user", true);
-        }
+        this.navBackTo("user");
       },
 
       onChangePassword: function () {
@@ -68,26 +58,6 @@ sap.ui.define(
       patternMatched: function (oEvent) {
         this.checkLoginUser();
       },
-
-      //     onSendEmail: function (oEvent) {
-
-      //       var oView = this.getView();
-      //       var oModel = oView.getModel();
-      //       var UserId = oView.byId("input-c").getValue();
-
-      //       oModel.callFunction("/Change_Password", {
-      //         method: "POST",
-      //         urlParameters: {
-      //           UserId: UserId,
-      //         },
-      //         success: function (oData) {
-      //           MessageToast.show("Your new password will be sent to you in an email.");
-      //         }.bind(this),
-      //         error: function () {
-      //           MessageToast.show("Are you sure that this is your correct email address?");
-      //         },
-      //       });
-      //     },
     });
   }
 );

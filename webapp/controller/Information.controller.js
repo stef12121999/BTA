@@ -81,8 +81,6 @@ sap.ui.define(
               vBoxDay.addItem(icon);
               vBoxDay.addItem(temperatureLabel);
               view.byId("forecast").addItem(vBoxDay);
-
-              //view.byId("forecastTitle").setVisible(true);
             }
           },
           error: function (jqXHR, textStatus, errorThrown) {
@@ -97,8 +95,17 @@ sap.ui.define(
       },
 
       onInit: function (oEvent) {
-        //var view = this.getView();
-        //this.loadForecast(view, 46.7712, 23.6236);
+        this.getRouter()
+        .getRoute("information")
+        .attachPatternMatched(this.patternMatched, this);
+      },
+
+      patternMatched: function () {
+        this.checkLoginUser();
+      },
+
+      onNavBack: function() {
+        this.navBackTo("user");
       },
 
       onGetInfoByCoordinates: function (oEvent) {
