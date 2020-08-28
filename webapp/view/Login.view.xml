@@ -31,29 +31,30 @@
             
 		</headerContent>
     <FlexBox
+        height="500px"
         direction="Column"
         alignItems="Center"
         justifyContent="Center"
-        height="600px">
+       >
     <items>
     <Input
       id="username"
       placeholder="{i18n>Username}" 
-      width="20rem"
+      width="17rem"
       type="Text"/>
       <Input
       id="password"
       placeholder="{i18n>Password} " 
       type="Password"
-      width="20rem"
+      width="17rem"
       />
     <Button
         text="{i18n>Login}"
         press="onValidation"
-        width="20rem"
+        width="17rem"
         icon="sap-icon://action"
     />
-    <Button type="Emphasized" width="20rem" id="link" icon="sap-icon://hide" class="sapUiMediumMarginTop" text="{i18n>forgotPass}"  press="onForgotPass"/>
+   <Link width="10rem" id="link" class="sapUiLargeMarginTop" text="{i18n>forgotPass}"  press="onForgotPass"/>
     </items>
     
     </FlexBox>

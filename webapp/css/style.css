@@ -23,10 +23,6 @@
     color: #061c31 ;
 }
 
-.sapMBtnTransparent>.sapMBtnIcon{
-    font-size:0.75rem;
-}
-
 .instr{
     font-size:1.1rem;
     color:#12032b;
@@ -35,6 +31,12 @@
 .sapMBtn.decreaseFont .sapMBtnIcon {
     font-size: 0.7rem;
 }
+.sapMBtnTransparent>.sapMBtnIcon{
+    font-size:0.75rem;
+}
+
+
+
 
 .sapMBtnInner .accept{
     font-size: 0.6rem;
@@ -48,3 +50,7 @@
 /*.customsShellCss .sapUiGlobalBackgroundColor, .customsShellCss .sapMShellGlobalInnerBackground #changePassPage {
     background-color: #dcebf586;
 }*/
+
+.sapMShellBrandingBar{
+    background-color: rgba(221, 95, 5, 0);
+}
