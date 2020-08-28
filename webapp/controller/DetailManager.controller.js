@@ -46,6 +46,67 @@ sap.ui.define(
         },
   
         onPressAccept(oEvent) {
+          var dialog = new Dialog({
+            title: "Confirm",
+            type: "Message",
+            content: [
+              new Label({
+                text: "Are you sure you want to accept this trip?",
+                
+              }),
+   
+            ],
+            beginButton: new Button({
+              text: "Ok",
+              press: function () {
+               
+                var oModel = this.getView().getModel();
+                var oEntry = {};
+                // var tempStatus = oModel.getData(
+                //   "/Front_TripSet('" + this.requestId + "')"
+                // ).Status;
+                var tempStatus = this.getView().getBindingContext().getObject().Status;
+  
+                
+                  oEntry.Status = 1;
+                  oEntry.DeclineReason = "";
+  
+                  oModel.update(
+                    "/Front_TripSet('" + this.requestId + "')",
+                    oEntry,
+                    {
+                      //method: "PUT",
+                      success: function (oData) {
+                        this.refresh();
+                        //MessageToast.show("Trip declined successfully!");
+                      }.bind(this),
+                      error: function () {
+                        //MessageToast.show("Error at declining trip.");
+                      },
+                    }
+                  );
+                
+                //MessageToast.show("Note is: " + sText);
+  
+                dialog.close();
+              }.bind(this),
+            }),
+            endButton: new Button({
+              text: "Cancel",
+              press: function () {
+                dialog.close();
+              },
+            }),
+            afterClose: function () {
+              dialog.destroy();
+            },
+          });
+  
+          dialog.open();
+        },
+       
+/*
+    
           var oModel = this.getView().getModel();
           var oEntry = {};
           // var tempStatus = oModel.getData(
@@ -66,8 +127,8 @@ sap.ui.define(
                 //MessageToast.show("Error at accepting trip.");
               },
             });
-          }
-        },
+          }*/
+      
   
         onPressDecline(oEvent) {
           var dialog = new Dialog({
