@@ -15,25 +15,35 @@
 						<m:contentMiddle>
 							<m:Title text="Trip details"/>
 						</m:contentMiddle>
+						<m:contentRight>
+							<m:MenuButton text="{i18n>MyProfile}" icon="sap-icon://customer">
+								<m:menu>
+									<m:Menu itemSelected="onMenuAction">
+										<m:items>
+											<m:MenuItem text="{i18n>AccInfo}" id="profile" icon="sap-icon://account" press="onGoToPage"/>
+											<m:MenuItem visible="{UserInfo>/isManager}" id="manager" text="Manage other's trips" icon="sap-icon://suitcase" press="onGoToPage"/>
+											<m:MenuItem text="{i18n>ChangePasswd}" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />
+											<m:MenuItem text="{i18n>Back}" id="back" icon="sap-icon://log" press="goToLoginAndLogOut"/>
+										</m:items>
+									</m:Menu>
+								</m:menu>
+							</m:MenuButton>
+						</m:contentRight>
 					</m:Bar>
 				</navigationBar>
 			</ObjectPageHeader>
 		</headerTitle>
 
 		<headerContent >
-		<layout:VerticalLayout>
+			<layout:VerticalLayout>
 				<m:ObjectStatus title="User" text="{FirstName} {LastName}"/>
 				<m:ObjectStatus title="Functional Area" text="{ServiceUnit}"/>
 				<m:ObjectStatus title="Cost Center" text="{Total} EUR"/>
 				<m:ObjectStatus title="Email" text="{Email}"/>
 				<m:ObjectStatus title="Phone" text="{PhoneNr}"/>
 			</layout:VerticalLayout>
-                    <m:ObjectStatus
-                            title="Status"
-                            text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}"
-                            state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}"
-							class="sapUiTinyMarginEnd" />
-            </headerContent>
+			<m:ObjectStatus title="Status" text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" class="sapUiTinyMarginEnd" />
+		</headerContent>
 
 		<sections>
 			<ObjectPageSection title="General">

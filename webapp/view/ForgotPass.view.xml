@@ -2,7 +2,6 @@
     xmlns:core="sap.ui.core" controllerName="intern2020.controller.ForgotPass"
     xmlns="sap.m">
     <Page class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack" title="{i18n>forgotPageTitle}">
-        <Panel>
             <FlexBox  direction="Column" height="500px" alignItems="Center" justifyContent="Center">
                 <items>
                     <Label 
@@ -14,7 +13,5 @@
                 </items>
 
             </FlexBox>
-
-        </Panel>
     </Page>
 </mvc:View>
