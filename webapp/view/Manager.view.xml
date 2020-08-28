@@ -2,7 +2,8 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
-	<Page title="{i18n>managerPage}" enableScrolling="true" class="nonTransparentPage sapUiContentPadding" showNavButton="true" navButtonPress="goToLoginAndLogOut" visible="{UserInfo>/isManager}">
+	<Page title="{i18n>managerPage}" enableScrolling="true" 
+			class="nonTransparentPage sapUiContentPadding"  visible="{UserInfo>/isManager}">
 		<headerContent>
 			<MenuButton text="{i18n>MyProfile}" icon="sap-icon://customer">
 				<menu>
@@ -11,6 +12,7 @@
 							<MenuItem text="{i18n>AccInfo}" id="profile" icon="sap-icon://account" press="onGoToPage"/>
 							<MenuItem text="{i18n>ChangePasswd}" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />
 							<MenuItem text="{i18n>Own}" id="user" icon="sap-icon://suitcase" press="onGoToPage"/>
+							<MenuItem text="{i18n>Back}" id="back" icon="sap-icon://log" press="goToLoginAndLogOut"/>
 						</items>
 					</Menu>
 				</menu>
