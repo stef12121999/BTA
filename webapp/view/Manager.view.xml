@@ -2,7 +2,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 
-	<Page title="{i18n>managerPage1}" enableScrolling="true" class="nonTransparentPage sapUiContentPadding"  visible="{UserInfo>/isManager}">
+	<Page title="{i18n>managerPage}" enableScrolling="true" class="nonTransparentPage sapUiContentPadding" visible="{UserInfo>/isManager}">
 		<headerContent>
 			<MenuButton text="{i18n>MyProfile}" icon="sap-icon://customer">
 				<menu>
@@ -20,29 +20,33 @@
 			<Table selectionChange="handleSelectionChange" id="idTrips" items="{/Front_TripSet}">
 				<headerToolbar >
 					<OverflowToolbar id="otbSubheader">
-						<ToggleButton id="approvedButton" icon="sap-icon://accept" text="{i18n>Approved}" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
+						<ToggleButton id="approvedButton" width="100%" icon="sap-icon://accept" text="{i18n>Approved}" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginEnd" type="Accept">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="2em" maxWidth="12em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton id="toBeApprovedButton" icon="sap-icon://time-account" type="Ghost" pressed="false" text="{i18n>TBA}" class="sapUiTinyMarginBegin sapUiTinyMarginEnd buton" press="onFilterByStatus">
+						<ToggleButton id="toBeApprovedButton" width="100%" icon="sap-icon://time-account" type="Ghost" pressed="false" text="{i18n>TBA}" class="sapUiTinyMarginEnd" press="onFilterByStatus">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="2em" maxWidth="12em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton id="declinedButton" icon="sap-icon://decline" pressed="false" text="{i18n>Declined}" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Reject">
+						<ToggleButton id="declinedButton" width="100%" icon="sap-icon://decline" pressed="false" text="{i18n>Declined}" press="onFilterByStatus" type="Reject" class="sapUiTinyMarginEnd">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="2em" maxWidth="12em" shrinkable="true"/>
 							</layoutData>
-						</ToggleButton>
+						</ToggleButton> 
 
 						<ToolbarSpacer/>
-						<SearchField id="searchField" width="25%" search="onFilterBySearch">
+						<SearchField id="searchField" width="100%" search="onFilterBySearch" class="sapUiTinyMarginEnd">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="200px" maxWidth="400px" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="10em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</SearchField>
-						<Button text="{i18n>Reset}" press="onReset" class="resetare" type="Ghost" tooltip="{i18n>Clear}"/>
+						<Button text="{i18n>Reset}" width="5em" press="onReset" type="Ghost" tooltip="{i18n>Clear}">
+							<layoutData>
+								<OverflowToolbarLayoutData/>
+							</layoutData>
+						</Button>
 					</OverflowToolbar>
 				</headerToolbar>
 				<columns>
@@ -55,11 +59,11 @@
 					<Column minScreenWidth="Tablet" hAlign="Center">
 						<Button iconFirst="false" id="ServiceUnit" text="{i18n>Serviceunit}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
-					
+
 					<Column minScreenWidth="Phone" hAlign="Center">
 						<Button iconFirst="false" id="Country" text="{i18n>Country}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
-					
+
 					<Column minScreenWidth="Large" hAlign="Center">
 						<Button iconFirst="false" id="Status" text="{i18n>Status}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>
@@ -81,11 +85,11 @@
 											formatOptions: {
 												style: 'short'
 												}}" />
-							
+
 							<Text text="{UId}" />
 							<Text text="{ServiceUnit}" />
 							<Text text="{Country}" />
-							
+
 							<ObjectNumber number="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" />
 							<Text text="{Total} EUR" />
 							<!--	<Text text="{Country}" visbile="{= ${UserInfo>/isUser} === 'user' ? false :true}" />-->

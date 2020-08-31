@@ -1,51 +1,74 @@
-.sapMLabel, .text{    font-size:0.9rem;    color: #1e2329 ;}
-.instr{  font-style:italic;   color:#d35704;}
-.sapMBtn.decreaseFont .sapMBtnIcon {    font-size: 0.7rem;}
-.customsShellCss .sapUiGlobalBackgroundColor, .customsShellCss .sapMShellGlobalInnerBackground {
-    background-color: #97af712a;
+.sapMLabel,
+.text {
+  font-size: 0.9rem;
+  color: #1e2329;
 }
-.sapMColumnHeader .sapMBtnText .sapMBtnIcon{
-    font-size:15px !important;
+.instr {
+  font-style: italic;
+  color: #d35704;
+}
+.sapMBtn.decreaseFont .sapMBtnIcon {
+  font-size: 0.7rem;
+}
+.customsShellCss .sapUiGlobalBackgroundColor,
+.customsShellCss .sapMShellGlobalInnerBackground {
+  background-color: #97af712a;
+}
+.sapMColumnHeader .sapMBtnText .sapMBtnIcon {
+  font-size: 15px !important;
 }
 .sapMBtnGhost {
-    background-image: none;
-    border-color: rgba(52,97,135,0.5);
-    background-color: #f7f7f7;
-    color: #346187;
-}
- 
-.sapMPage.sapUiContentPadding > section {
-    padding: 1rem;
-    box-sizing: border-box;
-}
-.sapMColumnHeader {
-    display: contents;
-    flex: 0 -5 auto;
-    padding: 1rem 0.5rem 1rem;
-}
-.sapUxAPObjectPageHeaderIdentifier.sapUxAPObjectPageHeaderIdentifierForce {
-    display: none !important;
-}
-.sapMTitleStyleAuto {
-    font-size: 1.2rem;
-}
-.sapMLnk:visited {
-    color: #000000;
-}
- 
-.sapMShellBrandingBar {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 4px;
-    z-index: 2;
-    background-color: #ff003400;
-}
-.customsShellCss .nonTransparentPage {
-    background-color:#f7f7f7;
-}
-.languageDropdown .sapMImg  {
-    width: 1.5rem;
+  background-image: none;
+  border-color: rgba(52, 97, 135, 0.5);
+  background-color: #f7f7f7;
+  color: #346187;
 }
 
+.sapMPage.sapUiContentPadding > section {
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.sapMColumnHeader {
+  display: contents;
+  flex: 0 -5 auto;
+  padding: 1rem 0.5rem 1rem;
+}
+.sapUxAPObjectPageHeaderIdentifier.sapUxAPObjectPageHeaderIdentifierForce {
+  display: none !important;
+}
+.sapMTitleStyleAuto {
+  font-size: 1.2rem;
+}
+.sapMLnk:visited {
+  color: #000000;
+}
+
+.sapMShellBrandingBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 2;
+  background-color: #ff003400;
+}
+.customsShellCss .nonTransparentPage {
+  background-color: #f7f7f7;
+}
+.languageDropdown .sapMImg {
+  width: 1.5rem;
+}
+
+@media screen and (max-width: 700px) {
+  #container-login---manager--toBeApprovedButton-BDI-content {
+    display: none;
+  }
+
+  #container-login---manager--approvedButton-BDI-content {
+    display: none;
+  }
+
+  #container-login---manager--declinedButton-BDI-content {
+    display: none;
+  }
+}
