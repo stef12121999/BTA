@@ -32,10 +32,10 @@
             <f:FormElement label="{i18n>ServiceUnit}">
               <Input value="{ServiceUnit}" width="100%" editable="false"  />
             </f:FormElement>
-            <f:FormElement label="Location">
+            <f:FormElement label="{i18n>Location}">
               <Input value="{Location}" width="100%" editable="false"  />
             </f:FormElement>
-            <f:FormElement label="ZIP">
+            <f:FormElement label="{i18n>ZIP}">
               <Input value="{HomeZip}" width="100%" editable="false"  />
             </f:FormElement>
             <f:FormElement label="{i18n>City}">

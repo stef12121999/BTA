@@ -56,7 +56,7 @@ sap.ui.define(
               }.bind(this),
 
               error: function (var1, var2, var3) {
-                MessageToast.show("Incorrect username or password.");
+                MessageToast.show("{i18n>InvalidLogin}");
               },
             }
           );

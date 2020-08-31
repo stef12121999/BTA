@@ -13,34 +13,34 @@
 				<f:formContainers>
 					<f:FormContainer ariaLabelledBy="Title2">
 						<f:formElements>
-							<f:FormElement label="First name">
+							<f:FormElement label="{i18n>FirstName}">
 								<Input value="{profile>/FirstName}" width="100%" editable="false"/>
 							</f:FormElement>
-							<f:FormElement label="Last name">
+							<f:FormElement label="{i18n>LastName}">
 								<Input value="{profile>/LastName}" width="100%" editable="false"/>
 							</f:FormElement>
-							<f:FormElement label="Phone">
+							<f:FormElement label="{i18n>Phone}">
 								<Input value="{profile>/PhoneNr}" width="100%" editable="false"/>
 							</f:FormElement>
-							<f:FormElement label="Personnel number">
+							<f:FormElement label="{i18n>PersonalNr}">
 								<Input value="{profile>/PersonalNr}" width="100%" editable="false"/>
 							</f:FormElement>
-							<f:FormElement label="Cost center">
+							<f:FormElement label="{i18n>CostCenter}">
 								<Input value="{profile>/CostCenter}" width="100%" editable="false"/>
 							</f:FormElement>
-							<f:FormElement label="Supervisor">
+							<f:FormElement label="{i18n>Supervisor}">
 								<Input value="{profile>/Supervisor}" width="100%" editable="false"/>
 							</f:FormElement>
-							<f:FormElement label="Service unit">
+							<f:FormElement label="{i18n>ServiceUnit}">
 								<Input value="{profile>/ServiceUnit}" width="100%" editable="false"/>
 							</f:FormElement>
-							<f:FormElement label="Location">
+							<f:FormElement label="{i18n>Location}">
 								<Input value="{profile>/Location}" width="100%" editable="false"/>
 							</f:FormElement>
-							<f:FormElement label="Home ZIP">
+							<f:FormElement label="{i18n>ZIP}">
 								<Input value="{profile>/HomeZip}" width="100%" editable="false"/>
 							</f:FormElement>
-							<f:FormElement label="Home city">
+							<f:FormElement label="{i18n>City}">
 								<Input value="{profile>/HomeCity}" width="100%" editable="false"/>
 							</f:FormElement>
 						</f:formElements>

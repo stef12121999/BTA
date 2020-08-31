@@ -19,8 +19,8 @@
 		<content>
 			<Table selectionChange="handleSelectionChange" id="idTrips" items="{/Front_TripSet}">
 				<headerToolbar >
-					<OverflowToolbar id="otbSubheader">
-						<ToggleButton id="approvedButton" width="100%" icon="sap-icon://accept" text="{i18n>Approved}" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginEnd" type="Accept">
+					<OverflowToolbar  id="otbSubheader">
+						<ToggleButton id="approvedButton" width="100%" icon="sap-icon://accept" text="{i18n>Approved}"  pressed="false" press="onFilterByStatus" class="sapUiTinyMarginEnd " type="Accept">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="2em" maxWidth="12em" shrinkable="true"/>
 							</layoutData>
@@ -49,7 +49,7 @@
 						</Button>
 					</OverflowToolbar>
 				</headerToolbar>
-				<columns>
+				<columns >
 					<Column minScreenWidth="370px" hAlign="Center">
 						<Button iconFirst="false" id="StartDate" text="{i18n>Date}" icon="sap-icon://sort" type="Transparent" press=".onSortManager"/>
 					</Column>

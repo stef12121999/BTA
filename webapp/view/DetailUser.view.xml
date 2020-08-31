@@ -31,8 +31,8 @@
 			</layout:VerticalLayout>
 			<layout:VerticalLayout class="sapUiLargeMarginEnd">
 				
-				<m:ObjectStatus title="Email" text="{Email}"/>
-				<m:ObjectStatus title="Phone" text="{PhoneNr}"/>
+				<m:ObjectStatus title="{i18n>Email}" text="{Email}"/>
+				<m:ObjectStatus title="{i18n>Phone}" text="{PhoneNr}"/>
 			</layout:VerticalLayout>
 			<layout:VerticalLayout class="sapUiLargeMarginEnd">
 				<m:ObjectStatus title="{i18n>CostCenter}" text="{Total}"/>

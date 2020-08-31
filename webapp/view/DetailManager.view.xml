@@ -67,7 +67,7 @@
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection title="Cost">
+			<ObjectPageSection title="{i18n>Cost}">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
