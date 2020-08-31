@@ -80,6 +80,8 @@ sap.ui.define(
               vBoxDay.addItem(dateLabel);
               vBoxDay.addItem(icon);
               vBoxDay.addItem(temperatureLabel);
+              vBoxDay.setWidth("5.5rem");
+              vBoxDay.addStyleClass("sapUiMediumMarginBottom");
               view.byId("forecast").addItem(vBoxDay);
             }
           },
