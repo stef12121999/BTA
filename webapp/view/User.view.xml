@@ -42,7 +42,6 @@
 								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-
 						<ToolbarSpacer/>
 						<SearchField id="searchField" width="50%" search=".onFilterBySearch">
 							<layoutData>
@@ -50,7 +49,7 @@
 							</layoutData>
 
 						</SearchField>
-						<Button text="{i18n>Reset}" class="resetare" type="Ghost" press="onReset"/>
+						<Button text="{i18n>Reset}" type="Ghost" press="onReset"/>
 					</OverflowToolbar>
 				</headerToolbar>
 
@@ -58,7 +57,7 @@
 					<Column minScreenWidth="370px" hAlign="Center">
 						<Button iconFirst="false" id="StartDate" text="{i18n>Date}" icon="sap-icon://sort" type="Transparent" press=".onSortUser"/>
 					</Column>
-					<Column minScreenWidth="Small" hAlign="Center">
+					<Column minScreenWidth="Phone" hAlign="Center">
 						<Button iconFirst="false" id="Country" text="{i18n>Country}" icon="sap-icon://sort" type="Transparent" press=".onSortUser"/>
 					</Column>
 					<Column minScreenWidth="Tablet" hAlign="Center">
