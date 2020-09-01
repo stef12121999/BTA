@@ -71,4 +71,34 @@
   #container-login---manager--declinedButton-BDI-content {
     display: none;
   }
+
+  #container-login---user--toBeApprovedButton-BDI-content {
+    display: none;
+  }
+
+  #container-login---user--approvedButton-BDI-content {
+    display: none;
+  }
+
+  #container-login---user--declinedButton-BDI-content {
+    display: none;
+  }
+
+  #container-login---forgotPass--input-c {
+    width: 15rem !important;
+  }
+
+  #container-login---forgotPass--forgotPassButton {
+    width: 15rem !important;
+  }
 }
+
+@media screen and (max-width: 410px) {
+  #container-login---login--titleLogin {
+    display: none;
+  }
+}
+
+/* #container-login---forgotPass--changePasswordText-text {
+  color: #ffffff;
+} */

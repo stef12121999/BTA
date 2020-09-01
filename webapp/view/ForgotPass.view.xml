@@ -1,17 +1,21 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core" controllerName="intern2020.controller.ForgotPass"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
     xmlns="sap.m">
     <Page class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack" title="{i18n>forgotPageTitle}" enableScrolling="false">
-        
-            <FlexBox  direction="Column" height="400px" alignItems="Center" justifyContent="Center">
-                <items>
-                    <Label 
-                            class="sapUiMediumMarginBottom"
-                            text="{i18n>instructions}" />
-                    <Input id="input-c" placeholder="Email address" width="25rem"/>
 
-                    <Button text="{i18n>sendInstruction}" press="onSendEmail" width="25rem" icon="sap-icon://action" />
-                </items>
+        <FlexBox direction="Column" height="100%" width="100%" alignItems="Center" justifyContent="Center">
+            <items>
+                <!-- <Label id="changePasswordText" wrapping="true" class="sapUiMediumMarginBottom" text="{i18n>instructions}"/> -->
+
+                <Input id="input-c" placeholder="Email address" width="25rem">
+                </Input>
+
+                <Button id="forgotPassButton" text="{i18n>sendInstruction}" press="onSendEmail" width="25rem" icon="sap-icon://action">
+                </Button>
+
+            </items>
             </FlexBox>
-    </Page>
-</mvc:View>
+        </Page>
+    </mvc:View>

@@ -21,6 +21,7 @@
 		</headerTitle>
 
 		<headerContent >
+<<<<<<< HEAD
 		<layout:HorizontalLayout >
 		
 			<layout:VerticalLayout class="sapUiLargeMarginEnd">
@@ -41,11 +42,23 @@
                             text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}"
                             state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}"
 							class="sapUiTinyMarginEnd" />
+=======
+			<layout:HorizontalLayout allowWrapping="true">
+				<layout:VerticalLayout class="sapUiLargeMarginEnd">
+					<m:ObjectStatus title="{i18n>User}" text="{FirstName} {LastName}"/>
+					<m:ObjectStatus title="{i18n>ServiceUnit}" text="{ServiceUnit}"/>
 				</layout:VerticalLayout>
-		</layout:HorizontalLayout>
-		
-                    
-            </headerContent>
+				<layout:VerticalLayout class="sapUiLargeMarginEnd">
+					<m:ObjectStatus title="Email" text="{Email}"/>
+					<m:ObjectStatus title="Phone" text="{PhoneNr}"/>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiLargeMarginEnd">
+					<m:ObjectStatus title="{i18n>CostCenter}" text="{Total}"/>
+					<m:ObjectStatus title="Status" text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" class="sapUiTinyMarginEnd" />
+>>>>>>> 0e7a2d8b47f359a90db875d7c84a29efe55ba842
+				</layout:VerticalLayout>
+			</layout:HorizontalLayout>
+		</headerContent>
 		<sections>
 			<ObjectPageSection title="General">
 				<subSections>

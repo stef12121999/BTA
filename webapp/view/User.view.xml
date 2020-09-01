@@ -27,29 +27,32 @@
 			dataReceived: '.onDataReceived'}}">
 				<headerToolbar>
 					<OverflowToolbar id="otbSubheader">
-						<ToggleButton icon="sap-icon://accept" id="approvedButton" text="{i18n>Approved}" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Accept">
+						<ToggleButton icon="sap-icon://accept" width="100%" id="approvedButton" text="{i18n>Approved}" pressed="false" press="onFilterByStatus" class="sapUiTinyMarginEnd" type="Accept">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="2em" maxWidth="12em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton icon="sap-icon://time-account" id="toBeApprovedButton" type="Ghost" pressed="false" text="To Be Approved" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" press="onFilterByStatus">
+						<ToggleButton icon="sap-icon://time-account" width="100%" id="toBeApprovedButton" type="Ghost" pressed="false" text="To Be Approved" class="sapUiTinyMarginEnd" press="onFilterByStatus">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="2em" maxWidth="12em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
-						<ToggleButton icon="sap-icon://decline" id="declinedButton" pressed="false" text="{i18n>Declined}" press="onFilterByStatus" class="sapUiTinyMarginBegin sapUiTinyMarginEnd" type="Reject">
+						<ToggleButton icon="sap-icon://decline" width="100%" id="declinedButton" pressed="false" text="{i18n>Declined}" press="onFilterByStatus" class="sapUiTinyMarginEnd" type="Reject">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="14em" maxWidth="20em" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="2em" maxWidth="12em" shrinkable="true"/>
 							</layoutData>
 						</ToggleButton>
 						<ToolbarSpacer/>
-						<SearchField id="searchField" width="50%" search=".onFilterBySearch">
+						<SearchField id="searchField" width="100%" search=".onFilterBySearch" class="sapUiTinyMarginEnd">
 							<layoutData>
-								<OverflowToolbarLayoutData minWidth="200px" maxWidth="300px" shrinkable="true"/>
+								<OverflowToolbarLayoutData minWidth="10em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
-
 						</SearchField>
-						<Button text="{i18n>Reset}" type="Ghost" press="onReset"/>
+						<Button text="{i18n>Reset}" width="5em" press="onReset" type="Ghost" tooltip="{i18n>Clear}">
+							<layoutData>
+								<OverflowToolbarLayoutData/>
+							</layoutData>
+						</Button>
 					</OverflowToolbar>
 				</headerToolbar>
 
