@@ -4,7 +4,7 @@
     <Page title="Travel information" class="sapUiContentPadding nonTransparentPage" showNavButton="true"  visible="{UserInfo>/isUser}" navButtonPress="onNavBack">
             <HBox wrap="Wrap" alignItems="Center" class="sapUiTinyMargin sapUiSmallMarginBottom">
                 <Label text="{i18n>dest}" width="17rem" class="sapUiSmallMarginEnd" />
-                <Input id="place" placeholder="{i18n>location}" width="17rem" class="sapUiSmallMarginEnd"/>
+                <Input id="place" placeholder="{i18n>Location}" width="17rem" class="sapUiSmallMarginEnd"/>
                 <Button text="{i18n>getInfo}" width="17rem" press=".onGetInfo"/>
             </HBox>
             <Label wrapping="true" id="foundPlace" text="" class="sapUiTinyMargin"/>

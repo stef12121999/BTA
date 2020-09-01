@@ -1,10 +1,9 @@
 <core:FragmentDefinition xmlns="sap.m"
-	xmlns:l="sap.ui.layout"
-	controllerName="intern2020.controller.Profile"
+	xmlns:l="sap.ui.layout" controllerName="intern2020.controller.Profile"
 	xmlns:f="sap.ui.layout.form"
 	xmlns:core="sap.ui.core">
 	<Page title="Your profile" enableScrolling="true" class="sapUiContentPadding nonTransparentPage" showNavButton="true" navButtonPress="onNavBack" visible="{UserInfo>/isUser}">
-		
+
 		<VBox class="sapUiSmallMargin">
 			<f:Form id="FormToolbar" editable="true" ariaLabelledBy="Title1">
 				<f:layout>
@@ -14,34 +13,34 @@
 					<f:FormContainer ariaLabelledBy="Title2">
 						<f:formElements>
 							<f:FormElement label="{i18n>FirstName}">
-								<Input value="{profile>/FirstName}" width="100%" editable="false"/>
+								<Input value="{profile>/FirstName}" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>LastName}">
-								<Input value="{profile>/LastName}" width="100%" editable="false"/>
+								<Input value="{profile>/LastName}" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>Phone}">
-								<Input value="{profile>/PhoneNr}" width="100%" editable="false"/>
+								<Input value="{profile>/PhoneNr}" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>PersonalNr}">
-								<Input value="{profile>/PersonalNr}" width="100%" editable="false"/>
+								<Input value="{profile>/PersonalNr}" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>CostCenter}">
-								<Input value="{profile>/CostCenter}" width="100%" editable="false"/>
+								<Input value="{profile>/CostCenter}" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>Supervisor}">
-								<Input value="{profile>/Supervisor}" width="100%" editable="false"/>
+								<Input value="{profile>/Supervisor}" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>ServiceUnit}">
-								<Input value="{profile>/ServiceUnit}" width="100%" editable="false"/>
+								<Input value="{profile>/ServiceUnit}" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>Location}">
-								<Input value="{profile>/Location}" width="100%" editable="false"/>
+								<Input value="{profile>/Location}" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>ZIP}">
-								<Input value="{profile>/HomeZip}" width="100%" editable="false"/>
+								<Input value="{profile>/HomeZip}" width="100%" editable="false" />
 							</f:FormElement>
 							<f:FormElement label="{i18n>City}">
-								<Input value="{profile>/HomeCity}" width="100%" editable="false"/>
+								<Input value="{profile>/HomeCity}" width="100%" editable="false" />
 							</f:FormElement>
 						</f:formElements>
 					</f:FormContainer>

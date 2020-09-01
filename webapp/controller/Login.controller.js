@@ -21,16 +21,12 @@ sap.ui.define(
         var UserPassword = oView.byId("password").getValue();
         
         if (UserId == "") {
-          MessageToast.show("Please Enter Username");
+          //MessageToast.show("Please Enter Username");
           return false;
         } else if (UserPassword == "") {
-          MessageToast.show("Please Enter Password");
+          //MessageToast.show("Please Enter Password");
           return false;
         } else {
-          //var sPath = oModel.createKey("/EmployeeSet", {
-          //Id : UserId,
-          //Password : UserPassword
-          //});
           oModel.read(
             "/EmployeeSet(Id='" + UserId + "',Password='" + UserPassword + "')",
 
@@ -56,8 +52,8 @@ sap.ui.define(
               }.bind(this),
 
               error: function (var1, var2, var3) {
-                MessageToast.show("{i18n>InvalidLogin}");
-              },
+                MessageToast.show(this.getModelText("InvalidLogin"));
+              }.bind(this),
             }
           );
         }
@@ -70,10 +66,12 @@ sap.ui.define(
       
       onSwitchToEnglish: function() {
         sap.ui.getCore().getConfiguration().setLanguage("en");
+        jQuery.sap.storage.put("language", "en");
       },
 
       onSwitchToGerman: function() {
         sap.ui.getCore().getConfiguration().setLanguage("de");
+        jQuery.sap.storage.put("language", "de");
       },
 
       // onSwitchLanguage: function(oEvent){

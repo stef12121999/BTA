@@ -20,7 +20,7 @@
             <f:FormElement label="{i18n>Phone}">
               <Input value="{PhoneNr}" width="100%" editable="false"  />
             </f:FormElement>
-            <f:FormElement label="Personnel number">
+            <f:FormElement label="{i18n>PersonalNr}">
               <Input value="{PersonalNr}" width="100%" editable="false"  />
             </f:FormElement>
             <f:FormElement label="{i18n>CostCenter}">

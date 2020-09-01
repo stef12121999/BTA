@@ -10,6 +10,7 @@
 						<items>
 							<MenuItem text="{i18n>AccInfo}" id="profile" icon="sap-icon://account" press="onGoToPage"/>
 							<MenuItem text="{i18n>Own}" id="user" icon="sap-icon://suitcase" press="onGoToPage"/>
+							<MenuItem text="{i18n>ChangePasswd}" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage"/>
 							<MenuItem text="{i18n>Back}" id="back" icon="sap-icon://log" press="goToLoginAndLogOut"/>
 						</items>
 					</Menu>
@@ -37,12 +38,12 @@
 						</ToggleButton> 
 
 						<ToolbarSpacer/>
-						<SearchField id="searchField" width="100%" search="onFilterBySearch" class="sapUiTinyMarginEnd">
+						<SearchField placeholder="{i18n>search}" id="searchField" width="100%" search="onFilterBySearch" class="sapUiTinyMarginEnd">
 							<layoutData>
 								<OverflowToolbarLayoutData minWidth="10em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</SearchField>
-						<Button text="{i18n>Reset}" width="5em" press="onReset" type="Ghost" tooltip="{i18n>Clear}">
+						<Button text="{i18n>Reset}" press="onReset" type="Ghost">
 							<layoutData>
 								<OverflowToolbarLayoutData/>
 							</layoutData>
@@ -90,7 +91,7 @@
 							<Text text="{ServiceUnit}" />
 							<Text text="{Country}" />
 
-							<ObjectNumber number="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" />
+							<ObjectNumber number="{= ${Status} === 1 ? ${i18n>Approved} : ${Status} === 0 ? ${i18n>TBA} : ${i18n>Declined}}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" />
 							<Text text="{Total} EUR" />
 							<!--	<Text text="{Country}" visbile="{= ${UserInfo>/isUser} === 'user' ? false :true}" />-->
 						</cells>

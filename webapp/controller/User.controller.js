@@ -89,7 +89,17 @@ sap.ui.define(
       },
 
       onFilterByStatus: function (oEvent) {
-        var buttonText = oEvent.oSource.mProperties.text;
+        var buttonText;
+        var buttonId = oEvent.getSource().getId();
+        if (buttonId == "container-login---user--toBeApprovedButton") {
+          buttonText = "To Be Approved";
+        }
+        if (buttonId == "container-login---user--approvedButton") {
+          buttonText = "Approved";
+        }
+        if (buttonId == "container-login---user--declinedButton") {
+          buttonText = "Declined";
+        }
         var buttonPressed = oEvent.oSource.mProperties.pressed;
         this.statusMap.set(buttonText, buttonPressed);
 
