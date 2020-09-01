@@ -52,54 +52,10 @@ sap.ui.define(
         }
       },
 
-      onGoToAllTrips: function (oEvent) {
-        var oRouter = this.getRouter();
-        oRouter.navTo("manager");
-      },
-
-      onGoToProfile: function (oEvent) {
-        var oRouter = this.getRouter();
-        oRouter.navTo("profile");
-      },
-
-      onGoToSettings: function (oEvent) {
-        var oRouter = this.getRouter();
-        oRouter.navTo("changePassword");
-      },
-
-      onGoToPlanTrip: function() {
-        var oRouter = this.getRouter();
-        oRouter.navTo("information")
-      },
-
-      onSortByDate: function () {
+      onSortUser: function (oEvent) {
+        var sortBy = this.getIdFromGlobalId(oEvent.getSource().getId());
         var oList = this.byId("idTrips");
-        var oBinding = oList.getBinding("items");
-        oBinding.sort(new Sorter("StartDate"));
-      },
-
-      onSortByCountry: function () {
-        var oList = this.byId("idTrips");
-        var oBinding = oList.getBinding("items");
-        oBinding.sort(new Sorter("Country"));
-      },
-
-      onSortByCity: function () {
-        var oList = this.byId("idTrips");
-        var oBinding = oList.getBinding("items");
-        oBinding.sort(new Sorter("City"));
-      },
-
-      onSortByTotalCost: function () {
-        var oList = this.byId("idTrips");
-        var oBinding = oList.getBinding("items");
-        oBinding.sort(new Sorter("Total"));
-      },
-
-      onSortByNothing: function () {
-        var oList = this.byId("idTrips");
-        var oBinding = oList.getBinding("items");
-        oBinding.sort(null);
+        this.sortList(oList, new Sorter(sortBy));
       },
 
       onDataReceived: function () {
@@ -128,18 +84,32 @@ sap.ui.define(
 
       onFilterBySearch: function (oEvent) {
         var sQuery = oEvent.getParameter("query");
-        this.searchFilter = this.getSearchFilter(sQuery);
+        this.searchFilter = this.getSearchFilterUser(sQuery);
         this.reFilter();
       },
 
       onFilterByStatus: function (oEvent) {
-        var buttonText = oEvent.oSource.mProperties.text;
-        console.log(buttonText);
+        var buttonText;
+        var buttonId = oEvent.getSource().getId();
+        if (buttonId == "container-login---user--toBeApprovedButton") {
+          buttonText = "To Be Approved";
+        }
+        if (buttonId == "container-login---user--approvedButton") {
+          buttonText = "Approved";
+        }
+        if (buttonId == "container-login---user--declinedButton") {
+          buttonText = "Declined";
+        }
         var buttonPressed = oEvent.oSource.mProperties.pressed;
         this.statusMap.set(buttonText, buttonPressed);
 
         this.statusFilter = this.getStatusFilter(this.statusMap);
         this.reFilter();
+      },
+
+      goToManager: function () {
+        var oRouter = this.getRouter();
+        oRouter.navTo("manager");
       },
 
       onPressDetail: function (oEvent) {
@@ -159,7 +129,8 @@ sap.ui.define(
         this.getView().byId("toBeApprovedButton").setPressed(false);
         this.getView().byId("declinedButton").setPressed(false);
         this.getView().byId("searchField").setValue("");
-        this.onSortByNothing();
+        var oList = this.byId("idTrips");
+        this.sortList(oList, null);
       },
     });
 

@@ -37,18 +37,22 @@ sap.ui.define(
         var oView = this.getView();
         var oldPass = oView.byId("inputOld").getValue();
         var newPass = oView.byId("inputNew").getValue();
+        var newPassCheck = oView.byId("inputNewCheck").getValue();
+        if (newPass!=newPassCheck){
+          MessageToast.show(this.getModelText("PasswordNot"));
+        }else{
         oModel.update(
           "/EmployeeSet(Id='" + username + "',Password='" + oldPass + "')",
           { Password: newPass },
           {
             success: function () {
-              MessageToast.show("Your password was changed.");
-            },
+              MessageToast.show(this.getModelText("PasswordChanged"));
+            }.bind(this),
             error: function () {
-              MessageToast.show("Old password is incorrect.");
-            },
+              MessageToast.show(this.getModelText("OldPassword"));
+            }.bind(this),
           }
-        );
+        );}
       },
 
       patternMatched: function (oEvent) {

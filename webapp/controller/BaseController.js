@@ -9,7 +9,8 @@ sap.ui.define(
     "sap/m/Text",
     "sap/ui/core/format/NumberFormat",
     "sap/ui/model/json/JSONModel",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "sap/ui/model/Sorter",
   ],
   function (
     Controller,
@@ -21,7 +22,8 @@ sap.ui.define(
     Text,
     NumberFormat,
     JSONModel,
-    MessageBox
+    MessageBox,
+    Sorter
   ) {
     // eslint-disable-line id-match
     "use strict";
@@ -60,6 +62,11 @@ sap.ui.define(
         recoverSession: function () {
           var data = jQuery.sap.storage.get("UserInfo");
           var oModel = new JSONModel(data);
+          var language = jQuery.sap.storage.get("language");
+          //console.log(language);
+          if (language != null) {
+            sap.ui.getCore().getConfiguration().setLanguage(language);
+          }
           this.getOwnerComponent().setModel(oModel, "UserInfo");
         },
 
@@ -68,10 +75,24 @@ sap.ui.define(
           this.getRouter().navTo("login");
         },
 
+        sortList: function (oList, sorter) {
+          var oBinding = oList.getBinding("items");
+          oBinding.sort(sorter);
+        },
+
+        getIdFromGlobalId: function (globalId) {
+          var array = globalId.split("--");
+          return array[array.length - 1];
+        },
+
+        onGoToPage: function (oEvent) {
+          var page = this.getIdFromGlobalId(oEvent.getSource().getId());
+          this.getRouter().navTo(page);
+        },
+
         navBackTo: function (defaultPage) {
           var oHistory = History.getInstance();
           var sPreviousHash = oHistory.getPreviousHash();
-          console.log(sPreviousHash);
           if (sPreviousHash !== undefined) {
             window.history.go(-1);
           } else {
@@ -151,11 +172,25 @@ sap.ui.define(
           return statusMap;
         },
 
-        getSearchFilter: function (text) {
+        getSearchFilterUser: function (text) {
           var searchFilters = [];
           if (text != null && text.length > 0) {
             searchFilters.push(new Filter("Country", FilterOperator.Contains, text));
+            searchFilters.push(new Filter("City", FilterOperator.Contains, text));
+            return new Filter({
+              filters: searchFilters,
+              and: false,
+            });
+          }
+          return null;
+        },
+
+        getSearchFilterManager: function (text) {
+          var searchFilters = [];
+          if (text != null && text.length > 0) {
+            searchFilters.push(new Filter("ServiceUnit", FilterOperator.Contains, text));
             searchFilters.push(new Filter("UId", FilterOperator.Contains, text));
+            searchFilters.push(new Filter("Country", FilterOperator.Contains, text));
             return new Filter({
               filters: searchFilters,
               and: false,
@@ -200,8 +235,12 @@ sap.ui.define(
             });
           }
           return null;
+        },
+
+        getModelText: function(key) {
+          return this.getModel("i18n").getResourceBundle().getText(key);
         }
-      }
+      },
     );
 
     return oBaseController;

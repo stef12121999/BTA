@@ -1,24 +1,41 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.uxap"
 	xmlns:m="sap.m"
+	xmlns:layout="sap.ui.layout"
 	xmlns:block="intern2020.controller.detailBlocks" height="100%" controllerName="intern2020.controller.DetailUser">
 
 	<ObjectPageLayout id="detailUserPage" useIconTabBar="true" showFooter="true" upperCaseAnchorBar="false">
 		<headerTitle>
-			<ObjectPageHeader  id="pageHeader" objectTitle="Status: {= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}">
+			<ObjectPageHeader >
 				<navigationBar>
 					<m:Bar>
 						<m:contentLeft>
 							<m:Button text="" icon="sap-icon://nav-back" press="onNavBack"/>
 						</m:contentLeft>
 						<m:contentMiddle>
-							<m:Title text="Trip details"/>
+							<m:Title text="{i18n>TripDetails}"/>
 						</m:contentMiddle>
 					</m:Bar>
 				</navigationBar>
 			</ObjectPageHeader>
 		</headerTitle>
 
+		<headerContent >
+			<layout:HorizontalLayout allowWrapping="true">
+				<layout:VerticalLayout class="sapUiLargeMarginEnd">
+					<m:ObjectStatus title="{i18n>Name}" text="{FirstName} {LastName}"/>
+					<m:ObjectStatus title="{i18n>ServiceUnit}" text="{ServiceUnit}"/>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiLargeMarginEnd">
+					<m:ObjectStatus title="{i18n>Email}" text="{Email}"/>
+					<m:ObjectStatus title="{i18n>Phone}" text="{PhoneNr}"/>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiLargeMarginEnd">
+					<m:ObjectStatus title="{i18n>Total}" text="{Total} EUR"/> 
+					<m:ObjectStatus title="{i18n>Status}" text="{= ${Status} === 1 ? ${i18n>Approved} : ${Status} === 0 ? ${i18n>TBA} : ${i18n>Declined}}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" class="sapUiTinyMarginEnd" />
+				</layout:VerticalLayout>
+			</layout:HorizontalLayout>
+		</headerContent>
 		<sections>
 			<ObjectPageSection title="General">
 				<subSections>

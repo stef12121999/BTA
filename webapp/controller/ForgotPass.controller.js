@@ -37,11 +37,11 @@ sap.ui.define(
             UserId: UserId,
           },
           success: function (oData) {
-            MessageToast.show("Your new password will be sent to you in an email.");
+            MessageToast.show(this.getModelText("NewPassword"));
           }.bind(this),
           error: function () {
-            MessageToast.show("Are you sure that this is your correct email address?");
-          },
+            MessageToast.show(this.getModelText("IncorrectEmail"));
+          }.bind(this),
         });
       },
     });

@@ -1,27 +1,20 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core" controllerName="intern2020.controller.Information"
     xmlns="sap.m">
-    <Page title="Travel information" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack">
-
-        <Panel>
-            <HBox alignItems="Center" class="sapUiTinyMargin sapUiSmallMarginBottom">
-                <Label text="Where are you going? (City, country, ...)" />
-                <Input id="place" class="sapUiSmallMarginBegin"/>
-                <Button text="Get travel information" class="sapUiLargeMarginBegin" press=".onGetInfo"/>
+    <Page title="Travel information" class="sapUiContentPadding nonTransparentPage" showNavButton="true"  visible="{UserInfo>/isUser}" navButtonPress="onNavBack">
+            <HBox wrap="Wrap" alignItems="Center" class="sapUiTinyMargin sapUiSmallMarginBottom">
+                <Label text="{i18n>dest}" width="17rem" class="sapUiSmallMarginEnd" />
+                <Input id="place" placeholder="{i18n>Location}" width="17rem" class="sapUiSmallMarginEnd"/>
+                <Button text="{i18n>getInfo}" width="17rem" press=".onGetInfo"/>
             </HBox>
-            <Label id="foundPlace" text="" class="sapUiTinyMargin"/>
-            <HBox alignItems="Center" class="sapUiTinyMargin sapUiMediumMarginBottom">
-                <Label text="Latitude" />
-                <Input id="latitude" class="sapUiSmallMarginBegin"/>
-                <Label text="Longitude" class="sapUiLargeMarginBegin"/>
-                <Input id="longitude" class="sapUiSmallMarginBegin"/>
-                <Button text="Get travel information by coordinates" class="sapUiLargeMarginBegin" press=".onGetInfoByCoordinates"/>
+            <Label wrapping="true" id="foundPlace" text="" class="sapUiTinyMargin"/>
+            <HBox wrap="Wrap" alignItems="Center" class="sapUiTinyMargin sapUiMediumMarginBottom">
+                <Input width="17rem" placeholder="{i18n>lat}" id="latitude" class="sapUiSmallMarginEnd"/>
+                <Input width="17rem" id="longitude" placeholder="{i18n>long}" class="sapUiSmallMarginEnd"/>
+                <Button width="17rem" text="{i18n>getInfoByCoord}" press=".onGetInfoByCoordinates"/>
             </HBox>
 
-            <Title text="Weather forecast for the next 7 days" class="sapUiTinyMargin" visible="true" id="forecastTitle"/>
-            <HBox justifyContent="SpaceBetween" id="forecast" class="sapUiTinyMargin">
-
-            </HBox>
-        </Panel>
+            <Title wrapping="true" text="{i18n>forecast}" class="sapUiTinyMargin" visible="true" id="forecastTitle"/>
+            <HBox wrap="Wrap" justifyContent="SpaceBetween" id="forecast" class="sapUiTinyMargin"/>
     </Page>
 </mvc:View>

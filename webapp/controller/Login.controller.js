@@ -19,12 +19,12 @@ sap.ui.define(
         var oModel = oView.getModel();
         var UserId = oView.byId("username").getValue();
         var UserPassword = oView.byId("password").getValue();
-
+        
         if (UserId == "") {
-          MessageToast.show("Please Enter Username");
+          //MessageToast.show("Please Enter Username");
           return false;
         } else if (UserPassword == "") {
-          MessageToast.show("Please Enter Password");
+          //MessageToast.show("Please Enter Password");
           return false;
         } else {
           oModel.read(
@@ -52,8 +52,8 @@ sap.ui.define(
               }.bind(this),
 
               error: function (var1, var2, var3) {
-                MessageToast.show("Incorrect username or password.");
-              },
+                MessageToast.show(this.getModelText("InvalidLogin"));
+              }.bind(this),
             }
           );
         }
@@ -63,6 +63,27 @@ sap.ui.define(
         var oRouter = this.getRouter();
         oRouter.navTo("forgotPass");
       },
+      
+      onSwitchToEnglish: function() {
+        sap.ui.getCore().getConfiguration().setLanguage("en");
+        jQuery.sap.storage.put("language", "en");
+      },
+
+      onSwitchToGerman: function() {
+        sap.ui.getCore().getConfiguration().setLanguage("de");
+        jQuery.sap.storage.put("language", "de");
+      },
+
+      // onSwitchLanguage: function(oEvent){
+      //   if(oEvent.getSource().getState() == true)
+      //   {
+      //     sap.ui.getCore().getConfiguration().setLanguage("de");
+      //   }
+      //   else
+      //   {
+      //     sap.ui.getCore().getConfiguration().setLanguage("en");
+      //   }
+      // }
     });
   }
 );
