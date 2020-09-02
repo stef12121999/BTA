@@ -55,6 +55,7 @@ sap.ui.define(
         var buttonText = oEvent.oSource.mProperties.text;
         var buttonPressed = oEvent.oSource.mProperties.pressed;
         this.statusMap.set(buttonText, buttonPressed);
+        //oEvent.getSource().getText()
 
         this.statusFilter = this.getStatusFilter(this.statusMap);
         this.reFilter();

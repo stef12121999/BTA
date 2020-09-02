@@ -13,6 +13,7 @@ sap.ui.define(
       getRouter: function () {
         return sap.ui.core.UIComponent.getRouterFor(this);
       },
+      //get router e si in basecontroller
 
       onValidation: function (oEvent) {
         var oView = this.getView();
@@ -54,7 +55,7 @@ sap.ui.define(
                 this.getModel("UserInfo").setData(data);
                 jQuery.sap.storage.put("UserInfo", data);
               }.bind(this),
-
+//fara variabila la this.getRouter()
               error: function (var1, var2, var3) {
                 MessageToast.show("Incorrect username or password.");
               },
