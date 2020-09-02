@@ -1,7 +1,7 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core" controllerName="intern2020.controller.Information"
     xmlns="sap.m">
-    <Page title="Travel information" class="sapUiContentPadding nonTransparentPage" showNavButton="true"  visible="{UserInfo>/isUser}" navButtonPress="onNavBack">
+    <Page title="{i18n>TravelInfo}" class="sapUiContentPadding nonTransparentPage" showNavButton="true"  visible="{UserInfo>/isUser}" navButtonPress="onNavBack">
             <HBox wrap="Wrap" alignItems="Center" class="sapUiTinyMargin sapUiSmallMarginBottom">
                 <Label text="{i18n>dest}" width="17rem" class="sapUiSmallMarginEnd" />
                 <Input id="place" placeholder="{i18n>Location}" width="17rem" class="sapUiSmallMarginEnd"/>
