@@ -12,24 +12,24 @@ sap.ui.define(
       getDay: function (number) {
         switch (number) {
           case 0:
-            return "Monday";
+            return this.getModelText("Monday");
           case 1:
-            return "Tueday";
+            return this.getModelText("Tueday");
           case 2:
-            return "Wednesday";
+            return this.getModelText("Wednesday");
           case 3:
-            return "Thursday";
+            return this.getModelText("Thursday");
           case 4:
-            return "Friday";
+            return this.getModelText("Friday");
           case 5:
-            return "Saturday";
+            return this.getModelText("Saturday");
           case 6:
-            return "Sunday";
+            return this.getModelText("Sunday");
         }
       },
 
-      loadForecast: function (t, latitude, longitude) {
-        var view = t.getView();
+      loadForecast: function (latitude, longitude) {
+        var view = this.getView();
 
         var url =
           "https://api.openweathermap.org/data/2.5/onecall?" +
@@ -38,8 +38,6 @@ sap.ui.define(
           "&lon=" +
           longitude +
           "&exclude=hourly,minutely&appid=764f9357def1ccb41474b27a925b7a35";
-
-        var getDay = t.getDay;
 
         $.ajax({
           url: url,
@@ -59,7 +57,7 @@ sap.ui.define(
                 date.getFullYear() +
                 ". ";
               var dateLabel = new sap.m.Label({ text: dateString });
-              var dayLabel = new sap.m.Label({ text: getDay(date.getDay()) });
+              var dayLabel = new sap.m.Label({ text: this.getDay(date.getDay()) });
 
               var iconLink =
                 "http://openweathermap.org/img/w/" +
@@ -80,17 +78,19 @@ sap.ui.define(
               vBoxDay.addItem(dateLabel);
               vBoxDay.addItem(icon);
               vBoxDay.addItem(temperatureLabel);
+              vBoxDay.setWidth("5.5rem");
+              vBoxDay.addStyleClass("sapUiMediumMarginBottom");
               view.byId("forecast").addItem(vBoxDay);
             }
-          },
+          }.bind(this),
           error: function (jqXHR, textStatus, errorThrown) {
 
             var errorLabel = new sap.m.Label({
               text:
-                "Are you sure that those are the correct coordinates? No such location was found.",
+              this.getModelText("IncorrectCoordinates"),
             });
             view.byId("forecast").addItem(errorLabel);
-          },
+          }.bind(this),
         });
       },
 
@@ -114,7 +114,7 @@ sap.ui.define(
         this.getView().byId("forecast").removeAllItems();
         var latitude = parseFloat(this.getView().byId("latitude").getValue());
         var longitude = parseFloat(this.getView().byId("longitude").getValue());
-        this.loadForecast(this, latitude, longitude);
+        this.loadForecast(latitude, longitude);
       },
 
       onGetInfo: function (oEvent) {
@@ -128,7 +128,7 @@ sap.ui.define(
           place +
           "&format=json";
         this.getView().byId("forecast").removeAllItems();
-        var loadForecast = this.loadForecast;
+
         var t = this;
         $.ajax({
           url: url,
@@ -139,24 +139,21 @@ sap.ui.define(
             if (obj[0] == null) {
               var errorLabel = new sap.m.Label({
                 text:
-                  "No such location was found. Try searching with different keywords.",
+                this.getModelText("NoLocation"),
               });
               view.byId("forecast").addItem(errorLabel);
             } else {
               view
                 .byId("foundPlace")
-                .setText("We have found this place: " + obj[0].display_name);
+                .setText(this.getModelText("FoundPlace") + " " + obj[0].display_name);
               view.byId("latitude").setValue(obj[0].lat);
               view.byId("longitude").setValue(obj[0].lon);
-              loadForecast(t, parseFloat(obj[0].lat), parseFloat(obj[0].lon));
+              this.loadForecast(parseFloat(obj[0].lat), parseFloat(obj[0].lon));
             }
-          },
+          }.bind(this),
           error: function (jqXHR, textStatus, errorThrown) {
-            console.log(textStatus);
-            console.log(errorThrown);
             var errorLabel = new sap.m.Label({
-              text:
-                "No such location was found. Try searching with different keywords.",
+              text: this.getModelText("NoLocation"),
             });
           },
         });

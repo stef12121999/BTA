@@ -10,7 +10,7 @@
                     <Image src="images/MHP_Logo_No_Background.png" width="8rem"/>
                 </contentLeft>
                 <contentMiddle>
-                    <Title text="{i18n>homePageTitle}" level="H3"/>
+                    <Title id="titleLogin" text="{i18n>homePageTitle}" level="H3"/>
                 </contentMiddle>
                 <contentRight>
                    <MenuButton icon="sap-icon://globe">
@@ -29,13 +29,13 @@
 
 
         </headerContent>
-        <FlexBox direction="Column" alignItems="Center" justifyContent="Center" height="550px">
+        <FlexBox direction="Column" alignItems="Center" justifyContent="Center" height="100%">
 
             <items>
                 <Input id="username" placeholder="{i18n>Username}" width="15rem" type="Text"/>
                 <Input id="password" placeholder="{i18n>Password} " type="Password" width="15rem" />
                 <Button text="{i18n>Login}" press="onValidation" width="15rem" class="sapUiSmallMarginBottom" icon="sap-icon://action" />
-                <Link id="link" text="Forgot Password?" press="onForgotPass"/>
+                <Link id="link" text="{i18n>forgotPass}" press="onForgotPass"/>
             </items>
 
         </FlexBox>

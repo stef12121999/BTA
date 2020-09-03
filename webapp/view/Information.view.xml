@@ -2,25 +2,19 @@
     xmlns:core="sap.ui.core" controllerName="intern2020.controller.Information"
     xmlns="sap.m">
     <Page title="Travel information" class="sapUiContentPadding nonTransparentPage" showNavButton="true"  visible="{UserInfo>/isUser}" navButtonPress="onNavBack">
-        <Panel >
-            <HBox alignItems="Center" class="sapUiTinyMargin sapUiSmallMarginBottom">
-                <Label text="{i18n>dest}" />
-                <Input id="place" class="sapUiSmallMarginBegin"/>
-                <Button text="{i18n>getInfo}" class="sapUiLargeMarginBegin" press=".onGetInfo"/>
+            <HBox wrap="Wrap" alignItems="Center" class="sapUiTinyMargin sapUiSmallMarginBottom">
+                <Label text="{i18n>dest}" width="17rem" class="sapUiSmallMarginEnd" />
+                <Input id="place" placeholder="{i18n>Location}" width="17rem" class="sapUiSmallMarginEnd"/>
+                <Button text="{i18n>getInfo}" width="17rem" press=".onGetInfo"/>
             </HBox>
-            <Label id="foundPlace" text="" class="sapUiTinyMargin"/>
-            <HBox alignItems="Center" class="sapUiTinyMargin sapUiMediumMarginBottom">
-                <Label text="{i18n>lat}" />
-                <Input id="latitude" class="sapUiSmallMarginBegin"/>
-                <Label text="{i18n>long}" class="sapUiLargeMarginBegin"/>
-                <Input id="longitude" class="sapUiSmallMarginBegin"/>
-                <Button text="{i18n>getInfoByCoord}" class="sapUiLargeMarginBegin" press=".onGetInfoByCoordinates"/>
+            <Label wrapping="true" id="foundPlace" text="" class="sapUiTinyMargin"/>
+            <HBox wrap="Wrap" alignItems="Center" class="sapUiTinyMargin sapUiMediumMarginBottom">
+                <Input width="17rem" placeholder="{i18n>lat}" id="latitude" class="sapUiSmallMarginEnd"/>
+                <Input width="17rem" id="longitude" placeholder="{i18n>long}" class="sapUiSmallMarginEnd"/>
+                <Button width="17rem" text="{i18n>getInfoByCoord}" press=".onGetInfoByCoordinates"/>
             </HBox>
 
-            <Title text="{i18n>forecast}" class="sapUiTinyMargin" visible="true" id="forecastTitle"/>
-            <HBox justifyContent="SpaceBetween" id="forecast" class="sapUiTinyMargin">
-
-            </HBox>
-        </Panel>
+            <Title wrapping="true" text="{i18n>forecast}" class="sapUiTinyMargin" visible="true" id="forecastTitle"/>
+            <HBox wrap="Wrap" justifyContent="SpaceBetween" id="forecast" class="sapUiTinyMargin"/>
     </Page>
 </mvc:View>

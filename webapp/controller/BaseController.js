@@ -62,6 +62,11 @@ sap.ui.define(
         recoverSession: function () {
           var data = jQuery.sap.storage.get("UserInfo");
           var oModel = new JSONModel(data);
+          var language = jQuery.sap.storage.get("language");
+          //console.log(language);
+          if (language != null) {
+            sap.ui.getCore().getConfiguration().setLanguage(language);
+          }
           this.getOwnerComponent().setModel(oModel, "UserInfo");
         },
 
@@ -88,7 +93,6 @@ sap.ui.define(
         navBackTo: function (defaultPage) {
           var oHistory = History.getInstance();
           var sPreviousHash = oHistory.getPreviousHash();
-          console.log(sPreviousHash);
           if (sPreviousHash !== undefined) {
             window.history.go(-1);
           } else {
@@ -231,8 +235,12 @@ sap.ui.define(
             });
           }
           return null;
+        },
+
+        getModelText: function(key) {
+          return this.getModel("i18n").getResourceBundle().getText(key);
         }
-      }
+      },
     );
 
     return oBaseController;
