@@ -35,7 +35,7 @@ sap.ui.define(
         oModel.read("/Front_TripSet('" + this.requestId + "')", {
           success: function (oData) {
             if (oData.UId != this.getUsername()) {
-              this.showMessageBoxAndGoToLogin("You must be logged in if you want to use the application");
+              this.showMessageBoxAndGoToLogin();
             }
             else {
               oView.byId("detailUserPage").setVisible(true);
@@ -43,7 +43,7 @@ sap.ui.define(
             }
           }.bind(this),
           error: function () {
-            this.showMessageBoxAndGoToLogin("You must be logged in if you want to use the application");
+            this.showMessageBoxAndGoToLogin();
           }.bind(this),
         });
       },

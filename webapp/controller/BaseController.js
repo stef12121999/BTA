@@ -61,13 +61,14 @@ sap.ui.define(
 
         recoverSession: function () {
           var data = jQuery.sap.storage.get("UserInfo");
-          var oModel = new JSONModel(data);
+          if (data != null) {
+            var oModel = new JSONModel(data);
+            this.getOwnerComponent().setModel(oModel, "UserInfo");
+          }
           var language = jQuery.sap.storage.get("language");
-          //console.log(language);
           if (language != null) {
             sap.ui.getCore().getConfiguration().setLanguage(language);
           }
-          this.getOwnerComponent().setModel(oModel, "UserInfo");
         },
 
         goToLoginAndLogOut: function () {
@@ -103,8 +104,8 @@ sap.ui.define(
 
         logOut: function () {
           var data = { isUser: false, isManager: false, username: null };
-         var oModel = new JSONModel(data);
-         this.getModel("UserInfo").setData(data);
+          var oModel = new JSONModel(data);
+          this.getModel("UserInfo").setData(data);
           jQuery.sap.storage.put("UserInfo", data);
         },
 
@@ -112,9 +113,7 @@ sap.ui.define(
           this.recoverSession();
           var userInfo = this.getModel("UserInfo").getData();
           if (!userInfo.isUser) {
-            this.showMessageBoxAndGoToLogin(
-              "You must be logged in if you want to use the application"
-            );
+            this.showMessageBoxAndGoToLogin();
           }
         },
 
@@ -124,10 +123,12 @@ sap.ui.define(
           return username;
         },
 
-        showMessageBoxAndGoToLogin: function (message) {
+        showMessageBoxAndGoToLogin: function () {
           var oRouter = this.getRouter();
+          var message = this.getModelText("LogInToUse");
+          var title = this.getModelText("Login");
           sap.m.MessageBox.error(message, {
-            title: "Log in",
+            title: title,
             onClose: function () {
               oRouter.navTo("login");
             },
@@ -145,9 +146,7 @@ sap.ui.define(
           this.recoverSession();
           var userInfo = this.getModel("UserInfo").getData();
           if (!userInfo.isManager) {
-            this.showMessageBoxAndGoToLogin(
-              "You must be logged in if you want to use the application"
-            );
+            this.showMessageBoxAndGoToLogin();
           }
         },
 
@@ -175,8 +174,12 @@ sap.ui.define(
         getSearchFilterUser: function (text) {
           var searchFilters = [];
           if (text != null && text.length > 0) {
-            searchFilters.push(new Filter("Country", FilterOperator.Contains, text));
-            searchFilters.push(new Filter("City", FilterOperator.Contains, text));
+            searchFilters.push(
+              new Filter("Country", FilterOperator.Contains, text)
+            );
+            searchFilters.push(
+              new Filter("City", FilterOperator.Contains, text)
+            );
             return new Filter({
               filters: searchFilters,
               and: false,
@@ -188,9 +191,15 @@ sap.ui.define(
         getSearchFilterManager: function (text) {
           var searchFilters = [];
           if (text != null && text.length > 0) {
-            searchFilters.push(new Filter("ServiceUnit", FilterOperator.Contains, text));
-            searchFilters.push(new Filter("UId", FilterOperator.Contains, text));
-            searchFilters.push(new Filter("Country", FilterOperator.Contains, text));
+            searchFilters.push(
+              new Filter("ServiceUnit", FilterOperator.Contains, text)
+            );
+            searchFilters.push(
+              new Filter("UId", FilterOperator.Contains, text)
+            );
+            searchFilters.push(
+              new Filter("Country", FilterOperator.Contains, text)
+            );
             return new Filter({
               filters: searchFilters,
               and: false,
@@ -237,10 +246,10 @@ sap.ui.define(
           return null;
         },
 
-        getModelText: function(key) {
+        getModelText: function (key) {
           return this.getModel("i18n").getResourceBundle().getText(key);
-        }
-      },
+        },
+      }
     );
 
     return oBaseController;
