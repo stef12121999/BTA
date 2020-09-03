@@ -43,7 +43,6 @@ sap.ui.define(
             }
           }.bind(this),
           error: function () {
-            console.log("error");
             this.showMessageBoxAndGoToLogin("You must be logged in if you want to use the application");
           }.bind(this),
         });

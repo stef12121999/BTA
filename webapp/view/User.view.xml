@@ -11,10 +11,10 @@
 				<menu>
 					<Menu itemSelected="onMenuAction">
 						<items>
-							<MenuItem text="Account Info" id="profile" icon="sap-icon://account" press="onGoToPage"/>
-							<MenuItem visible="{UserInfo>/isManager}" id="manager" text="Manage other's trips" icon="sap-icon://suitcase" press="onGoToPage"/>
+							<MenuItem text="{i18n>AccInfo}" id="profile" icon="sap-icon://account" press="onGoToPage"/>
+							<MenuItem visible="{UserInfo>/isManager}" id="manager" text="{i18n>manage}" icon="sap-icon://suitcase" press="onGoToPage"/>
 							<MenuItem text="{i18n>Plan}" id="information" icon="sap-icon://weather-proofing" press="onGoToPage"/>
-							<MenuItem text="{i18n>change}" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />
+							<MenuItem text="{i18n>ChangePasswd}" id="changePassword" icon="sap-icon://action-settings" press="onGoToPage" />
 							<MenuItem text="{i18n>Back}" id="back" icon="sap-icon://log" press="goToLoginAndLogOut"/>
 						</items>
 					</Menu>
@@ -48,7 +48,7 @@
 								<OverflowToolbarLayoutData minWidth="10em" maxWidth="20em" shrinkable="true"/>
 							</layoutData>
 						</SearchField>
-						<Button text="{i18n>Reset}" width="5em" press="onReset" type="Ghost" tooltip="{i18n>Clear}">
+						<Button text="{i18n>Reset}" press="onReset" type="Ghost">
 							<layoutData>
 								<OverflowToolbarLayoutData/>
 							</layoutData>
@@ -64,10 +64,10 @@
 						<Button iconFirst="false" id="Country" text="{i18n>Country}" icon="sap-icon://sort" type="Transparent" press=".onSortUser"/>
 					</Column>
 					<Column minScreenWidth="Tablet" hAlign="Center">
-						<Button iconFirst="false" id="City" text="City" icon="sap-icon://sort" type="Transparent" press=".onSortUser"/>
+						<Button iconFirst="false" id="City" text="{i18n>City}" icon="sap-icon://sort" type="Transparent" press=".onSortUser"/>
 					</Column>
 					<Column minScreenWidth="Phone" hAlign="Center">
-						<Button iconFirst="false" id="Reason" text="{i18n>TravelReason}" icon="sap-icon://sort" type="Transparent" press=".onSortUser"/>
+						<Button iconFirst="false" id="Reason" text="{i18n>Reason}" icon="sap-icon://sort" type="Transparent" press=".onSortUser"/>
 					</Column>
 					<Column minScreenWidth="Large" hAlign="Center">
 						<Button iconFirst="false" id="Status" text="{i18n>Status}" icon="sap-icon://sort" type="Transparent" press=".onSortUser"/>
@@ -93,7 +93,7 @@
 							<Text text="{Country}" />
 							<Text text="{City}" />
 							<Text text="{Reason}" />
-							<ObjectNumber number="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" />
+							<ObjectNumber number="{= ${Status} === 1 ? ${i18n>Approved} : ${Status} === 0 ? ${i18n>TBA} : ${i18n>Declined}}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" />
 							<Text text="{Total} EUR"/>
 						</cells>
 					</ColumnListItem>

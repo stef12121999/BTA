@@ -45,23 +45,20 @@ sap.ui.define(
 
       onPressAccept(oEvent) {
         var dialog = new Dialog({
-          title: "Confirm",
+          title: this.getModelText("Confirm"),
           type: "Message",
           content: [
             new Label({
-              text: "Are you sure you want to accept this trip?",
+              text: this.getModelText("AcceptQuestion"),
             }),
           ],
           beginButton: new Button({
-            text: "Ok",
+            text: this.getModelText("Ok"),
             press: function () {
               BusyIndicator.show();
 
               var oModel = this.getView().getModel();
               var oEntry = {};
-              // var tempStatus = oModel.getData(
-              //   "/Front_TripSet('" + this.requestId + "')"
-              // ).Status;
               var tempStatus = this.getView().getBindingContext().getObject()
                 .Status;
 
@@ -72,26 +69,20 @@ sap.ui.define(
                 "/Front_TripSet('" + this.requestId + "')",
                 oEntry,
                 {
-                  //method: "PUT",
                   success: function (oData) {
                     this.refresh();
                     BusyIndicator.hide();
-                    //MessageToast.show("Trip declined successfully!");
                   }.bind(this),
                   error: function () {
                     BusyIndicator.hide();
-                    //MessageToast.show("Error at declining trip.");
                   },
                 }
               );
-
-              //MessageToast.show("Note is: " + sText);
-
               dialog.close();
             }.bind(this),
           }),
           endButton: new Button({
-            text: "Cancel",
+            text: this.getModelText("Cancel"),
             press: function () {
               dialog.close();
             },
@@ -104,37 +95,13 @@ sap.ui.define(
         dialog.open();
       },
 
-      /*
-    
-          var oModel = this.getView().getModel();
-          var oEntry = {};
-          // var tempStatus = oModel.getData(
-          //   "/Front_TripSet('" + this.requestId + "')"
-          // ).Status;
-          var tempStatus = this.getView().getBindingContext().getObject().Status;
-          if (tempStatus == 0) {
-            oEntry.Status = 1;
-            oEntry.DeclineReason = "";
-
-            oModel.update("/Front_TripSet('" + this.requestId + "')", oEntry, {
-              //method: "PUT",
-              success: function (oData) {
-                this.refresh();
-                //MessageToast.show("Trip accepted successfully!");
-              }.bind(this),
-              error: function () {
-                //MessageToast.show("Error at accepting trip.");
-              },
-            });
-          }*/
-
       onPressDecline(oEvent) {
         var dialog = new Dialog({
-          title: "Confirm",
+          title: this.getModelText("Confirm"),
           type: "Message",
           content: [
             new Label({
-              text: "Why is this trip declined?",
+              text: this.getModelText("DeclineQuestion"),
               labelFor: "submitDialogTextarea",
             }),
             new TextArea("submitDialogTextarea", {
@@ -145,11 +112,11 @@ sap.ui.define(
                 parent.getBeginButton().setEnabled(sText.length > 0);
               },
               width: "100%",
-              placeholder: "Add note (required)",
+              placeholder: this.getModelText("AddNote"),
             }),
           ],
           beginButton: new Button({
-            text: "Submit",
+            text: this.getModelText("Submit"),
             enabled: false,
             press: function () {
               BusyIndicator.show();
@@ -159,9 +126,6 @@ sap.ui.define(
                 .getValue();
               var oModel = this.getView().getModel();
               var oEntry = {};
-              // var tempStatus = oModel.getData(
-              //   "/Front_TripSet('" + this.requestId + "')"
-              // ).Status;
               var tempStatus = this.getView().getBindingContext().getObject()
                 .Status;
 
@@ -173,26 +137,21 @@ sap.ui.define(
                   "/Front_TripSet('" + this.requestId + "')",
                   oEntry,
                   {
-                    //method: "PUT",
                     success: function (oData) {
                       this.refresh();
                       BusyIndicator.hide();
-                      //MessageToast.show("Trip declined successfully!");
                     }.bind(this),
                     error: function () {
                       BusyIndicator.hide();
-                      //MessageToast.show("Error at declining trip.");
                     },
                   }
                 );
               }
-              //MessageToast.show("Note is: " + sText);
-
               dialog.close();
             }.bind(this),
           }),
           endButton: new Button({
-            text: "Cancel",
+            text: this.getModelText("Cancel"),
             press: function () {
               dialog.close();
             },

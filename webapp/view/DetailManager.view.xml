@@ -19,23 +19,20 @@
 				</navigationBar>
 			</ObjectPageHeader>
 		</headerTitle>
-
 		<headerContent >
 			<layout:HorizontalLayout allowWrapping="true">
-
 				<layout:VerticalLayout class="sapUiLargeMarginEnd">
-					<m:ObjectStatus title="{i18n>Username}" text="{FirstName} {LastName}"/>
+					<m:ObjectStatus title="{i18n>Name}" text="{FirstName} {LastName}"/>
 					<m:ObjectStatus title="{i18n>ServiceUnit}" text="{ServiceUnit}"/>
 				</layout:VerticalLayout>
 				<layout:VerticalLayout class="sapUiLargeMarginEnd">
 					<m:ObjectStatus title="{i18n>Email}" text="{Email}"/>
 					<m:ObjectStatus title="{i18n>Phone}" text="{PhoneNr}"/>
 				</layout:VerticalLayout>
-				<layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiLargeMarginEnd">
 					<m:ObjectStatus title="{i18n>Total}" text="{Total} EUR"/>
-					<m:ObjectStatus title="Status" text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" class="sapUiTinyMarginEnd" />
+					<m:ObjectStatus title="{i18n>Status}" text="{= ${Status} === 1 ? ${i18n>Approved} : ${Status} === 0 ? ${i18n>TBA} : ${i18n>Declined}}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" class="sapUiTinyMarginEnd" />
 				</layout:VerticalLayout>
-
 			</layout:HorizontalLayout>
 		</headerContent>
 
@@ -60,7 +57,7 @@
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection title="{i18n>Cost}">
+			<ObjectPageSection title="{i18n>Costs}">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
@@ -75,8 +72,8 @@
 		<footer>
 			<m:OverflowToolbar id="otbFooter">
 				<m:ToolbarSpacer/>
-				<m:Button id="acceptButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Accept" text="Accept" width="10rem" press="onPressAccept"/>
-				<m:Button id="declineButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Reject" text="Reject" width="10rem" press="onPressDecline"/>
+				<m:Button id="acceptButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Accept" text="{i18n>Accept}" width="10rem" press="onPressAccept"/>
+				<m:Button id="declineButton" visible="{= ${Status} === 1 ? false : ${Status} === 0 ? true : false}" type="Reject" text="{i18n>Reject}" width="10rem" press="onPressDecline"/>
 
 			</m:OverflowToolbar>
 		</footer>

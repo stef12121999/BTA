@@ -21,26 +21,18 @@
 		</headerTitle>
 
 		<headerContent >
-		<layout:HorizontalLayout >
-		
-			<layout:VerticalLayout class="sapUiLargeMarginEnd">
-				<m:ObjectStatus title="{i18n>User}" text="{FirstName} {LastName}"/>
-				<m:ObjectStatus title="{i18n>ServiceUnit}" text="{ServiceUnit}"/>
-				
-
-			</layout:VerticalLayout>
-			<layout:VerticalLayout class="sapUiLargeMarginEnd">
-				
-				<m:ObjectStatus title="{i18n>Email}" text="{Email}"/>
-				<m:ObjectStatus title="{i18n>Phone}" text="{PhoneNr}"/>
-			</layout:VerticalLayout>
-			<layout:VerticalLayout class="sapUiLargeMarginEnd">
-				<m:ObjectStatus title="{i18n>CostCenter}" text="{Total}"/>
-					<m:ObjectStatus
-                            title="Status"
-                            text="{= ${Status} === 1 ? 'Approved' : ${Status} === 0 ? 'To Be Approved' : 'Declined'}"
-                            state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}"
-							class="sapUiTinyMarginEnd" />
+			<layout:HorizontalLayout allowWrapping="true">
+				<layout:VerticalLayout class="sapUiLargeMarginEnd">
+					<m:ObjectStatus title="{i18n>Name}" text="{FirstName} {LastName}"/>
+					<m:ObjectStatus title="{i18n>ServiceUnit}" text="{ServiceUnit}"/>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiLargeMarginEnd">
+					<m:ObjectStatus title="{i18n>Email}" text="{Email}"/>
+					<m:ObjectStatus title="{i18n>Phone}" text="{PhoneNr}"/>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiLargeMarginEnd">
+					<m:ObjectStatus title="{i18n>Total}" text="{Total} EUR"/> 
+					<m:ObjectStatus title="{i18n>Status}" text="{= ${Status} === 1 ? ${i18n>Approved} : ${Status} === 0 ? ${i18n>TBA} : ${i18n>Declined}}" state="{= ${Status} === 1 ? 'Success' : ${Status} === 0 ? 'Warning' : 'Error'}" class="sapUiTinyMarginEnd" />
 				</layout:VerticalLayout>
 			</layout:HorizontalLayout>
 		</headerContent>

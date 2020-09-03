@@ -17,10 +17,13 @@
                         <f:FormElement label="{i18n>CountryInfo}">
                             <Input value="{CountryInfo}" width="100%" editable="false"  />
                         </f:FormElement>
+                        <f:FormElement label="{i18n>Country}">
+                            <Input value="{Country}" width="100%" editable="false"  />
+                        </f:FormElement>
                         <f:FormElement label="{i18n>City}">
                             <Input value="{City}" width="100%" editable="false"  />
                         </f:FormElement>
-                        <f:FormElement label="Start date">
+                        <f:FormElement label="{i18n>StartDate}">
                             <Input value="{
 											path: 'StartDate',
 											type: 'sap.ui.model.type.Date',
@@ -28,7 +31,7 @@
 												style: 'short'
 											}}" width="100%" editable="false"  />
                         </f:FormElement>
-                        <f:FormElement label="End date">
+                        <f:FormElement label="{i18n>EndDate}">
                             <Input value="{path: 'EndDate',
 											type: 'sap.ui.model.type.Date',
 											formatOptions: {
